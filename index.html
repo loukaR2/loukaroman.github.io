@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio – Louka Roman</title>
 
+  <!-- Police -->
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -69,6 +70,8 @@
       max-width: 620px;
     }
 
+    /* HEADER */
+
     header {
       position: sticky;
       top: 0;
@@ -122,6 +125,8 @@
     }
 
     .nav-links a:hover::after { width: 100%; }
+
+    /* HERO */
 
     .hero {
       padding: 3.5rem 0 3rem;
@@ -244,6 +249,8 @@
 
     .hero-small { font-size: 0.8rem; color: #6b7280; }
 
+    /* SECTIONS ET CARTES */
+
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -289,6 +296,8 @@
       color: var(--secondary);
     }
 
+    /* COMPÉTENCES */
+
     .skills-groups {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -309,6 +318,8 @@
       background: rgba(148, 163, 184, 0.15);
       border: 1px solid rgba(148, 163, 184, 0.5);
     }
+
+    /* PROJETS */
 
     .projects-grid {
       display: grid;
@@ -335,6 +346,8 @@
       border-bottom: 1px solid rgba(82, 153, 238, 0.4);
       color: var(--secondary);
     }
+
+    /* CONTACT */
 
     .contact-wrapper {
       display: grid;
@@ -377,6 +390,8 @@
 
     footer a { color: var(--secondary); }
 
+    /* RESPONSIVE */
+
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
       .hero-right { order: -1; }
@@ -395,13 +410,14 @@
   </style>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
     <div class="container nav">
       <div class="logo">LR • Portfolio</div>
       <nav class="nav-links">
         <a href="#apropos">À propos</a>
         <a href="#formation">Formation</a>
-        <a href="#experience">Expérience</a>
+        <a href="#experience">Stages</a>
         <a href="#competences">Compétences</a>
         <a href="#projets">Projets</a>
         <a href="#contact">Contact</a>
@@ -410,24 +426,29 @@
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="container hero" id="top">
       <div>
         <p class="hero-subtitle">Étudiant en BUT GEA – Parcours GC2F</p>
         <h1 class="hero-title">Louka Roman</h1>
         <p class="lead">
-          Passionné par la comptabilité, la finance d’entreprise et l’analyse de projets,
-          je prépare la suite de mon parcours vers le DCG puis le DSCG / Master CCA.
+          Étudiant en gestion comptable, fiscale et financière, je m’intéresse à la
+          comptabilité, à l’analyse financière et aux projets d’entreprise. Je construis
+          mon parcours entre formations, stages et projets concrets pour évoluer vers
+          les métiers de la comptabilité et de la finance.
         </p>
 
         <div class="hero-tags">
           <span class="tag">Comptabilité & Fiscalité</span>
           <span class="tag">Analyse financière</span>
-          <span class="tag">Projets d’entreprise</span>
+          <span class="tag">Gestion d’entreprise</span>
           <span class="tag">Rigueur & autonomie</span>
         </div>
 
         <div class="hero-actions">
-          <a href="#" class="btn btn-primary">Télécharger mon CV</a>
+          <a href="CV_Louka_Roman.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+            Télécharger mon CV (PDF)
+          </a>
           <a href="#contact" class="btn btn-outline">Me contacter</a>
         </div>
       </div>
@@ -437,26 +458,49 @@
           <div class="avatar">LR</div>
           <h3>Louka Roman</h3>
           <p class="hero-meta">BUT GEA – Gestion Comptable, Fiscale et Financière</p>
-          <div class="hero-pill">Stage – Crédit Agricole (analyse de dossiers pros)</div>
+          <div class="hero-pill">Stages en cabinet comptable & banque</div>
           <p class="hero-small">
-            Analyse de bilans, ratios financiers, interrogations Banque de France
-            et étude de financements pour les professionnels.
+            Expériences en expertise comptable et au Crédit Agricole Alpes Provence,
+            avec un focus sur l’analyse financière et les dossiers de financement.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- A PROPOS -->
     <section id="apropos">
       <div class="container">
         <h2>À propos de moi</h2>
         <p class="lead">
-          Actuellement étudiant en BUT GEA – parcours GC2F, je m’intéresse
-          particulièrement à la comptabilité, à la fiscalité et à la gestion
-          financière des entreprises.
+          Actuellement en BUT GEA parcours GC2F, je développe des compétences en
+          comptabilité, fiscalité et analyse financière. Mes stages m’ont permis
+          de découvrir à la fois le fonctionnement d’un cabinet d’expertise
+          comptable et le rôle d’une banque de détail auprès des entreprises.
         </p>
+        <br />
+        <div class="grid-2">
+          <div class="card">
+            <h3>Mon projet</h3>
+            <p>
+              Poursuivre vers le DCG puis le DSCG ou un Master CCA, idéalement en
+              alternance, pour renforcer mes compétences techniques et pratiques.
+              À terme, je souhaite exercer dans les métiers de la comptabilité,
+              du conseil ou de la finance d’entreprise.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Ce que j’apprécie</h3>
+            <p>
+              Travailler avec les chiffres tout en gardant une vision globale
+              de l’organisation : comprendre la situation d’une entreprise,
+              analyser ses performances et participer à la prise de décision.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- FORMATION -->
     <section id="formation">
       <div class="container">
         <h2>Formation</h2>
@@ -465,91 +509,162 @@
             <span class="badge">Depuis 2023</span>
             <h3>BUT GEA – Parcours GC2F</h3>
             <p class="muted">IUT • Gestion Comptable, Fiscale et Financière</p>
+            <ul class="list-dot" style="margin-top:0.6rem;">
+              <li>Comptabilité générale et analyse des états financiers</li>
+              <li>Fiscalité des entreprises et des particuliers</li>
+              <li>Gestion de trésorerie et choix de financement</li>
+              <li>Projets professionnels et stages encadrés</li>
+            </ul>
           </div>
           <div class="card">
             <span class="badge">Objectifs</span>
             <h3>DCG puis DSCG / Master CCA</h3>
             <p class="muted">Poursuite d’études envisagée</p>
+            <ul class="list-dot" style="margin-top:0.6rem;">
+              <li>Valider les UE manquantes du DCG</li>
+              <li>Aller vers l’expertise comptable ou la finance d’entreprise</li>
+              <li>Renforcer l’expérience en alternance</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- STAGES -->
     <section id="experience">
       <div class="container">
-        <h2>Expérience</h2>
+        <h2>Stages</h2>
+
         <div class="grid-2">
+
+          <!-- Stage 2e année -->
           <div class="card">
-            <span class="badge">Stage – Crédit Agricole</span>
-            <h3>Centre d’affaires professionnels</h3>
-            <p class="muted">Analyse de financements et accompagnement des entreprises</p>
+            <span class="badge">Avril – Juin 2025 • 8 semaines</span>
+            <h3>Stage 2e année – Crédit Agricole Alpes Provence</h3>
+            <p class="muted">
+              Stage réalisé au centre d’affaires professionnels de Gap. Participation à l’analyse
+              financière des entreprises, aux études de financement et à la préparation des dossiers
+              pour les chargés d’affaires.
+            </p>
+            <ul class="list-dot" style="margin-top:0.6rem;">
+              <li>Analyse de bilans, comptes de résultat et SIG</li>
+              <li>Calcul de ratios : EBE, CAF, autonomie financière, endettement…</li>
+              <li>Interrogations Banque de France et analyse des cotations</li>
+              <li>Préparation de dossiers de financement (investissements, trésorerie)</li>
+            </ul>
+            <div class="project-links">
+              <a href="Stage2_Credit_Agricole.pdf" target="_blank" rel="noopener">
+                Consulter le rapport de stage (PDF)
+              </a>
+            </div>
           </div>
+
+          <!-- Stage 1ère année -->
           <div class="card">
-            <span class="badge">Projets académiques</span>
-            <h3>Travaux en BUT GEA</h3>
-            <p class="muted">Analyses de coûts, diagnostics, fiscalité, etc.</p>
+            <span class="badge">Janvier – Février 2024 • 4 semaines</span>
+            <h3>Stage 1ère année – Cabinet Gandelli (Expertise comptable)</h3>
+            <p class="muted">
+              Immersion dans un cabinet d’expertise comptable à Gap. Découverte des missions
+              d’un cabinet et participation à la tenue comptable de plusieurs dossiers clients.
+            </p>
+            <ul class="list-dot" style="margin-top:0.6rem;">
+              <li>Saisie comptable : achats, ventes, banques</li>
+              <li>Lettrage clients / fournisseurs</li>
+              <li>Rapprochements bancaires</li>
+              <li>Travail sur Quadra et organisation des dossiers</li>
+            </ul>
+            <div class="project-links">
+              <a href="Stage1_Cabinet_Gandelli.pdf" target="_blank" rel="noopener">
+                Consulter le rapport de stage (PDF)
+              </a>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
 
+    <!-- COMPÉTENCES -->
     <section id="competences">
       <div class="container">
         <h2>Compétences</h2>
+        <p class="lead">
+          Au fil de mes semestres, je développe les compétences attendues en BUT GEA,
+          en particulier dans le parcours GC2F (gestion comptable, fiscale et financière).
+          Cette partie sera complétée avec les apprentissages critiques (AC) de 2e et 3e année.
+        </p>
+        <br />
         <div class="skills-groups">
           <div class="card">
-            <h3>Techniques</h3>
+            <h3>Compétences techniques</h3>
             <div class="skill-chips">
-              <span class="chip">Comptabilité</span>
-              <span class="chip">Fiscalité</span>
+              <span class="chip">Comptabilité générale</span>
+              <span class="chip">Fiscalité (IR, RF, PVI…)</span>
               <span class="chip">Analyse financière</span>
-              <span class="chip">Excel</span>
-              <span class="chip">Word / PowerPoint</span>
+              <span class="chip">Tableaux de bord</span>
+              <span class="chip">Excel (formules, TCD)</span>
+              <span class="chip">Word & PowerPoint</span>
             </div>
           </div>
           <div class="card">
-            <h3>Humaines</h3>
+            <h3>Compétences humaines</h3>
             <div class="skill-chips">
               <span class="chip">Rigueur</span>
               <span class="chip">Organisation</span>
               <span class="chip">Esprit d’analyse</span>
               <span class="chip">Travail en équipe</span>
+              <span class="chip">Adaptabilité</span>
+              <span class="chip">Relation client</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- PROJETS -->
     <section id="projets">
       <div class="container">
         <h2>Projets</h2>
+        <p class="lead">
+          Quelques exemples de travaux réalisés dans le cadre de ma formation ou de projets personnels.
+          Cette section sera enrichie avec les SAE et productions utilisées comme preuves de compétences.
+        </p>
+        <br />
         <div class="projects-grid">
           <div class="card">
             <div class="project-tagline">Analyse de projet & coûts</div>
             <h3>Projet « Café du Monde »</h3>
-            <p>Étude de faisabilité d’un bar à café : coûts de revient, prix, seuil de rentabilité.</p>
+            <p>
+              Étude de faisabilité d’un bar à café : calcul des coûts de revient, définition des prix
+              de vente, estimation du seuil de rentabilité et réflexion sur la stratégie commerciale.
+            </p>
           </div>
           <div class="card">
             <div class="project-tagline">Analyse financière</div>
             <h3>Diagnostics d’entreprises</h3>
-            <p>FRNG, BFR, ratios, trésorerie nette et synthèses.</p>
+            <p>
+              Calcul du FRNG, BFR, trésorerie nette et ratios de rentabilité / solvabilité, avec
+              rédaction de synthèses pour appuyer la prise de décision.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <div class="container">
         <h2>Contact</h2>
         <div class="contact-wrapper">
           <div>
             <p class="lead">
-              Vous souhaitez échanger à propos d’un stage, d’une alternance ou
-              simplement en savoir plus sur mon profil ?
+              Vous souhaitez échanger à propos d’un stage, d’une alternance ou simplement en savoir
+              plus sur mon parcours ? N’hésitez pas à me contacter.
             </p>
             <br />
             <p class="muted">
-              📧 Email : <a href="mailto:prenom.nom@example.com">prenom.nom@example.com</a>
+              📧 Email : <a href="mailto:prenom.nom@example.com">prenom.nom@example.com</a><br />
+              (À remplacer par votre adresse professionnelle)
             </p>
           </div>
           <div class="card">
@@ -576,6 +691,7 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       © <span id="year"></span> – Louka Roman. Portfolio étudiant.
