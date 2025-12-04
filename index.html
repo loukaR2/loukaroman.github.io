@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio – Louka Roman</title>
 
+  <!-- Police -->
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -21,7 +22,11 @@
       --transition: all 0.25s ease;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -30,12 +35,17 @@
       line-height: 1.6;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     .container {
       width: min(1120px, 100% - 2.5rem);
       margin: 0 auto;
     }
+
+    /* HEADER */
 
     header {
       position: sticky;
@@ -43,7 +53,7 @@
       z-index: 20;
       backdrop-filter: blur(14px);
       background: rgba(248, 249, 255, 0.94);
-      border-bottom: 1px solid rgba(156,163,175,0.18);
+      border-bottom: 1px solid rgba(156, 163, 175, 0.18);
     }
 
     .nav {
@@ -72,7 +82,11 @@
       font-size: 0.95rem;
     }
 
-    .nav-links a { position: relative; padding-bottom: 0.1rem; }
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
     .nav-links a::after {
       content: "";
       position: absolute;
@@ -84,16 +98,31 @@
       background: var(--secondary);
       transition: width 0.2s ease;
     }
-    .nav-links a:hover::after { width: 100%; }
 
-    main { padding: 3.5rem 0 4rem; }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* MAIN LAYOUT */
+
+    main {
+      padding: 3.5rem 0 4rem;
+    }
 
     h1, h2, h3 {
       font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
       color: var(--primary);
     }
 
-    h1 { font-size: clamp(2.2rem, 3vw, 2.8rem); }
+    h1 {
+      font-size: clamp(2.2rem, 3vw, 2.8rem);
+    }
 
     p.lead {
       font-size: 1.05rem;
@@ -101,6 +130,8 @@
       max-width: 640px;
       margin-top: 0.9rem;
     }
+
+    /* HERO */
 
     .hero {
       display: grid;
@@ -121,7 +152,7 @@
       padding: 0.35rem 0.9rem;
       border-radius: var(--radius-full);
       background: rgba(92, 101, 146, 0.07);
-      border: 1px solid rgba(92,101,146,0.15);
+      border: 1px solid rgba(92, 101, 146, 0.15);
       color: #374151;
     }
 
@@ -148,48 +179,85 @@
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(82,153,238,0.35);
+      box-shadow: 0 14px 30px rgba(82, 153, 238, 0.35);
     }
 
     .btn-outline {
-      border: 1px solid rgba(92,101,146,0.35);
+      border: 1px solid rgba(92, 101, 146, 0.35);
       color: var(--primary);
       background: white;
     }
 
-    .btn-outline:hover { background: rgba(92,101,146,0.06); }
+    .btn-outline:hover {
+      background: rgba(92, 101, 146, 0.06);
+    }
 
-    .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
+    .hero-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
 
     .hero-card {
       background: radial-gradient(circle at top, #ffffff, #e3e7ff);
       border-radius: 24px;
       padding: 1.6rem 1.5rem;
-      box-shadow: 0 18px 45px rgba(31,41,55,0.18);
-      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 18px 45px rgba(31, 41, 55, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.8);
       max-width: 340px;
       margin-left: auto;
+      text-align: center;
     }
 
-    .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, var(--secondary), var(--accent));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.3rem;
-      color: #fff;
-      margin-bottom: 0.8rem;
+    .avatar-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+      border: 4px solid #ffffff;
+      margin: 0 auto 0.8rem auto;
     }
 
-    .hero-card h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
-    .hero-meta { font-size: 0.85rem; color: #4b5563; margin-bottom: 0.6rem; }
-    .hero-small { font-size: 0.8rem; color: #6b7280; }
+    .hero-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-meta {
+      font-size: 0.85rem;
+      color: #4b5563;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-small {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    /* SECTIONS LIENS */
 
     .sections-links {
       margin-top: 3.5rem;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.5rem;
+      width: 40%;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
     }
 
     .sections-grid {
@@ -203,14 +271,30 @@
       border-radius: 18px;
       padding: 1.2rem 1.3rem;
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(209,213,219,0.8);
+      border: 1px solid rgba(209, 213, 219, 0.8);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .card-link h3 { font-size: 1.02rem; margin-bottom: 0.4rem; }
-    .card-link p { font-size: 0.9rem; color: #6b7280; margin-bottom: 0.8rem; }
+    .card-link h3 {
+      font-size: 1.02rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-link p {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(148, 163, 184, 0.4);
+    }
+
+    /* FOOTER */
 
     footer {
       padding: 1.8rem 0 2.3rem;
@@ -220,14 +304,23 @@
     }
 
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-card { margin: 0; }
-      .sections-grid { grid-template-columns: 1fr 1fr; }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        margin: 2rem 0 0 0;
+      }
+
+      .sections-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 700px) {
-      .nav-links { display: none; }
-      .sections-grid { grid-template-columns: 1fr; }
+      .sections-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -248,12 +341,13 @@
 </header>
 
 <main>
+  <!-- HERO -->
   <section class="container hero">
     <div>
       <p class="hero-subtitle">Étudiant en BUT GEA – Parcours GC2F</p>
       <h1>Portfolio de Louka Roman</h1>
       <p class="lead">
-        Ce portfolio présente mon parcours en gestion comptable, fiscale et financière : formations,
+        Ce portfolio présente mon parcours en gestion comptable, fiscale et financière : formation,
         stages, compétences et projets réalisés au cours de mon BUT GEA.
       </p>
 
@@ -271,16 +365,17 @@
     </div>
 
     <div class="hero-card">
-      <div class="avatar">LR</div>
+      <img src="photo_louka.jpg" alt="Photo de Louka Roman" class="avatar-img">
       <h3>Louka Roman</h3>
       <p class="hero-meta">BUT GEA – Gestion Comptable, Fiscale et Financière</p>
       <p class="hero-small">
-        Objectif : obtenir le DCG puis poursuivre vers le DSCG ou un Master CCA afin d’évoluer
-        vers les métiers de la comptabilité et de l’expertise comptable.
+        Objectif : obtenir le DCG puis poursuivre vers le DSCG ou un Master CCA afin d’évoluer vers
+        les métiers de la comptabilité et de l’expertise comptable.
       </p>
     </div>
   </section>
 
+  <!-- LIENS VERS LES PAGES -->
   <section class="container sections-links">
     <h2>Explorer mon portfolio</h2>
     <div class="sections-grid">
@@ -308,7 +403,7 @@
       <a class="card-link" href="projets.html">
         <div>
           <h3>Projets</h3>
-          <p>Travaux marquants : projet Café du Monde, diagnostics financiers, exercices de gestion.</p>
+          <p>Projets marquants : Café du Monde, diagnostics financiers, travaux de gestion.</p>
         </div>
       </a>
 
