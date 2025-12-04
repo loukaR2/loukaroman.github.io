@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stages – Louka Roman</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--primary:#5c6592;--secondary:#5299ee;--card-bg:#fff;--shadow-soft:0 10px 30px rgba(0,0,0,.08);}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#f8f9ff,#eef3ff);color:#1f2430;line-height:1.6;}
+    a{text-decoration:none;color:inherit;}
+    .container{width:min(1120px,100% - 2.5rem);margin:0 auto;}
+    header{position:sticky;top:0;background:rgba(248,249,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(156,163,175,.18);}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;}
+    .logo{font-family:"Libre Baskerville",serif;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.9rem;color:var(--primary);padding:.45rem .95rem;border-radius:999px;border:1px solid rgba(92,101,146,.2);background:rgba(255,255,255,.8);}
+    .nav-links{display:flex;gap:1.3rem;font-size:.95rem;}
+    main{padding:3.2rem 0 4rem;}
+    h1,h2,h3{font-family:"Libre Baskerville",serif;color:var(--primary);}
+    h1{font-size:2rem;margin-bottom:.6rem;}
+    p.lead{font-size:1.02rem;color:#4b5263;max-width:680px;}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8rem;margin-top:2rem;}
+    .card{background:var(--card-bg);border-radius:18px;padding:1.4rem 1.6rem;box-shadow:var(--shadow-soft);border:1px solid rgba(209,213,219,.8);}
+    .badge{display:inline-block;font-size:.8rem;padding:.2rem .7rem;border-radius:999px;background:rgba(92,101,146,.08);color:var(--primary);margin-bottom:.3rem;}
+    ul{list-style:none;margin-top:.6rem;}
+    ul li{position:relative;padding-left:1.2rem;margin-bottom:.25rem;font-size:.95rem;}
+    ul li::before{content:"•";position:absolute;left:0;top:0;color:var(--secondary);}
+    .project-links a{font-size:.9rem;color:#5299ee;border-bottom:1px solid rgba(82,153,238,.5);}
+    footer{text-align:center;font-size:.8rem;color:#6b7280;padding:1.6rem 0 2.2rem;border-top:1px solid rgba(209,213,219,.6);}
+    @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
+    @media(max-width:700px){.nav-links{display:none;}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="logo">LR • Portfolio</div>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="stages.html">Stages</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projets.html">Projets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Stages</h1>
+  <p class="lead">
+    Mes stages m’ont permis de mettre en pratique les enseignements du BUT GEA, à la fois en cabinet
+    comptable et en banque auprès de la clientèle professionnelle.
+  </p>
+
+  <div class="grid-2">
+    <div class="card">
+      <span class="badge">Avril – Juin 2025 • 8 semaines</span>
+      <h3>Crédit Agricole Alpes Provence – Centre d’affaires de Gap</h3>
+      <p class="muted">
+        Participation à l’analyse financière de dossiers de financement pour des entreprises et professionnels.
+      </p>
+      <ul>
+        <li>Analyse de bilans, comptes de résultat et SIG</li>
+        <li>Calcul de ratios : EBE, CAF, autonomie financière, endettement…</li>
+        <li>Interrogations Banque de France et analyse des cotations</li>
+        <li>Préparation de dossiers de financement (investissement, trésorerie)</li>
+      </ul>
+      <p class="project-links" style="margin-top:.7rem;">
+        <a href="Stage2_Credit_Agricole.pdf" target="_blank">📄 Consulter le rapport de stage</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <span class="badge">Janvier – Février 2024 • 4 semaines</span>
+      <h3>Cabinet Gandelli – Expertise comptable</h3>
+      <p class="muted">
+        Découverte du fonctionnement d’un cabinet d’expertise comptable et réalisation de missions de tenue.
+      </p>
+      <ul>
+        <li>Saisie comptable : achats, ventes, banques</li>
+        <li>Lettrage clients / fournisseurs</li>
+        <li>Rapprochements bancaires</li>
+        <li>Organisation des dossiers et travail sur Quadra</li>
+      </ul>
+      <p class="project-links" style="margin-top:.7rem;">
+        <a href="Stage1_Cabinet_Gandelli.pdf" target="_blank">📄 Consulter le rapport de stage</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> — Portfolio de Louka Roman
+</footer>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
