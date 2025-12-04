@@ -26,6 +26,35 @@
     ul li{position:relative;padding-left:1.2rem;margin-bottom:.25rem;font-size:.95rem;}
     ul li::before{content:"•";position:absolute;left:0;top:0;color:var(--secondary);}
     .muted{font-size:.9rem;color:#6b7280;margin-top:.5rem;}
+    /* Bannière de page */
+.page-hero {
+  margin: 2.4rem auto 2.4rem;
+  background: linear-gradient(135deg, rgba(92,101,146,0.95), rgba(82,153,238,0.95));
+  color: #f9fafb;
+  padding: 1.8rem 2rem;
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
+}
+
+.page-hero h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #f9fafb;
+}
+
+.page-hero .lead {
+  margin-top: 0.6rem;
+  color: #e5e7eb;
+}
+
+.page-hero .label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.9;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
     @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
     @media(max-width:700px){.nav-links{display:none;}}
   </style>
