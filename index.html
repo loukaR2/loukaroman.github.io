@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio – Louka Roman</title>
 
-  <!-- Police -->
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -32,53 +31,19 @@
     }
 
     a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
 
     .container {
       width: min(1120px, 100% - 2.5rem);
       margin: 0 auto;
     }
 
-    section { padding: 4.5rem 0; }
-
-    h1, h2, h3 {
-      font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
-      color: var(--primary);
-    }
-
-    h2 {
-      font-size: 1.9rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-      display: inline-block;
-    }
-
-    h2::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.5rem;
-      width: 40%;
-      height: 3px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--secondary), var(--accent));
-    }
-
-    p.lead {
-      font-size: 1.05rem;
-      color: #4b5263;
-      max-width: 620px;
-    }
-
-    /* HEADER */
-
     header {
       position: sticky;
       top: 0;
       z-index: 20;
       backdrop-filter: blur(14px);
-      background: rgba(248, 249, 255, 0.92);
-      border-bottom: 1px solid rgba(156, 163, 175, 0.15);
+      background: rgba(248, 249, 255, 0.94);
+      border-bottom: 1px solid rgba(156,163,175,0.18);
     }
 
     .nav {
@@ -107,406 +72,262 @@
       font-size: 0.95rem;
     }
 
-    /* HERO */
+    .nav-links a { position: relative; padding-bottom: 0.1rem; }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.1rem;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--secondary);
+      transition: width 0.2s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    main { padding: 3.5rem 0 4rem; }
+
+    h1, h2, h3 {
+      font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+      color: var(--primary);
+    }
+
+    h1 { font-size: clamp(2.2rem, 3vw, 2.8rem); }
+
+    p.lead {
+      font-size: 1.05rem;
+      color: #4b5263;
+      max-width: 640px;
+      margin-top: 0.9rem;
+    }
 
     .hero {
-      padding: 3.5rem 0 3rem;
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
       gap: 2.5rem;
       align-items: center;
-    }
-
-    .hero-title {
-      font-size: clamp(2.1rem, 3vw, 2.6rem);
-      margin-bottom: 0.8rem;
-    }
-
-    .hero-subtitle {
-      font-weight: 500;
-      color: var(--primary);
-      margin-bottom: 0.6rem;
     }
 
     .hero-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin: 1rem 0 1.5rem;
+      margin: 1.4rem 0 1.6rem;
     }
 
     .tag {
       font-size: 0.8rem;
-      padding: 0.35rem 0.8rem;
+      padding: 0.35rem 0.9rem;
       border-radius: var(--radius-full);
       background: rgba(92, 101, 146, 0.07);
+      border: 1px solid rgba(92,101,146,0.15);
       color: #374151;
-      border: 1px solid rgba(92, 101, 146, 0.12);
     }
 
     .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       padding: 0.7rem 1.4rem;
       border-radius: var(--radius-full);
       font-size: 0.95rem;
       font-weight: 500;
+      border: none;
       cursor: pointer;
       transition: var(--transition);
+      text-decoration: none;
+      white-space: nowrap;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--secondary), var(--primary));
-      color: #fff;
-    }
-
-    /* CARDS */
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.8rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      padding: 1.4rem 1.5rem;
-      border-radius: 18px;
+      color: white;
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(209,213,219,0.7);
     }
 
-    .badge {
-      display: inline-block;
-      background: rgba(92,101,146,0.08);
-      padding: 0.2rem 0.7rem;
-      border-radius: 999px;
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(82,153,238,0.35);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(92,101,146,0.35);
+      color: var(--primary);
+      background: white;
+    }
+
+    .btn-outline:hover { background: rgba(92,101,146,0.06); }
+
+    .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #ffffff, #e3e7ff);
+      border-radius: 24px;
+      padding: 1.6rem 1.5rem;
+      box-shadow: 0 18px 45px rgba(31,41,55,0.18);
+      border: 1px solid rgba(255,255,255,0.8);
+      max-width: 340px;
+      margin-left: auto;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.3rem;
+      color: #fff;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-card h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+    .hero-meta { font-size: 0.85rem; color: #4b5563; margin-bottom: 0.6rem; }
+    .hero-small { font-size: 0.8rem; color: #6b7280; }
+
+    .sections-links {
+      margin-top: 3.5rem;
+    }
+
+    .sections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .card-link {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.2rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(209,213,219,0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-link h3 { font-size: 1.02rem; margin-bottom: 0.4rem; }
+    .card-link p { font-size: 0.9rem; color: #6b7280; margin-bottom: 0.8rem; }
+
+    footer {
+      padding: 1.8rem 0 2.3rem;
+      text-align: center;
       font-size: 0.8rem;
-      margin-bottom: 0.35rem;
+      color: #6b7280;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-card { margin: 0; }
+      .sections-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .sections-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-
 <header>
   <div class="container nav">
     <div class="logo">LR • Portfolio</div>
     <nav class="nav-links">
-      <a href="#apropos">À propos</a>
-      <a href="#formation">Formation</a>
-      <a href="#experience">Stages</a>
-      <a href="#competences">Compétences</a>
-      <a href="#projets">Projets</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="stages.html">Stages</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projets.html">Projets</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
 <main>
-
-<!-- HERO -->
-<section class="container hero">
-  <div>
-    <p class="hero-subtitle">Étudiant en BUT GEA – Parcours GC2F</p>
-    <h1 class="hero-title">Louka Roman</h1>
-    <p class="lead">
-      Étudiant en gestion comptable, fiscale et financière. Je développe mes compétences à travers mes stages, projets et formations.
-    </p>
-
-    <div class="hero-tags">
-      <span class="tag">Comptabilité</span>
-      <span class="tag">Fiscalité</span>
-      <span class="tag">Analyse financière</span>
-    </div>
-
-    <a href="CV_Louka_Roman.pdf" class="btn btn-primary" target="_blank">
-      Télécharger mon CV
-    </a>
-  </div>
-</section>
-
-<!-- FORMATION -->
-<section id="formation">
-  <div class="container">
-    <h2>Formation</h2>
-
-    <div class="grid-2">
-      <div class="card">
-        <span class="badge">Depuis 2023</span>
-        <h3>BUT GEA – GC2F</h3>
-        <p class="muted">IUT de Gap</p>
-        <ul class="list-dot">
-          <li>Comptabilité générale et approfondie</li>
-          <li>Fiscalité (IR, RF, IS, TVA…)</li>
-          <li>Analyse financière, SIG, ratios</li>
-        </ul>
-      </div>
-
-      <div class="card">
-  <span class="badge">Objectifs</span>
-  <h3>DCG → DSCG / Master CCA</h3>
-  <p class="muted">
-    Grâce aux équivalences du BUT GEA, il ne me reste que quatre UE à passer pour obtenir le DCG.
-    Ce diplôme me permettrait d’accéder ensuite au DSCG afin de poursuivre vers la filière de l’expertise comptable.
-    Le Master CCA constitue également une option, car il offre de nombreuses équivalences pour le DSCG et développe des compétences solides en comptabilité, finance et audit.
-  </p>
-</div>
-
-
-  </div>
-</section>
-
-
-<!-- STAGES -->
-<section id="experience">
-  <div class="container">
-    <h2>Stages</h2>
-
-    <div class="grid-2">
-
-      <!-- STAGE 2 -->
-      <div class="card">
-        <span class="badge">Avril – Juin 2025</span>
-        <h3>Crédit Agricole Alpes Provence</h3>
-        <p class="muted">Centre d'affaires professionnels – Analyse financière & financement</p>
-        <ul class="list-dot">
-          <li>Analyse de bilans & comptes de résultat</li>
-          <li>Ratios financiers : EBE, CAF, autonomie financière</li>
-          <li>Interrogations Banque de France</li>
-          <li>Préparation de dossiers de financement</li>
-        </ul>
-
-        <a href="Stage2_Credit_Agricole.pdf" target="_blank">📄 Voir le rapport</a>
-      </div>
-
-      <!-- STAGE 1 -->
-      <div class="card">
-        <span class="badge">Janvier – Février 2024</span>
-        <h3>Cabinet Gandelli – Expertise comptable</h3>
-        <p class="muted">Tenue comptable – Découverte du métier</p>
-        <ul class="list-dot">
-          <li>Saisie comptable achats/ventes/banques</li>
-          <li>Lettrage clients/fournisseurs</li>
-          <li>Rapprochements bancaires</li>
-        </ul>
-
-        <a href="Stage1_Cabinet_Gandelli.pdf" target="_blank">📄 Voir le rapport</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- COMPÉTENCES -->
-<section id="competences">
-  <div class="container">
-    <h2>Compétences</h2>
-
-    <p class="lead">
-      Cette section regroupe mes compétences techniques et humaines, ainsi que les apprentissages critiques (AC)
-      attendus dans le BUT GEA – parcours GC2F.
-    </p>
-
-    <div class="grid-2" style="margin-top: 2rem;">
-
-      <!-- Compétences techniques -->
-      <div class="card">
-        <h3>Compétences techniques</h3>
-        <ul class="list-dot" style="margin-top: 0.6rem;">
-          <li>Comptabilité générale & approfondie</li>
-          <li>Fiscalité : IR, RF, TVA, plus-values…</li>
-          <li>Analyse financière : SIG, ratios, CAF…</li>
-          <li>Outils : Excel (TCD, formules), Word, PowerPoint</li>
-          <li>Gestion budgétaire & prévisionnelle</li>
-        </ul>
-      </div>
-
-      <!-- Compétences humaines -->
-      <div class="card">
-        <h3>Compétences humaines</h3>
-        <ul class="list-dot" style="margin-top: 0.6rem;">
-          <li>Rigueur & organisation</li>
-          <li>Esprit d’analyse</li>
-          <li>Travail en équipe</li>
-          <li>Autonomie & adaptation</li>
-          <li>Relation client</li>
-        </ul>
-      </div>
-    </div>
-
-    <br><br>
-
-    <!-- AC DES COMPÉTENCES -->
-    <h3 style="margin-top: 2rem;">Apprentissages Critiques (AC)</h3>
-
-    <div class="grid-2" style="margin-top: 1rem;">
-
-      <!-- C1 -->
-      <div class="card">
-        <h3>Compétence 1 : Analyser les processus</h3>
-        <ul class="list-dot">
-          <li><strong>AC31.01</strong> Intégrer l'impact des enjeux sur l'organisation</li>
-          <li><strong>AC31.02</strong> Conseiller un type d'organisation</li>
-          <li><strong>AC31.03</strong> Proposer des améliorations de processus</li>
-        </ul>
-        <p class="muted">
-          <strong>Preuves :</strong> Analyse d’organisation du Crédit Agricole (stage 2), organisation du cabinet Gandelli (stage 1).
-        </p>
-      </div>
-
-      <!-- C2 -->
-      <div class="card">
-        <h3>Compétence 2 : Aider à la prise de décision</h3>
-        <ul class="list-dot">
-          <li><strong>AC32.01</strong> Améliorer le système d'information</li>
-          <li><strong>AC32.02</strong> Exploiter les données pour décider</li>
-          <li><strong>AC32.03</strong> Décider selon les contraintes</li>
-          <li><strong>AC32.04</strong> Minimiser les risques</li>
-        </ul>
-        <p class="muted">
-          <strong>Preuves :</strong> Analyses financières, ratios, calculs CAF, FRNG, BFR (stage banque + cours GC2F).
-        </p>
-      </div>
-
-      <!-- C3 -->
-      <div class="card">
-        <h3>Compétence 3 : Piloter les relations</h3>
-        <ul class="list-dot">
-          <li><strong>AC33.01</strong> Animer une équipe</li>
-          <li><strong>AC33.02</strong> Mener un projet collaboratif</li>
-          <li><strong>AC33.03</strong> Améliorer la communication</li>
-        </ul>
-        <p class="muted">
-          <strong>Preuves :</strong> Travail en équipe avec conseillers pros, accueil, collaborateurs comptables.
-        </p>
-      </div>
-
-      <!-- C4 -->
-      <div class="card">
-        <h3>Compétence 4 : Produire l’information comptable & fiscale</h3>
-        <ul class="list-dot">
-          <li><strong>AC34.01 GC2F</strong> Résoudre les problèmes comptables</li>
-          <li><strong>AC34.02 GC2F</strong> Appliquer les règles comptables & fiscales</li>
-          <li><strong>AC34.03 GC2F</strong> Réaliser un diagnostic / audit</li>
-          <li><strong>AC34.04 GC2F</strong> Sécuriser l'information produite</li>
-        </ul>
-        <p class="muted">
-          <strong>Preuves :</strong> Saisie comptable en cabinet, fiscalité (IR, RF, PVI), contrôles en stage banque.
-        </p>
-      </div>
-
-      <!-- C5 -->
-      <div class="card">
-        <h3>Compétence 5 : Évaluer l’activité</h3>
-        <ul class="list-dot">
-          <li><strong>AC35.01 GC2F</strong> Politique d'investissement</li>
-          <li><strong>AC35.02 GC2F</strong> Sources de financement</li>
-          <li><strong>AC35.03 GC2F</strong> Plan de financement</li>
-          <li><strong>AC35.04 GC2F</strong> Gestion de trésorerie</li>
-          <li><strong>AC35.05 GC2F</strong> Budgets prévisionnels</li>
-        </ul>
-        <p class="muted">
-          <strong>Preuves :</strong> Projet Café du Monde, budgets, prévisionnels, analyses d’investissements.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROJETS -->
-<section id="projets">
-  <div class="container">
-    <h2>Projets</h2>
-    <p class="lead">
-      Quelques travaux significatifs réalisés en BUT GEA.
-    </p>
-
-    <div class="grid-2" style="margin-top: 2rem;">
-
-      <div class="card">
-        <h3>Projet – Café du Monde</h3>
-        <p class="muted">
-          Étude complète de faisabilité : coûts de revient, seuil de rentabilité, stratégie commerciale, budgets prévisionnels.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Diagnostics financiers</h3>
-        <p class="muted">
-          Analyse de bilans, SIG, ratios, CAF, FRNG, BFR. Travail réalisé en stage ainsi qu’en cours (GC2F).
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <h2>Contact</h2>
-
-    <p class="lead">
-      Vous pouvez me contacter directement par email ou via mon profil LinkedIn.
-    </p>
-
-    <div class="card" style="margin-top: 2rem; padding: 2rem; text-align: left;">
-      
-      <!-- Email -->
-      <p class="muted" style="font-size: 1rem; margin-bottom: 1.5rem;">
-        📧 Email : 
-        <a href="mailto:loukaroman@gmail.com">loukaroman@gmail.com</a>
+  <section class="container hero">
+    <div>
+      <p class="hero-subtitle">Étudiant en BUT GEA – Parcours GC2F</p>
+      <h1>Portfolio de Louka Roman</h1>
+      <p class="lead">
+        Ce portfolio présente mon parcours en gestion comptable, fiscale et financière : formations,
+        stages, compétences et projets réalisés au cours de mon BUT GEA.
       </p>
 
-      <!-- LinkedIn Icon Button -->
-      <a 
-        href="https://www.linkedin.com/in/louka-roman-0604582a0/" 
-        target="_blank" 
-        style="
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          padding: 0.6rem 1.1rem;
-          border-radius: 50px;
-          background: #0A66C2;
-          color: white;
-          font-weight: 500;
-          font-size: 0.95rem;
-          text-decoration: none;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-          transition: 0.25s;
-        "
-        onmouseover="this.style.transform='translateY(-2px)'"
-        onmouseout="this.style.transform='translateY(0)'"
-      >
-        <!-- Icône LinkedIn (SVG officiel) -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 
-          2.761 2.239 5 5 5h14c2.762 0 5-2.239 
-          5-5v-14c0-2.761-2.238-5-5-5zm-11 
-          19h-3v-10h3v10zm-1.5-11.268c-.966 
-          0-1.75-.79-1.75-1.764s.784-1.764 
-          1.75-1.764 1.75.79 
-          1.75 1.764-.784 1.764-1.75 
-          1.764zm13.5 11.268h-3v-5.604c0-3.368-4-3.113-4 
-          0v5.604h-3v-10h3v1.765c1.396-2.586 
-          7-2.777 7 2.476v5.759z"/>
-        </svg>
+      <div class="hero-tags">
+        <span class="tag">Comptabilité</span>
+        <span class="tag">Fiscalité</span>
+        <span class="tag">Analyse financière</span>
+        <span class="tag">Gestion d’entreprise</span>
+      </div>
 
-        Mon LinkedIn
+      <div class="hero-actions">
+        <a href="CV_Louka_Roman.pdf" class="btn btn-primary" target="_blank">Télécharger mon CV</a>
+        <a href="apropos.html" class="btn btn-outline">Découvrir mon parcours</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="avatar">LR</div>
+      <h3>Louka Roman</h3>
+      <p class="hero-meta">BUT GEA – Gestion Comptable, Fiscale et Financière</p>
+      <p class="hero-small">
+        Objectif : obtenir le DCG puis poursuivre vers le DSCG ou un Master CCA afin d’évoluer
+        vers les métiers de la comptabilité et de l’expertise comptable.
+      </p>
+    </div>
+  </section>
+
+  <section class="container sections-links">
+    <h2>Explorer mon portfolio</h2>
+    <div class="sections-grid">
+      <a class="card-link" href="apropos.html">
+        <div>
+          <h3>À propos & formation</h3>
+          <p>Présentation de mon parcours, de ma formation en BUT GEA et de mes objectifs d’études.</p>
+        </div>
       </a>
 
+      <a class="card-link" href="stages.html">
+        <div>
+          <h3>Stages</h3>
+          <p>Expériences en cabinet comptable et au Crédit Agricole Alpes Provence.</p>
+        </div>
+      </a>
+
+      <a class="card-link" href="competences.html">
+        <div>
+          <h3>Compétences</h3>
+          <p>Compétences techniques, humaines et apprentissages critiques (AC) du parcours GC2F.</p>
+        </div>
+      </a>
+
+      <a class="card-link" href="projets.html">
+        <div>
+          <h3>Projets</h3>
+          <p>Travaux marquants : projet Café du Monde, diagnostics financiers, exercices de gestion.</p>
+        </div>
+      </a>
+
+      <a class="card-link" href="contact.html">
+        <div>
+          <h3>Contact</h3>
+          <p>Accès direct à mon email et à mon profil LinkedIn.</p>
+        </div>
+      </a>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
-
-<footer style="text-align:center; padding:2rem 0; color:#6b7280;">
+<footer>
   © <span id="year"></span> — Portfolio de Louka Roman
 </footer>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-
 </body>
 </html>
