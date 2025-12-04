@@ -22,6 +22,35 @@
     .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem;margin-top:2rem;}
     .card{background:var(--card-bg);border-radius:18px;padding:1.4rem 1.6rem;box-shadow:var(--shadow-soft);border:1px solid rgba(209,213,219,.8);}
     .muted{font-size:.9rem;color:#6b7280;margin-top:.5rem;}
+    /* Bannière de page */
+.page-hero {
+  margin: 2.4rem auto 2.4rem;
+  background: linear-gradient(135deg, rgba(92,101,146,0.95), rgba(82,153,238,0.95));
+  color: #f9fafb;
+  padding: 1.8rem 2rem;
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
+}
+
+.page-hero h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #f9fafb;
+}
+
+.page-hero .lead {
+  margin-top: 0.6rem;
+  color: #e5e7eb;
+}
+
+.page-hero .label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.9;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
     @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
     @media(max-width:700px){.nav-links{display:none;}}
   </style>
