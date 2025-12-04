@@ -445,40 +445,60 @@
   <div class="container">
     <h2>Contact</h2>
 
-    <div class="grid-2">
+    <p class="lead">
+      Vous pouvez me contacter directement par email ou via mon profil LinkedIn.
+    </p>
 
-      <div>
-        <p class="lead">
-          Vous pouvez me contacter pour un stage, une alternance ou toute information.
-        </p>
+    <div class="card" style="margin-top: 2rem; padding: 2rem; text-align: left;">
+      
+      <!-- Email -->
+      <p class="muted" style="font-size: 1rem; margin-bottom: 1.5rem;">
+        📧 Email : 
+        <a href="mailto:loukaroman@gmail.com">loukaroman@gmail.com</a>
+      </p>
 
-        <p class="muted" style="margin-top: 1rem;">
-          📧 Email : 
-          <a href="mailto:loukaroman@gmail.com">loukaroman@gmail.com</a>
-        </p>
-      </div>
+      <!-- LinkedIn Icon Button -->
+      <a 
+        href="https://www.linkedin.com/in/louka-roman-0604582a0/" 
+        target="_blank" 
+        style="
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.6rem 1.1rem;
+          border-radius: 50px;
+          background: #0A66C2;
+          color: white;
+          font-weight: 500;
+          font-size: 0.95rem;
+          text-decoration: none;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          transition: 0.25s;
+        "
+        onmouseover="this.style.transform='translateY(-2px)'"
+        onmouseout="this.style.transform='translateY(0)'"
+      >
+        <!-- Icône LinkedIn (SVG officiel) -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 
+          2.761 2.239 5 5 5h14c2.762 0 5-2.239 
+          5-5v-14c0-2.761-2.238-5-5-5zm-11 
+          19h-3v-10h3v10zm-1.5-11.268c-.966 
+          0-1.75-.79-1.75-1.764s.784-1.764 
+          1.75-1.764 1.75.79 
+          1.75 1.764-.784 1.764-1.75 
+          1.764zm13.5 11.268h-3v-5.604c0-3.368-4-3.113-4 
+          0v5.604h-3v-10h3v1.765c1.396-2.586 
+          7-2.777 7 2.476v5.759z"/>
+        </svg>
 
-      <div class="card">
-<form action="mailto:loukaroman@gmail.com" method="post" enctype="text/plain">
-  <label>Nom / Prénom</label><br>
-  <input type="text" name="Nom" required><br><br>
-
-  <label>Email</label><br>
-  <input type="email" name="Email" required><br><br>
-
-  <label>Message</label><br>
-  <textarea name="Message" rows="5" required></textarea><br><br>
-
-  <button type="submit" class="btn btn-primary" style="margin-top:0.5rem;">
-    Envoyer
-  </button>
-</form>
-
-      </div>
+        Mon LinkedIn
+      </a>
 
     </div>
   </div>
 </section>
+
 
 <footer style="text-align:center; padding:2rem 0; color:#6b7280;">
   © <span id="year"></span> — Portfolio de Louka Roman
