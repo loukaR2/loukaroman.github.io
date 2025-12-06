@@ -5,73 +5,239 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>À propos – Louka Roman</title>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    /* même style que index (simplifié) */
-    :root { --primary:#5c6592; --secondary:#5299ee; --bg:#f5f6fb; --card-bg:#fff; --shadow-soft:0 10px 30px rgba(0,0,0,.08); }
+    :root{
+      --primary:#5c6592;
+      --secondary:#5299ee;
+      --card-bg:#ffffff;
+      --shadow-soft:0 10px 30px rgba(0,0,0,.08);
+    }
+
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#f8f9ff,#eef3ff);color:#1f2430;line-height:1.6;}
+
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:linear-gradient(135deg,#f8f9ff,#eef3ff);
+      color:#1f2430;
+      line-height:1.6;
+    }
+
     a{text-decoration:none;color:inherit;}
-    .container{width:min(1120px,100% - 2.5rem);margin:0 auto;}
-    header{position:sticky;top:0;z-index:20;background:rgba(248,249,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(156,163,175,.18);}
-    .nav{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;}
-    .logo{font-family:"Libre Baskerville",serif;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.9rem;color:var(--primary);padding:.45rem .95rem;border-radius:999px;border:1px solid rgba(92,101,146,.2);background:rgba(255,255,255,.8);}
-    .nav-links{display:flex;gap:1.3rem;font-size:.95rem;}
-    main{padding:3.2rem 0 4rem;}
-    h1,h2,h3{font-family:"Libre Baskerville",serif;color:var(--primary);}
-    h1{font-size:2rem;margin-bottom:.6rem;}
-    h2{font-size:1.4rem;margin-bottom:.6rem;}
-    p.lead{font-size:1.02rem;color:#4b5263;max-width:680px;}
-    section{margin-bottom:2.8rem;}
-    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8rem;margin-top:1.5rem;}
-    .card{background:var(--card-bg);border-radius:18px;padding:1.4rem 1.6rem;box-shadow:var(--shadow-soft);border:1px solid rgba(209,213,219,.8);}
-    .badge{display:inline-block;font-size:.8rem;padding:.2rem .7rem;border-radius:999px;background:rgba(92,101,146,.08);color:var(--primary);margin-bottom:.3rem;}
-    ul{list-style:none;margin-top:.6rem;}
-    ul li{position:relative;padding-left:1.2rem;margin-bottom:.25rem;font-size:.95rem;}
-    ul li::before{content:"•";position:absolute;left:0;top:0;color:var(--secondary);}
-    /* Bannière de page */
-.page-hero {
-  margin: 2.4rem auto 2.4rem;
-  background: linear-gradient(135deg, rgba(92,101,146,0.95), rgba(82,153,238,0.95));
-  color: #f9fafb;
-  padding: 1.8rem 2rem;
-  border-radius: 22px;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
-}
 
-.page-hero h1 {
-  margin: 0;
-  font-size: 2rem;
-  color: #f9fafb;
-}
+    .container{
+      width:min(1120px,100% - 2.5rem);
+      margin:0 auto;
+    }
 
-.page-hero .lead {
-  margin-top: 0.6rem;
-  color: #e5e7eb;
-}
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(248,249,255,.94);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(156,163,175,.18);
+    }
 
-.page-hero .label {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  opacity: 0.9;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:.7rem 0;
+    }
+
+    .logo{
+      font-family:"Libre Baskerville",serif;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:.9rem;
+      color:var(--primary);
+      padding:.45rem .95rem;
+      border-radius:999px;
+      border:1px solid rgba(92,101,146,.2);
+      background:rgba(255,255,255,.8);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:1.3rem;
+      font-size:.95rem;
+    }
+
+    @media(max-width:700px){
+      .nav-links{display:none;}
+    }
+
+    main{
+      padding:3.2rem 0 4rem;
+    }
+
+    h1,h2,h3{
+      font-family:"Libre Baskerville",serif;
+      color:var(--primary);
+    }
+
+    h1{font-size:2rem;margin-bottom:.4rem;}
+    p.lead{font-size:1.02rem;color:#e5e7eb;max-width:700px;}
+
+    .card{
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:1.5rem 1.7rem;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(209,213,219,.85);
+    }
+
+    .muted{font-size:.95rem;color:#4b5263;}
+
+    /* Bannière haut de page */
+    .page-hero{
+      margin:2.4rem auto 2.4rem;
+      background:linear-gradient(135deg,rgba(92,101,146,.95),rgba(82,153,238,.95));
+      color:#f9fafb;
+      padding:1.8rem 2rem;
+      border-radius:22px;
+      box-shadow:0 16px 40px rgba(15,23,42,.35);
+    }
+
+    .page-hero h1{
+      margin:0;
+      font-size:2rem;
+      color:#f9fafb;
+    }
+
+    .page-hero .label{
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      opacity:.9;
+      display:inline-flex;
+      align-items:center;
+      margin-bottom:.5rem;
+    }
+
+    .page-hero .lead{
+      margin-top:.6rem;
+      color:#e5e7eb;
+    }
+
     /* Icône ronde dans la bannière */
-.icon-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.25);
-  margin-right: 0.45rem;
-  font-size: 0.9rem;
-}
-    footer{text-align:center;font-size:.8rem;color:#6b7280;padding:1.6rem 0 2.2rem;border-top:1px solid rgba(209,213,219,.6);}
-    @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
-    @media(max-width:700px){.nav-links{display:none;}}
+    .icon-circle{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      background:rgba(15,23,42,.25);
+      margin-right:.45rem;
+      font-size:.9rem;
+    }
+
+    /* Layout avec sidebar */
+    .grid-about{
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(0,2fr);
+      gap:1.8rem;
+      margin-top:2.2rem;
+    }
+
+    @media(max-width:900px){
+      .grid-about{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .about-sidebar{
+      text-align:center;
+    }
+
+    .about-photo{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      object-fit:cover;
+      border:4px solid #ffffff;
+      box-shadow:0 10px 25px rgba(0,0,0,.18);
+      margin-bottom:.7rem;
+    }
+
+    .about-name{
+      font-weight:600;
+      font-size:1rem;
+      margin-bottom:.1rem;
+    }
+
+    .about-role{
+      font-size:.9rem;
+      color:#6b7280;
+      margin-bottom:.6rem;
+    }
+
+    .about-list{
+      list-style:none;
+      padding:0;
+      margin:.4rem 0 0;
+      font-size:.9rem;
+      color:#4b5563;
+      text-align:left;
+    }
+
+    .about-list li{
+      position:relative;
+      padding-left:1.1rem;
+      margin-bottom:.2rem;
+    }
+
+    .about-list li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      top:0;
+      color:var(--secondary);
+    }
+
+    .about-links{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:.6rem;
+      margin-top:1rem;
+    }
+
+    .about-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.45rem .95rem;
+      border-radius:999px;
+      font-size:.85rem;
+      border:none;
+      cursor:pointer;
+      background:linear-gradient(135deg,var(--secondary),var(--primary));
+      color:white;
+      box-shadow:0 8px 20px rgba(82,153,238,.35);
+    }
+
+    .about-btn.secondary{
+      background:white;
+      color:var(--primary);
+      border:1px solid rgba(92,101,146,.35);
+      box-shadow:none;
+    }
+
+    .about-main > .card + .card{
+      margin-top:1.5rem;
+    }
+
+    footer{
+      text-align:center;
+      font-size:.8rem;
+      color:#6b7280;
+      padding:1.6rem 0 2.2rem;
+      border-top:1px solid rgba(209,213,219,.6);
+    }
   </style>
 </head>
 <body>
@@ -79,75 +245,79 @@
   <div class="container nav">
     <div class="logo">LR • Portfolio</div>
     <nav class="nav-links">
-  <a href="index.html">Accueil</a>
-  <a href="cv.html">CV</a>
-  <a href="apropos.html">À propos</a>
-  <a href="stages.html">Stages</a>
-  <a href="competences.html">Compétences</a>
-  <a href="projets.html">Projets</a>
-  <a href="contact.html">Contact</a>
-</nav>
+      <a href="index.html">Accueil</a>
+      <a href="cv.html">CV</a>
+      <a href="apropos.html">À propos</a>
+      <a href="stages.html">Stages</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projets.html">Projets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
 </header>
 
 <main class="container">
+  <!-- Bannière -->
   <section class="page-hero">
     <div class="label"><span class="icon-circle">👤</span> Parcours</div>
     <h1>À propos de moi</h1>
     <p class="lead">
       Actuellement en troisième année de BUT Gestion des Entreprises et des Administrations,
       parcours Gestion Comptable, Fiscale et Financière, je développe des compétences en
-      comptabilité, fiscalité et analyse financière. Mes stages m’ont permis de confronter
-      ces connaissances à la réalité du terrain, aussi bien en cabinet comptable qu’en banque.
+      comptabilité, fiscalité et analyse financière, renforcées par mes stages en cabinet
+      comptable et en banque.
     </p>
   </section>
 
-  <section>
-  <section>
-    <h2>Formation</h2>
-    <div class="grid-2">
+  <!-- Bloc avec sidebar + contenu -->
+  <section class="grid-about">
+    <!-- Sidebar gauche -->
+    <div class="card about-sidebar">
+      <img src="photo_louka.jpg" alt="Photo de Louka Roman" class="about-photo">
+      <div class="about-name">Louka Roman</div>
+      <div class="about-role">Étudiant en BUT GEA – Parcours GC2F</div>
+
+      <ul class="about-list">
+        <li>Spécialisation en gestion comptable, fiscale et financière</li>
+        <li>Intérêt pour la comptabilité, la finance et l’analyse d’entreprise</li>
+        <li>Stages réalisés en cabinet comptable et au Crédit Agricole</li>
+      </ul>
+
+      <div class="about-links">
+        <a href="CV_Louka_Roman.pdf" class="about-btn" target="_blank">📄 CV PDF</a>
+        <a href="https://www.linkedin.com/in/louka-roman-0604582a0/" class="about-btn secondary" target="_blank">
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <!-- Colonne droite : contenu détaillé -->
+    <div class="about-main">
       <div class="card">
-        <span class="badge">Depuis 2023</span>
-        <h3>BUT GEA – Parcours GC2F</h3>
-        <p class="muted">IUT • Gestion Comptable, Fiscale et Financière</p>
-        <ul>
-          <li>Comptabilité générale et analyse des états financiers</li>
-          <li>Fiscalité des entreprises et des particuliers</li>
-          <li>Analyse financière, SIG et ratios</li>
-          <li>Gestion budgétaire et prévisionnelle</li>
+        <h2 style="font-size:1.3rem; margin-bottom:.6rem;">Formation</h2>
+        <p class="muted">
+          Je prépare actuellement un BUT Gestion des Entreprises et des Administrations, parcours
+          Gestion Comptable, Fiscale et Financière (GC2F). Cette formation me permet d’acquérir :
+        </p>
+        <ul class="about-list" style="margin-top:.6rem;">
+          <li>des bases solides en comptabilité générale et approfondie ;</li>
+          <li>des connaissances en fiscalité des particuliers et des entreprises ;</li>
+          <li>des compétences en analyse financière (SIG, ratios, CAF…) ;</li>
+          <li>des notions de gestion budgétaire et prévisionnelle.</li>
         </ul>
       </div>
 
       <div class="card">
-        <span class="badge">Objectifs</span>
-        <h3>DCG → DSCG / Master CCA</h3>
-        <p>
-          Grâce aux équivalences du BUT GEA, il ne me reste que quatre UE à passer pour obtenir le DCG.
-          Ce diplôme me permettrait ensuite d’accéder au DSCG et de poursuivre dans la filière
-          de l’expertise comptable. Le Master CCA constitue également une option, car il offre
-          de nombreuses équivalences pour le DSCG et développe des compétences solides en
-          comptabilité, finance et audit.
-        </p>
-      </div>
-    </div>
-  </section>
-      <section style="margin-top: 2.5rem;">
-    <div class="grid-2">
-      <div class="card">
-        <h2 style="font-size:1.3rem; margin-bottom:0.6rem;">Qui je suis en quelques mots</h2>
+        <h2 style="font-size:1.3rem; margin-bottom:.6rem;">Projet d’études et objectif professionnel</h2>
         <p class="muted">
-          Je suis quelqu’un de sérieux, investi et curieux, avec un intérêt particulier pour
-          la comptabilité et la finance. Mes stages m’ont permis de découvrir concrètement
-          le rôle de l’expert-comptable et de la banque dans l’accompagnement des entreprises.
+          Grâce aux équivalences offertes par le BUT GEA, il ne me restera que quatre UE à valider
+          pour obtenir le DCG. Mon objectif est d’obtenir ce diplôme puis de poursuivre vers le DSCG
+          ou un Master CCA afin de me rapprocher de la filière de l’expertise comptable.
         </p>
-      </div>
-
-      <div class="card">
-        <h2 style="font-size:1.3rem; margin-bottom:0.6rem;">Objectif professionnel</h2>
-        <p class="muted">
-          À moyen terme, mon objectif est d’obtenir le DCG puis le DSCG ou un Master CCA afin
-          de me diriger vers les métiers de la comptabilité, du conseil et de l’expertise comptable.
-          Je souhaite continuer à gagner en expérience grâce à des stages et à l’alternance.
+        <p class="muted" style="margin-top:.6rem;">
+          À terme, je souhaite évoluer dans les métiers de la comptabilité, de la finance et du
+          conseil aux entreprises, en continuant à me former et à gagner en expérience via des
+          stages et, idéalement, une alternance.
         </p>
       </div>
     </div>
@@ -157,6 +327,8 @@
 <footer>
   © <span id="year"></span> — Portfolio de Louka Roman
 </footer>
-<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
