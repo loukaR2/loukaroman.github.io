@@ -387,6 +387,15 @@
       .sections-grid {
         grid-template-columns: 1fr 1fr;
       }
+
+     /* Lien actif dans le menu */
+      .nav-links a.active {
+        color: var(--secondary);
+      }
+
+.nav-links a.active::after {
+  width: 100%;
+      }
     }
 
     /* VERSION MOBILE : menu hamburger */
@@ -424,15 +433,6 @@
       .nav-links.open{
         display:flex; /* visible quand .open */
       }
-
-      /* Lien actif dans le menu */
-.nav-links a.active {
-  color: var(--secondary);
-}
-
-.nav-links a.active::after {
-  width: 100%;
-}
     }
   </style>
 </head>
