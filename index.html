@@ -365,6 +365,14 @@
       transform: translateY(-2px);
       box-shadow: 0 14px 30px rgba(148, 163, 184, 0.4);
     }
+     /* Lien actif dans le menu */
+      .nav-links a.active {
+        color: var(--secondary);
+      }
+
+     .nav-links a.active::after {
+       width: 100%;
+      }
 
     /* FOOTER */
 
@@ -386,15 +394,6 @@
 
       .sections-grid {
         grid-template-columns: 1fr 1fr;
-      }
-
-     /* Lien actif dans le menu */
-      .nav-links a.active {
-        color: var(--secondary);
-      }
-
-.nav-links a.active::after {
-  width: 100%;
       }
     }
 
