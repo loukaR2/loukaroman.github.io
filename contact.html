@@ -223,6 +223,14 @@
       transform:translateY(-2px);
       box-shadow:0 8px 20px rgba(15,23,42,.35);
     }
+    /* Lien actif dans le menu */
+    .nav-links a.active {
+      color: var(--secondary);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
 
     footer{
       text-align:center;
@@ -285,7 +293,7 @@
       <a href="competences.html">Compétences</a>
       <a href="projets.html">Projets</a>
       <a href="cv.html">CV</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="active">Contact</a>
     </nav>
   </div>
 </header>
