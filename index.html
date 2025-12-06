@@ -382,6 +382,56 @@
       font-size: 0.8rem;
       color: #6b7280;
     }
+    
+/* FOOTER PREMIUM */
+.footer {
+  margin-top: 3rem;
+  padding: 2.2rem 0 2.5rem;
+  background: rgba(248,249,255,0.7);
+  border-top: 1px solid rgba(156,163,175,0.25);
+  backdrop-filter: blur(6px);
+}
+
+.footer-container {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  color: var(--primary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  transition: 0.25s ease;
+}
+
+.footer-icon {
+  font-size: 1.15rem;
+}
+
+.footer-link:hover {
+  background: rgba(82,153,238,0.12);
+  color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
 
     @media (max-width: 900px) {
       .hero {
@@ -536,7 +586,31 @@
 </main>
 
 <footer>
-  © <span id="year"></span> — Portfolio de Louka Roman
+<footer class="footer">
+  <div class="footer-container">
+    
+    <div class="footer-links">
+      <a href="mailto:loukaroman@gmail.com" class="footer-link">
+        <span class="footer-icon">📧</span>
+        Email
+      </a>
+
+      <a href="https://www.linkedin.com/in/louka-roman-0604582a0/" target="_blank" class="footer-link">
+        <span class="footer-icon">🔗</span>
+        LinkedIn
+      </a>
+
+      <a href="CV_Louka_Roman.pdf" target="_blank" class="footer-link">
+        <span class="footer-icon">📄</span>
+        CV PDF
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> — Portfolio de Louka Roman
+    </div>
+
+  </div>
 </footer>
 
 <script>
