@@ -87,9 +87,54 @@
       width: 100%;
     }
 
+    /* ====== HAMBURGER + MENU MOBILE ====== */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #1f2430;
+      border-radius: 999px;
+      transition: 0.25s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 65%;
+      height: 100vh;
+      background: rgba(248,249,255,0.97);
+      padding-top: 80px;
+      padding-left: 24px;
+      padding-right: 24px;
+      box-shadow:-6px 0 26px rgba(15,23,42,0.25);
+      z-index: 1000;
+      display: none;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .mobile-menu a{
+      font-size:1.1rem;
+      color:var(--primary);
+    }
+
     @media(max-width:700px){
       .nav-links{display:none;}
+      .hamburger{display:flex;}
     }
+    /* ====== FIN HAMBURGER ====== */
 
     main{
       padding:3.2rem 0 4rem;
@@ -260,64 +305,84 @@
       padding:1.6rem 0 2.2rem;
       border-top:1px solid rgba(209,213,219,.6);
     }
+
     /* Bouton animé générique */
-.btn-animated{
-  display:inline-flex;
-  align-items:center;
-  gap:0.45rem;
-  padding:0.58rem 1.35rem;
-  border-radius:999px;
-  background:linear-gradient(135deg,#5299ee,#5c6592);
-  color:#ffffff;
-  font-weight:600;
-  font-size:.88rem;
-  border:none;
-  box-shadow:0 10px 22px rgba(82,153,238,0.38);
-  text-decoration:none;
-  cursor:pointer;
-  transition:
-    transform .18s ease,
-    box-shadow .18s ease,
-    filter .18s ease,
-    background .25s ease;
-}
+    .btn-animated{
+      display:inline-flex;
+      align-items:center;
+      gap:0.45rem;
+      padding:0.58rem 1.35rem;
+      border-radius:999px;
+      background:linear-gradient(135deg,#5299ee,#5c6592);
+      color:#ffffff;
+      font-weight:600;
+      font-size:.88rem;
+      border:none;
+      box-shadow:0 10px 22px rgba(82,153,238,0.38);
+      text-decoration:none;
+      cursor:pointer;
+      transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        filter .18s ease,
+        background .25s ease;
+    }
 
-.btn-animated:hover{
-  transform:translateY(-2px) scale(1.03);
-  box-shadow:0 15px 35px rgba(15,23,42,0.35);
-  filter:brightness(1.05);
-}
+    .btn-animated:hover{
+      transform:translateY(-2px) scale(1.03);
+      box-shadow:0 15px 35px rgba(15,23,42,0.35);
+      filter:brightness(1.05);
+    }
 
-/* Icône PDF */
-.pdf-icon{
-  font-size:1rem;
-}
+    /* Icône PDF */
+    .pdf-icon{
+      font-size:1rem;
+    }
 
-/* LinkedIn officiel */
-.btn-linkedin{
-  background:#0A66C2;
-}
+    /* LinkedIn officiel */
+    .btn-linkedin{
+      background:#0A66C2;
+    }
 
-.btn-linkedin:hover{
-  background:#004182;
-  box-shadow:0 14px 30px rgba(0,66,130,0.45);
-  transform:translateY(-2px) scale(1.03);
-}
+    .btn-linkedin:hover{
+      background:#004182;
+      box-shadow:0 14px 30px rgba(0,66,130,0.45);
+      transform:translateY(-2px) scale(1.03);
+    }
   </style>
 </head>
 <body>
 <header>
   <div class="container nav">
     <div class="logo">LR • Portfolio</div>
+
+    <!-- Hamburger + menu mobile -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="mobile-menu">
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="stages.html">Stages</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projets.html">Projets</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Menu desktop inchangé -->
     <nav class="nav-links">
-  <a href="index.html">Accueil</a>
-  <a href="apropos.html">À propos</a>
-  <a href="stages.html">Stages</a>
-  <a href="competences.html">Compétences</a>
-  <a href="projets.html">Projets</a>
-  <a href="cv.html">CV</a>
-  <a href="contact.html">Contact</a>
-</nav>
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="stages.html">Stages</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projets.html">Projets</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
 </header>
 
@@ -350,16 +415,16 @@
 
       <div class="about-links">
         <a href="CV_Louka_Roman.pdf" 
-   target="_blank"
-   class="btn-animated">
-   <span class="pdf-icon">📄</span> CV PDF
-</a>
+           target="_blank"
+           class="btn-animated">
+          <span class="pdf-icon">📄</span> CV PDF
+        </a>
 
-<a href="https://www.linkedin.com/in/louka-roman-0604582a0/"
-   target="_blank"
-   class="btn-animated btn-linkedin">
-   LinkedIn
-</a>
+        <a href="https://www.linkedin.com/in/louka-roman-0604582a0/"
+           target="_blank"
+           class="btn-animated btn-linkedin">
+          LinkedIn
+        </a>
       </div>
     </div>
 
@@ -399,8 +464,15 @@
 <footer>
   © <span id="year"></span> — Portfolio de Louka Roman
 </footer>
+
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  function toggleMenu(){
+    const menu = document.querySelector('.mobile-menu');
+    if(!menu) return;
+    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+  }
 </script>
 </body>
 </html>
