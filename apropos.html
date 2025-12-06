@@ -11,8 +11,13 @@
       --primary:#5c6592;
       --secondary:#5299ee;
       --card-bg:#ffffff;
-      --shadow-soft:0 10px 30px rgba(0,0,0,.08);
+      --shadow-soft:0 10px 30px rgba(0,0,0,0.08);
       --radius-full:999px;
+
+      /* pour footer premium */
+      --accent:#9da3da;
+      --bg:#f5f6fb;
+      --text:#1f2430;
     }
 
     *{box-sizing:border-box;margin:0;padding:0;}
@@ -87,39 +92,16 @@
       width: 100%;
     }
 
-    /* === Bouton hamburger identique à l'accueil === */
-    .nav-toggle{
-      display:none;
-      background:none;
-      border:none;
-      padding:0.25rem;
-      cursor:pointer;
+    /* lien actif (À propos) */
+    .nav-links a.active{
+      color:var(--secondary);
+    }
+    .nav-links a.active::after{
+      width:100%;
     }
 
-    .nav-toggle span{
-      display:block;
-      width:22px;
-      height:2px;
-      border-radius:999px;
-      background:#4b5563;
-      transition:transform .2s ease, opacity .2s ease;
-    }
-
-    .nav-toggle span + span{
-      margin-top:4px;
-    }
-
-    /* État ouvert du hamburger -> croix */
-    .nav-toggle.open span:nth-child(1){
-      transform:translateY(6px) rotate(45deg);
-    }
-
-    .nav-toggle.open span:nth-child(2){
-      opacity:0;
-    }
-
-    .nav-toggle.open span:nth-child(3){
-      transform:translateY(-6px) rotate(-45deg);
+    @media(max-width:700px){
+      .nav-links{display:none;}
     }
 
     main{
@@ -132,32 +114,29 @@
     }
 
     h1{font-size:2rem;margin-bottom:.4rem;}
-    p.lead{font-size:1.02rem;color:#e5e7eb;max-width:700px;}
-
-    .card{
-      background:var(--card-bg);
-      border-radius:18px;
-      padding:1.5rem 1.7rem;
-      box-shadow:var(--shadow-soft);
-      border:1px solid rgba(209,213,219,.85);
-    }
-
+    p.lead{font-size:1.02rem;color:#4b5263;margin-top:.6rem;max-width:720px;}
     .muted{font-size:.95rem;color:#4b5263;}
 
-    /* Bannière haut de page */
+    /* Bannière de page */
     .page-hero{
       margin:2.4rem auto 2.4rem;
-      background:linear-gradient(135deg,rgba(92,101,146,.95),rgba(82,153,238,.95));
+      background:linear-gradient(135deg,rgba(92,101,146,0.95),rgba(82,153,238,0.95));
       color:#f9fafb;
       padding:1.8rem 2rem;
       border-radius:22px;
-      box-shadow:0 16px 40px rgba(15,23,42,.35);
+      box-shadow:0 16px 40px rgba(15,23,42,0.35);
     }
 
     .page-hero h1{
       margin:0;
       font-size:2rem;
       color:#f9fafb;
+    }
+
+    .page-hero .lead{
+      margin-top:.6rem;
+      color:#e5e7eb;
+      max-width:720px;
     }
 
     .page-hero .label{
@@ -170,11 +149,6 @@
       margin-bottom:.5rem;
     }
 
-    .page-hero .lead{
-      margin-top:.6rem;
-      color:#e5e7eb;
-    }
-
     /* Icône ronde dans la bannière */
     .icon-circle{
       display:inline-flex;
@@ -183,25 +157,17 @@
       width:22px;
       height:22px;
       border-radius:999px;
-      background:rgba(15,23,42,.25);
+      background:rgba(15,23,42,0.25);
       margin-right:.45rem;
       font-size:.9rem;
     }
 
-    /* Layout avec sidebar */
+    /* Mise en page du bloc à deux colonnes */
     .grid-about{
       display:grid;
-      grid-template-columns:minmax(0,1.05fr) minmax(0,2fr);
+      grid-template-columns: minmax(0, 2.5fr) minmax(0, 3.5fr);
       gap:1.8rem;
-      margin-top:2.2rem;
-    }
-    /* Lien actif dans le menu */
-    .nav-links a.active {
-      color: var(--secondary);
-    }
-
-    .nav-links a.active::after {
-      width: 100%;
+      align-items:flex-start;
     }
 
     @media(max-width:900px){
@@ -210,36 +176,45 @@
       }
     }
 
+    .card{
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:1.6rem 1.8rem;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(209,213,219,0.9);
+    }
+
+    /* Colonne gauche */
     .about-sidebar{
       text-align:center;
     }
 
     .about-photo{
-      width:120px;
-      height:120px;
+      width:130px;
+      height:130px;
       border-radius:50%;
       object-fit:cover;
+      margin:0 auto 0.9rem auto;
+      box-shadow:0 10px 25px rgba(0,0,0,0.18);
       border:4px solid #ffffff;
-      box-shadow:0 10px 25px rgba(0,0,0,.18);
-      margin-bottom:.7rem;
     }
 
     .about-name{
-      font-weight:600;
-      font-size:1rem;
-      margin-bottom:.1rem;
+      font-weight:700;
+      font-size:1.15rem;
+      margin-bottom:.2rem;
     }
 
     .about-role{
       font-size:.9rem;
-      color:#6b7280;
-      margin-bottom:.6rem;
+      color:#4b5563;
+      margin-bottom:.9rem;
     }
 
     .about-list{
       list-style:none;
       padding:0;
-      margin:.4rem 0 0;
+      margin:0 0 1.2rem 0;
       font-size:.9rem;
       color:#4b5563;
       text-align:left;
@@ -248,7 +223,7 @@
     .about-list li{
       position:relative;
       padding-left:1.1rem;
-      margin-bottom:.2rem;
+      margin-bottom:.45rem;
     }
 
     .about-list li::before{
@@ -262,50 +237,17 @@
     .about-links{
       display:flex;
       flex-wrap:wrap;
-      justify-content:center;
       gap:.6rem;
+      justify-content:center;
       margin-top:1rem;
     }
 
-    .about-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:.45rem .95rem;
-      border-radius:999px;
-      font-size:.85rem;
-      border:none;
-      cursor:pointer;
-      background:linear-gradient(135deg,var(--secondary),var(--primary));
-      color:white;
-      box-shadow:0 8px 20px rgba(82,153,238,.35);
-    }
-
-    .about-btn.secondary{
-      background:white;
-      color:var(--primary);
-      border:1px solid rgba(92,101,146,.35);
-      box-shadow:none;
-    }
-
-    .about-main > .card + .card{
-      margin-top:1.5rem;
-    }
-
-    footer{
-      text-align:center;
-      font-size:.8rem;
-      color:#6b7280;
-      padding:1.6rem 0 2.2rem;
-      border-top:1px solid rgba(209,213,219,.6);
-    }
-
-    /* Bouton animé générique */
     .btn-animated{
       display:inline-flex;
       align-items:center;
-      gap:0.45rem;
-      padding:0.58rem 1.35rem;
+      justify-content:center;
+      gap:.4rem;
+      padding:.55rem 1.1rem;
       border-radius:999px;
       background:linear-gradient(135deg,#5299ee,#5c6592);
       color:#ffffff;
@@ -344,36 +286,125 @@
       transform:translateY(-2px) scale(1.03);
     }
 
-    /* === VERSION MOBILE : même logique que l'accueil === */
-    @media (max-width: 700px) {
-      .nav{
-        padding:0.55rem 0;
+    /* ───────── FOOTER PREMIUM ───────── */
+
+    .footer-banner{
+      margin-top:3.5rem;
+      padding:0 1.5rem 2.4rem;
+    }
+
+    .footer-inner{
+      position:relative;
+      max-width:1120px;
+      margin:0 auto;
+      background:linear-gradient(120deg, var(--primary), var(--secondary));
+      border-radius:999px;
+      min-height:70px;
+      padding:0 2.4rem 0 5rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:1.2rem;
+      color:#f9fafb;
+      box-shadow:
+        0 22px 55px rgba(15,23,42,0.40),
+        0 0 0 1px rgba(255,255,255,0.22);
+    }
+
+    .footer-logo-circle{
+      position:absolute;
+      left:0;
+      top:50%;
+      transform:translate(-28%, -50%);
+      width:90px;
+      height:90px;
+      border-radius:50%;
+      background:#ffffff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:"Libre Baskerville", serif;
+      font-weight:700;
+      font-size:1.35rem;
+      color:var(--primary);
+      box-shadow:0 16px 40px rgba(15,23,42,.45);
+      border:3px solid #e5e7ff;
+    }
+
+    .footer-items{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:0.9rem;
+      width:100%;
+    }
+
+    .footer-bubble{
+      background:rgba(255,255,255,0.12);
+      padding:0.5rem 1.1rem;
+      border-radius:999px;
+      font-size:0.9rem;
+      color:#f9fafb;
+      display:inline-flex;
+      align-items:center;
+      gap:0.45rem;
+      border:1px solid rgba(255,255,255,0.35);
+      backdrop-filter:blur(4px);
+      transition:
+        background 0.18s ease,
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .footer-bubble:hover{
+      background:rgba(255,255,255,0.24);
+      transform:translateY(-2px);
+      box-shadow:0 10px 22px rgba(15,23,42,0.35);
+    }
+
+    .footer-pill-icon{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      background:#0A66C2;
+      color:white;
+      font-size:0.75rem;
+      font-weight:700;
+    }
+
+    .footer-copy{
+      text-align:center;
+      margin-top:0.7rem;
+      font-size:0.85rem;
+      color:#6b7280;
+    }
+
+    @media (max-width: 700px){
+      .footer-banner{
+        padding-inline:1rem;
       }
 
-      .nav-toggle{
-        display:inline-flex;
+      .footer-inner{
         flex-direction:column;
-        align-items:center;
+        align-items:flex-start;
         justify-content:center;
+        min-height:auto;
+        padding:1.6rem 1.4rem 1.6rem 5rem;
       }
 
-      .nav-links{
-        position:absolute;
-        left:0;
-        right:0;
-        top:100%;
-        margin-top:.3rem;
+      .footer-items{
         flex-direction:column;
-        gap:.75rem;
-        background:rgba(248,249,255,.98);
-        padding:1rem 1.6rem 1.2rem;
-        border-bottom:1px solid rgba(209,213,219,.7);
-        box-shadow:0 12px 30px rgba(15,23,42,.18);
-        display:none; /* caché par défaut */
+        align-items:flex-start;
+        gap:0.7rem;
       }
 
-      .nav-links.open{
-        display:flex; /* visible quand .open */
+      .footer-logo-circle{
+        width:80px;
+        height:80px;
+        transform:translate(-18%, -50%);
       }
     }
   </style>
@@ -382,14 +413,6 @@
 <header>
   <div class="container nav">
     <div class="logo">LR • Portfolio</div>
-
-    <!-- Bouton hamburger identique à l'accueil -->
-    <button class="nav-toggle" aria-label="Ouvrir le menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <nav class="nav-links">
       <a href="index.html">Accueil</a>
       <a href="apropos.html" class="active">À propos</a>
@@ -477,9 +500,39 @@
   </section>
 </main>
 
-<footer>
-  © <span id="year"></span> — Portfolio de Louka Roman
+<footer class="footer-banner">
+  <div class="footer-inner">
+
+    <!-- Logo rond LR -->
+    <div class="footer-logo-circle">
+      <span>LR</span>
+    </div>
+
+    <!-- Les 3 bulles -->
+    <div class="footer-items">
+      <!-- Email -->
+      <a href="mailto:loukaroman@gmail.com" class="footer-bubble">
+        📧  loukaroman@gmail.com
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/louka-roman-0604582a0/" target="_blank" class="footer-bubble">
+        <span class="footer-pill-icon">in</span>
+        Mon profil LinkedIn
+      </a>
+
+      <!-- CV -->
+      <a href="CV_Louka_Roman.pdf" target="_blank" class="footer-bubble">
+        📄 Télécharger mon CV
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-copy">
+    © <span id="year"></span> — Portfolio de Louka Roman
+  </div>
 </footer>
+
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
