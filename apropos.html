@@ -87,54 +87,40 @@
       width: 100%;
     }
 
-    /* ====== HAMBURGER + MENU MOBILE ====== */
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 5px;
-      position: fixed;
-      top: 18px;
-      right: 18px;
-      z-index: 1001;
+    /* === Bouton hamburger identique à l'accueil === */
+    .nav-toggle{
+      display:none;
+      background:none;
+      border:none;
+      padding:0.25rem;
+      cursor:pointer;
     }
 
-    .hamburger span {
-      width: 28px;
-      height: 3px;
-      background: #1f2430;
-      border-radius: 999px;
-      transition: 0.25s;
+    .nav-toggle span{
+      display:block;
+      width:22px;
+      height:2px;
+      border-radius:999px;
+      background:#4b5563;
+      transition:transform .2s ease, opacity .2s ease;
     }
 
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 65%;
-      height: 100vh;
-      background: rgba(248,249,255,0.97);
-      padding-top: 80px;
-      padding-left: 24px;
-      padding-right: 24px;
-      box-shadow:-6px 0 26px rgba(15,23,42,0.25);
-      z-index: 1000;
-      display: none;
-      flex-direction: column;
-      gap: 22px;
+    .nav-toggle span + span{
+      margin-top:4px;
     }
 
-    .mobile-menu a{
-      font-size:1.1rem;
-      color:var(--primary);
+    /* État ouvert du hamburger -> croix */
+    .nav-toggle.open span:nth-child(1){
+      transform:translateY(6px) rotate(45deg);
     }
 
-    @media(max-width:700px){
-      .nav-links{display:none;}
-      .hamburger{display:flex;}
+    .nav-toggle.open span:nth-child(2){
+      opacity:0;
     }
-    /* ====== FIN HAMBURGER ====== */
+
+    .nav-toggle.open span:nth-child(3){
+      transform:translateY(-6px) rotate(-45deg);
+    }
 
     main{
       padding:3.2rem 0 4rem;
@@ -349,6 +335,39 @@
       box-shadow:0 14px 30px rgba(0,66,130,0.45);
       transform:translateY(-2px) scale(1.03);
     }
+
+    /* === VERSION MOBILE : même logique que l'accueil === */
+    @media (max-width: 700px) {
+      .nav{
+        padding:0.55rem 0;
+      }
+
+      .nav-toggle{
+        display:inline-flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+      }
+
+      .nav-links{
+        position:absolute;
+        left:0;
+        right:0;
+        top:100%;
+        margin-top:.3rem;
+        flex-direction:column;
+        gap:.75rem;
+        background:rgba(248,249,255,.98);
+        padding:1rem 1.6rem 1.2rem;
+        border-bottom:1px solid rgba(209,213,219,.7);
+        box-shadow:0 12px 30px rgba(15,23,42,.18);
+        display:none; /* caché par défaut */
+      }
+
+      .nav-links.open{
+        display:flex; /* visible quand .open */
+      }
+    }
   </style>
 </head>
 <body>
@@ -356,24 +375,13 @@
   <div class="container nav">
     <div class="logo">LR • Portfolio</div>
 
-    <!-- Hamburger + menu mobile -->
-    <div class="hamburger" onclick="toggleMenu()">
+    <!-- Bouton hamburger identique à l'accueil -->
+    <button class="nav-toggle" aria-label="Ouvrir le menu">
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
 
-    <nav class="mobile-menu">
-      <a href="index.html">Accueil</a>
-      <a href="apropos.html">À propos</a>
-      <a href="stages.html">Stages</a>
-      <a href="competences.html">Compétences</a>
-      <a href="projets.html">Projets</a>
-      <a href="cv.html">CV</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-
-    <!-- Menu desktop inchangé -->
     <nav class="nav-links">
       <a href="index.html">Accueil</a>
       <a href="apropos.html">À propos</a>
@@ -464,14 +472,18 @@
 <footer>
   © <span id="year"></span> — Portfolio de Louka Roman
 </footer>
-
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  function toggleMenu(){
-    const menu = document.querySelector('.mobile-menu');
-    if(!menu) return;
-    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+  // Script identique à l'accueil
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks  = document.querySelector('.nav-links');
+
+  if (navToggle && navLinks){
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+    });
   }
 </script>
 </body>
