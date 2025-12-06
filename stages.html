@@ -146,6 +146,14 @@
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:1.6rem;
     }
+    /* Lien actif dans le menu */
+    .nav-links a.active {
+      color: var(--secondary);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
 
     @media(max-width:900px){
       .grid-2{
@@ -310,11 +318,12 @@
     <nav class="nav-links">
       <a href="index.html">Accueil</a>
       <a href="apropos.html">À propos</a>
-      <a href="stages.html">Stages</a>
+      <a href="stages.html" class="active">Stages</a>
       <a href="competences.html">Compétences</a>
       <a href="projets.html">Projets</a>
       <a href="cv.html">CV</a>
       <a href="contact.html">Contact</a>
+
     </nav>
   </div>
 </header>
