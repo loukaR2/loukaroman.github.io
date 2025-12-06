@@ -102,53 +102,83 @@
     .nav-links a:hover::after {
       width: 100%;
     }
+
+    /* Bouton hamburger (desktop caché) */
+    .nav-toggle{
+      display:none;
+      background:none;
+      border:none;
+      padding:0.25rem;
+      cursor:pointer;
+    }
+
+    .nav-toggle span{
+      display:block;
+      width:22px;
+      height:2px;
+      border-radius:999px;
+      background:#4b5563;
+      transition:transform .2s ease, opacity .2s ease;
+    }
+
+    .nav-toggle span + span{
+      margin-top:4px;
+    }
+
+    /* État ouvert du hamburger -> croix */
+    .nav-toggle.open span:nth-child(1){
+      transform:translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2){
+      opacity:0;
+    }
+
+    .nav-toggle.open span:nth-child(3){
+      transform:translateY(-6px) rotate(-45deg);
+    }
+
     /* Bannière de page */
-.page-hero {
-  margin: 2.4rem auto 2.4rem;
-  background: linear-gradient(135deg, rgba(92,101,146,0.95), rgba(82,153,238,0.95));
-  color: #f9fafb;
-  padding: 1.8rem 2rem;
-  border-radius: 22px;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
-}
+    .page-hero {
+      margin: 2.4rem auto 2.4rem;
+      background: linear-gradient(135deg, rgba(92,101,146,0.95), rgba(82,153,238,0.95));
+      color: #f9fafb;
+      padding: 1.8rem 2rem;
+      border-radius: 22px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
+    }
 
-.page-hero h1 {
-  margin: 0;
-  font-size: 2rem;
-  color: #f9fafb;
-}
+    .page-hero h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #f9fafb;
+    }
 
-.page-hero .lead {
-  margin-top: 0.6rem;
-  color: #e5e7eb;
-}
+    .page-hero .lead {
+      margin-top: 0.6rem;
+      color: #e5e7eb;
+    }
 
-.page-hero .label {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  opacity: 0.9;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
+    .page-hero .label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      opacity: 0.9;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
     /* Icône ronde dans la bannière */
-.icon-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.25);
-  margin-right: 0.45rem;
-  font-size: 0.9rem;
-}
-
-
-    @media (max-width: 700px) {
-      .nav-links {
-        display: none;
-      }
+    .icon-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.25);
+      margin-right: 0.45rem;
+      font-size: 0.9rem;
     }
 
     /* MAIN LAYOUT */
@@ -359,9 +389,40 @@
       }
     }
 
+    /* VERSION MOBILE : menu hamburger */
     @media (max-width: 700px) {
       .sections-grid {
         grid-template-columns: 1fr;
+      }
+
+      .nav{
+        padding:0.55rem 0;
+      }
+
+      .nav-toggle{
+        display:inline-flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+      }
+
+      .nav-links{
+        position:absolute;
+        left:0;
+        right:0;
+        top:100%;
+        margin-top:.3rem;
+        flex-direction:column;
+        gap:.75rem;
+        background:rgba(248,249,255,.98);
+        padding:1rem 1.6rem 1.2rem;
+        border-bottom:1px solid rgba(209,213,219,.7);
+        box-shadow:0 12px 30px rgba(15,23,42,.18);
+        display:none; /* caché par défaut */
+      }
+
+      .nav-links.open{
+        display:flex; /* visible quand .open */
       }
     }
   </style>
@@ -429,42 +490,41 @@
 
   <!-- LIENS VERS LES PAGES -->
   <section class="container sections-links">
-<section>
-  <h2>Explorer mon portfolio</h2>
+    <section>
+      <h2>Explorer mon portfolio</h2>
 
-  <div class="sections-grid">
-    <a href="apropos.html" class="card-link">
-      <h3>À propos & formation</h3>
-      <p>Présentation de mon parcours, de ma formation en BUT GEA et de mes objectifs d’études.</p>
-    </a>
+      <div class="sections-grid">
+        <a href="apropos.html" class="card-link">
+          <h3>À propos & formation</h3>
+          <p>Présentation de mon parcours, de ma formation en BUT GEA et de mes objectifs d’études.</p>
+        </a>
 
-    <a href="stages.html" class="card-link">
-      <h3>Stages</h3>
-      <p>Expériences en cabinet comptable et au Crédit Agricole Alpes Provence.</p>
-    </a>
+        <a href="stages.html" class="card-link">
+          <h3>Stages</h3>
+          <p>Expériences en cabinet comptable et au Crédit Agricole Alpes Provence.</p>
+        </a>
 
-    <a href="competences.html" class="card-link">
-      <h3>Compétences</h3>
-      <p>Compétences techniques, humaines et apprentissages critiques (AC) du parcours GC2F.</p>
-    </a>
+        <a href="competences.html" class="card-link">
+          <h3>Compétences</h3>
+          <p>Compétences techniques, humaines et apprentissages critiques (AC) du parcours GC2F.</p>
+        </a>
 
-    <a href="projets.html" class="card-link">
-      <h3>Projets</h3>
-      <p>Projets marquants : Café du Monde, diagnostics financiers, travaux de gestion.</p>
-    </a>
+        <a href="projets.html" class="card-link">
+          <h3>Projets</h3>
+          <p>Projets marquants : Café du Monde, diagnostics financiers, travaux de gestion.</p>
+        </a>
 
-    <a href="cv.html" class="card-link">
-      <h3>CV</h3>
-      <p>Mon CV détaillé : informations, parcours, expériences et PDF téléchargeable.</p>
-    </a>
+        <a href="cv.html" class="card-link">
+          <h3>CV</h3>
+          <p>Mon CV détaillé : informations, parcours, expériences et PDF téléchargeable.</p>
+        </a>
 
-    <a href="contact.html" class="card-link">
-      <h3>Contact</h3>
-      <p>Accès direct à mon email et à mon profil LinkedIn.</p>
-    </a>
-  </div>
-</section>
-
+        <a href="contact.html" class="card-link">
+          <h3>Contact</h3>
+          <p>Accès direct à mon email et à mon profil LinkedIn.</p>
+        </a>
+      </div>
+    </section>
 </main>
 
 <footer>
@@ -473,6 +533,16 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks  = document.querySelector('.nav-links');
+
+  if (navToggle && navLinks){
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+    });
+  }
 </script>
 </body>
 </html>
