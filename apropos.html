@@ -238,6 +238,55 @@
       padding:1.6rem 0 2.2rem;
       border-top:1px solid rgba(209,213,219,.6);
     }
+    /* Bouton animé générique */
+.btn-animated{
+  display:inline-flex;
+  align-items:center;
+  gap:0.45rem;
+  padding:0.58rem 1.35rem;
+  border-radius:999px;
+  background:linear-gradient(135deg,#5299ee,#5c6592);
+  color:#ffffff;
+  font-weight:600;
+  font-size:.88rem;
+  border:none;
+  box-shadow:0 10px 22px rgba(82,153,238,0.38);
+  text-decoration:none;
+  cursor:pointer;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    filter .18s ease,
+    background .25s ease;
+}
+
+.btn-animated:hover{
+  transform:translateY(-2px) scale(1.03);
+  box-shadow:0 15px 35px rgba(15,23,42,0.35);
+  filter:brightness(1.05);
+}
+
+/* Icône PDF */
+.pdf-icon{
+  font-size:1rem;
+}
+
+/* LinkedIn officiel */
+.btn-linkedin{
+  background:#0A66C2;
+}
+
+.btn-linkedin:hover{
+  background:#004182;
+  box-shadow:0 14px 30px rgba(0,66,130,0.45);
+  transform:translateY(-2px) scale(1.03);
+}
+
+/* Icône LinkedIn officiel */
+.linkedin-icon{
+  font-size:1rem;
+  color:white;
+}
   </style>
 </head>
 <body>
