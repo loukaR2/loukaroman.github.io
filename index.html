@@ -383,7 +383,7 @@
       color: #6b7280;
     }
     
-/* FOOTER PREMIUM VERSION "BULLES" */
+/* ───────── FOOTER PREMIUM ───────── */
 
 .footer-banner{
   margin-top:3.5rem;
@@ -397,68 +397,70 @@
   margin:0 auto;
   background:linear-gradient(120deg, var(--primary), var(--secondary));
   border-radius:999px;
-  padding:0 2.4rem 0 4.8rem; /* pas de gros padding vertical → on fixe la hauteur */
-  min-height:86px;            /* ★ hauteur fixe du bandeau */
+  min-height:70px; /* bandeau plus fin */
+  padding:0 2.4rem 0 5rem;
   display:flex;
-  align-items:center;         /* centre verticalement le contenu */
-  justify-content:center;     /* centre horizontalement les bulles */
-  gap:2rem;
+  align-items:center;      /* centre verticalement */
+  justify-content:center;  /* centre horizontalement les bulles */
+  gap:1.2rem;
   color:#f9fafb;
-
-  /* ★ lueur externe propre */
   box-shadow:
-    0 22px 55px rgba(15,23,42,0.40),
-    0 0 0 1px rgba(255,255,255,0.22);
+    0 22px 55px rgba(15,23,42,0.40),  /* grosse lueur externe */
+    0 0 0 1px rgba(255,255,255,0.22);  /* léger contour clair */
 }
 
-/* Logo LR rond */
+/* Logo LR rond qui dépasse */
 .footer-logo-circle{
   position:absolute;
   left:0;
   top:50%;
-  transform:translate(-20%, -50%); /* ★ parfaitement centré verticalement */
-  width:78px;
-  height:78px;
-  border-radius:999px;
+  transform:translate(-28%, -50%); /* bien au centre vertical */
+  width:90px;
+  height:90px;
+  border-radius:50%;
   background:#ffffff;
   display:flex;
   align-items:center;
   justify-content:center;
   font-family:"Libre Baskerville", serif;
   font-weight:700;
-  font-size:1.3rem;
+  font-size:1.35rem;
   color:var(--primary);
-  box-shadow:0 14px 36px rgba(15,23,42,.45);
+  box-shadow:0 16px 40px rgba(15,23,42,.45);
   border:3px solid #e5e7ff;
 }
 
 /* Conteneur des bulles */
 .footer-items{
   display:flex;
-  gap:1rem;
   flex-wrap:wrap;
-  justify-content:center; /* bulles centrées sur toute la largeur */
+  justify-content:center;
+  gap:0.9rem;
   width:100%;
 }
 
-/* BULLES PREMIUM */
+/* Bulles de contact */
 .footer-bubble{
-  background:rgba(255,255,255,0.16);
-  padding:0.55rem 1rem;
+  background:rgba(255,255,255,0.12);
+  padding:0.5rem 1.1rem;
   border-radius:999px;
   font-size:0.9rem;
-  color:#ffffff;
-  transition:0.25s ease;
-  display:flex;
+  color:#f9fafb;
+  display:inline-flex;
   align-items:center;
   gap:0.45rem;
+  border:1px solid rgba(255,255,255,0.35);
   backdrop-filter:blur(4px);
-  border:1px solid rgba(255,255,255,0.34);
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
 .footer-bubble:hover{
-  background:rgba(255,255,255,0.26);
+  background:rgba(255,255,255,0.24);
   transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(15,23,42,0.35);
 }
 
 /* pastille LinkedIn */
@@ -475,7 +477,7 @@
   font-weight:700;
 }
 
-/* Copyright */
+/* Texte copyright */
 .footer-copy{
   text-align:center;
   margin-top:0.7rem;
@@ -502,6 +504,29 @@
       .sections-grid {
         grid-template-columns: 1fr;
       }
+      .footer-banner{
+    padding-inline:1rem;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    min-height:auto;
+    padding:1.6rem 1.4rem 1.6rem 5rem;
+  }
+
+  .footer-items{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0.7rem;
+  }
+
+  .footer-logo-circle{
+    width:80px;
+    height:80px;
+    transform:translate(-18%, -50%);
+  }
 
       .nav{
         padding:0.55rem 0;
@@ -646,7 +671,6 @@
 
     <!-- Les 3 bulles -->
     <div class="footer-items">
-
       <!-- Email -->
       <a href="mailto:loukaroman@gmail.com" class="footer-bubble">
         📧  loukaroman@gmail.com
@@ -654,14 +678,14 @@
 
       <!-- LinkedIn -->
       <a href="https://www.linkedin.com/in/louka-roman-0604582a0/" target="_blank" class="footer-bubble">
-        <span class="footer-pill-icon">in</span> Mon profil LinkedIn
+        <span class="footer-pill-icon">in</span>
+        Mon profil LinkedIn
       </a>
 
       <!-- CV -->
       <a href="CV_Louka_Roman.pdf" target="_blank" class="footer-bubble">
         📄 Télécharger mon CV
       </a>
-
     </div>
   </div>
 
