@@ -5,30 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV – Louka Roman</title>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --primary:#5c6592;
       --secondary:#5299ee;
-      --card-bg:#fff;
+      --card-bg:#ffffff;
       --shadow-soft:0 10px 30px rgba(0,0,0,.08);
     }
+
     *{box-sizing:border-box;margin:0;padding:0;}
+
     body{
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background:linear-gradient(135deg,#f8f9ff,#eef3ff);
       color:#1f2430;
       line-height:1.6;
     }
+
     a{text-decoration:none;color:inherit;}
-    .container{width:min(1120px,100% - 2.5rem);margin:0 auto;}
+
+    .container{
+      width:min(1120px,100% - 2.5rem);
+      margin:0 auto;
+    }
+
     header{
-      position:sticky;top:0;
+      position:sticky;
+      top:0;
+      z-index:20;
       background:rgba(248,249,255,.94);
       backdrop-filter:blur(14px);
       border-bottom:1px solid rgba(156,163,175,.18);
-      z-index:20;
     }
-    .nav{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;}
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:.7rem 0;
+    }
+
     .logo{
       font-family:"Libre Baskerville",serif;
       font-weight:700;
@@ -41,160 +58,170 @@
       border:1px solid rgba(92,101,146,.2);
       background:rgba(255,255,255,.8);
     }
-    .nav-links{display:flex;gap:1.3rem;font-size:.95rem;}
-    main{padding:3.2rem 0 4rem;}
+
+    .nav-links{
+      display:flex;
+      gap:1.3rem;
+      font-size:.95rem;
+    }
+
+    @media(max-width:700px){
+      .nav-links{display:none;}
+    }
+
+    main{
+      padding:3.2rem 0 4rem;
+    }
+
     h1,h2,h3{
       font-family:"Libre Baskerville",serif;
       color:var(--primary);
     }
-    h1{font-size:2rem;margin-bottom:.4rem;}
-    h2{font-size:1.3rem;margin-bottom:.4rem;}
-    p.lead{font-size:1.02rem;color:#4b5263;max-width:680px;margin-top:.4rem;}
-    .cv-grid{
-      display:grid;
-      grid-template-columns:1.1fr 2fr;
-      gap:2rem;
-      margin-top:2.2rem;
-    }
+
+    .muted{font-size:.95rem;color:#4b5263;}
+
     .card{
       background:var(--card-bg);
       border-radius:18px;
       padding:1.5rem 1.7rem;
       box-shadow:var(--shadow-soft);
-      border:1px solid rgba(209,213,219,.8);
+      border:1px solid rgba(209,213,219,.85);
     }
-    .section-title{
-      font-size:1rem;
-      font-weight:700;
+
+    .cv-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:1.6rem;
+      margin-top:2rem;
+    }
+
+    @media(max-width:900px){
+      .cv-grid{grid-template-columns:1fr;}
+    }
+
+    .cv-section-title{
+      font-size:.9rem;
+      letter-spacing:.16em;
       text-transform:uppercase;
-      letter-spacing:.08em;
-      color:#4b5563;
-      margin-bottom:.6rem;
+      color:#6b7280;
+      margin-bottom:.4rem;
     }
-    .info-row{margin-bottom:.35rem;font-size:.95rem;}
-    .muted{font-size:.9rem;color:#6b7280;}
-    .item{margin-bottom:1rem;}
-    .item-title{font-weight:600;font-size:.97rem;}
-    .item-sub{font-size:.9rem;color:#4b5563;}
-    .item-dates{font-size:.85rem;color:#6b7280;margin-bottom:.2rem;}
-    ul{list-style:none;margin-top:.4rem;}
-    ul li{position:relative;padding-left:1.1rem;font-size:.9rem;margin-bottom:.2rem;}
-    ul li::before{content:"•";position:absolute;left:0;top:0;color:var(--secondary);}
-    .badge{
-      display:inline-block;
-      padding:.18rem .6rem;
-      border-radius:999px;
-      background:rgba(82,153,238,.12);
-      color:#1f2937;
+
+    /* Bannière */
+    .page-hero{
+      margin:2.4rem auto 1.8rem;
+      background:linear-gradient(135deg,rgba(92,101,146,.95),rgba(82,153,238,.95));
+      color:#f9fafb;
+      padding:1.8rem 2rem;
+      border-radius:22px;
+      box-shadow:0 16px 40px rgba(15,23,42,.35);
+    }
+
+    .page-hero h1{
+      margin:0;
+      font-size:2rem;
+      color:#ffffff; /* Titre bien blanc */
+    }
+
+    .page-hero .label{
       font-size:.78rem;
-      margin-right:.3rem;
-      margin-bottom:.25rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      opacity:.9;
+      display:inline-flex;
+      align-items:center;
+      margin-bottom:.5rem;
     }
+
+    .page-hero .lead{
+      margin-top:.6rem;
+      color:#e5e7eb;
+      max-width:700px;
+    }
+
+    .icon-circle{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:22px;height:22px;
+      border-radius:999px;
+      background:rgba(15,23,42,.25);
+      margin-right:.45rem;
+      font-size:.9rem;
+    }
+
+    /* Bouton CV */
     .btn-cv{
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.75rem 1.6rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg,#5299ee,#5c6592);
-  color: #f9fafb;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border: none;
-  box-shadow: 0 12px 30px rgba(82,153,238,0.45);
-  text-decoration: none;
-  cursor: pointer;
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease,
-    filter 0.18s ease;
-}
-
-.btn-cv:hover{
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 16px 40px rgba(15,23,42,0.4);
-  filter: brightness(1.05);
-}
+      display:inline-flex;
+      align-items:center;
+      gap:0.45rem;
+      padding:0.75rem 1.6rem;
+      border-radius:999px;
+      background:linear-gradient(135deg,#5299ee,#5c6592);
+      color:#f9fafb;
+      font-weight:600;
+      font-size:.95rem;
+      border:none;
+      box-shadow:0 12px 30px rgba(82,153,238,0.45);
+      text-decoration:none;
+      cursor:pointer;
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        filter 0.18s ease;
+      margin-top:1.2rem;
     }
-    /* Bannière de page */
-.page-hero {
-  margin: 2.4rem auto 2.4rem;
-  background: linear-gradient(135deg, rgba(92,101,146,0.95), rgba(82,153,238,0.95));
-  color: #f9fafb;
-  padding: 1.8rem 2rem;
-  border-radius: 22px;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
-}
 
-.page-hero h1 {
-  margin: 0;
-  font-size: 2rem;
-  color: #f9fafb;
-}
+    .btn-cv:hover{
+      transform:translateY(-2px) scale(1.02);
+      box-shadow:0 16px 40px rgba(15,23,42,0.4);
+      filter:brightness(1.05);
+    }
 
-.page-hero .lead {
-  margin-top: 0.6rem;
-  color: #e5e7eb;
-}
+    /* Timeline */
+    .timeline{
+      margin-top:2.8rem;
+      border-left:2px solid rgba(148,163,184,0.9);
+      padding-left:1.4rem;
+    }
 
-.page-hero .label {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  opacity: 0.9;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
-    /* Icône ronde dans la bannière */
-.icon-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.25);
-  margin-right: 0.45rem;
-  font-size: 0.9rem;
-}
-    /* Timeline parcours */
-.timeline {
-  margin-top: 2.5rem;
-  border-left: 2px solid rgba(148, 163, 184, 0.9);
-  padding-left: 1.4rem;
-}
+    .timeline-item{
+      position:relative;
+      margin-bottom:1.3rem;
+    }
 
-.timeline-item {
-  position: relative;
-  margin-bottom: 1.3rem;
-}
+    .timeline-dot{
+      position:absolute;
+      left:-1.9rem;
+      top:0.3rem;
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:#5299ee;
+      box-shadow:0 0 0 4px rgba(82,153,238,0.25);
+    }
 
-.timeline-dot {
-  position: absolute;
-  left: -1.9rem;
-  top: 0.3rem;
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: #5299ee;
-  box-shadow: 0 0 0 4px rgba(82, 153, 238, 0.25);
-}
+    .timeline-year{
+      font-weight:600;
+      color:#111827;
+      font-size:.95rem;
+    }
 
-.timeline-year {
-  font-weight: 600;
-  color: #111827;
-  font-size: 0.95rem;
-}
+    .timeline-text{
+      font-size:.9rem;
+      color:#4b5563;
+    }
 
-.timeline-text {
-  font-size: 0.9rem;
-  color: #4b5563;
-}
-    footer{text-align:center;font-size:.8rem;color:#6b7280;padding:1.6rem 0 2.2rem;border-top:1px solid rgba(209,213,219,.6);}
-    @media(max-width:900px){.cv-grid{grid-template-columns:1fr;}}
-    @media(max-width:700px){.nav-links{display:none;}}
+    footer{
+      text-align:center;
+      font-size:.8rem;
+      color:#6b7280;
+      padding:1.6rem 0 2.2rem;
+      border-top:1px solid rgba(209,213,219,.6);
+    }
   </style>
 </head>
+
 <body>
 <header>
   <div class="container nav">
@@ -212,6 +239,7 @@
 </header>
 
 <main class="container">
+  <!-- Bannière -->
   <section class="page-hero">
     <div class="label"><span class="icon-circle">📄</span> Profil</div>
     <h1>CV en ligne</h1>
@@ -221,147 +249,92 @@
     </p>
   </section>
 
+  <!-- Bouton CV -->
   <a href="CV_Louka_Roman.pdf" class="btn-cv" target="_blank">
     📄 Télécharger le CV au format PDF
   </a>
 
+  <!-- Contenu CV -->
   <div class="cv-grid">
-    <!-- Colonne gauche : infos / compétences -->
     <div class="card">
-      <div class="section">
-        <div class="section-title">Informations personnelles</div>
-        <p class="info-row"><strong>Nom :</strong> Roman Louka</p>
-        <p class="info-row"><strong>Date de naissance :</strong> 04/06/2005</p>
-        <p class="info-row"><strong>Adresse :</strong> 1 chemin de la montagne, 05500 La Fare-en-Champsaur</p>
-        <p class="info-row"><strong>Téléphone :</strong> 07 62 48 76 10</p>
-        <p class="info-row"><strong>Email :</strong> <a href="mailto:loukaroman@gmail.com">loukaroman@gmail.com</a></p>
-        <p class="info-row"><strong>Permis :</strong> Permis B</p>
-      </div>
-
-      <hr style="border:none;border-top:1px solid rgba(209,213,219,.8);margin:1.1rem 0;">
-
-      <div class="section">
-        <div class="section-title">Compétences</div>
-        <span class="badge">Comptabilité générale</span>
-        <span class="badge">Finance</span>
-        <span class="badge">Analyse financière</span>
-        <span class="badge">Travail en équipe</span>
-        <span class="badge">Pack Microsoft Office</span>
-      </div>
-
-      <hr style="border:none;border-top:1px solid rgba(209,213,219,.8);margin:1.1rem 0;">
-
-      <div class="section">
-        <div class="section-title">Langues</div>
-        <p class="info-row">Anglais – niveau universitaire</p>
-        <p class="info-row">Espagnol – niveau lycée</p>
-      </div>
-
-      <hr style="border:none;border-top:1px solid rgba(209,213,219,.8);margin:1.1rem 0;">
-
-      <div class="section">
-        <div class="section-title">Centres d’intérêt</div>
-        <p class="info-row">Trail, ski alpin, ski de randonnée, voyages.</p>
-      </div>
+      <div class="cv-section-title">Informations personnelles</div>
+      <p class="muted">
+        <strong>Nom :</strong> Roman Louka<br>
+        <strong>Âge :</strong> 20 ans<br>
+        <strong>Permis :</strong> B<br>
+        <strong>Localisation :</strong> Gap / Région PACA<br>
+        <strong>Email :</strong> loukaroman@gmail.com
+      </p>
     </div>
 
-    <!-- Colonne droite : formation / expériences -->
     <div class="card">
-      <div class="section">
-        <div class="section-title">Formation</div>
+      <div class="cv-section-title">Formation</div>
+      <p class="muted">
+        <strong>2023 – aujourd'hui :</strong> BUT Gestion des Entreprises et des Administrations (GEA),
+        parcours Gestion Comptable, Fiscale et Financière – IUT (parcours GC2F).
+      </p>
+    </div>
 
-        <div class="item">
-          <div class="item-dates">2023 – aujourd’hui</div>
-          <div class="item-title">BUT GEA – Parcours Gestion Comptable, Fiscale et Financière (GC2F)</div>
-          <div class="item-sub">IUT (en 3<sup>e</sup> année)</div>
-          <ul>
-            <li>Comptabilité générale et analyse des états financiers</li>
-            <li>Fiscalité des particuliers et des entreprises</li>
-            <li>Analyse financière, SIG, ratios, budgets prévisionnels</li>
-          </ul>
-        </div>
+    <div class="card">
+      <div class="cv-section-title">Expériences professionnelles</div>
+      <p class="muted">
+        <strong>2025 :</strong> Stage au Crédit Agricole Alpes Provence – Centre d’affaires de Gap
+        (analyse de dossiers de financement, étude de bilans, ratios, cotations Banque de France).<br><br>
+        <strong>2024 :</strong> Stage au Cabinet Gandelli – Expertise comptable (tenue comptable, lettrage,
+        rapprochements bancaires, organisation des dossiers).<br><br>
+        <strong>Jobs d'été :</strong> Renault Champsaur, OZE, Intermarché (travail en équipe, rigueur, sens
+        des responsabilités).
+      </p>
+    </div>
 
-        <div class="item">
-          <div class="item-dates">Baccalauréat</div>
-          <div class="item-title">Sciences et technologies du management et de la gestion (STMG)</div>
-          <div class="item-sub">Mention à préciser le cas échéant</div>
-        </div>
-      </div>
+    <div class="card">
+      <div class="cv-section-title">Compétences</div>
+      <p class="muted">
+        Comptabilité générale et approfondie, fiscalité, analyse financière (SIG, ratios, CAF),
+        budgets prévisionnels, Excel avancé, outils de gestion.
+      </p>
+    </div>
 
-      <hr style="border:none;border-top:1px solid rgba(209,213,219,.8);margin:1.1rem 0;">
+    <div class="card">
+      <div class="cv-section-title">Langues</div>
+      <p class="muted">
+        Français : langue maternelle<br>
+        Anglais : bon niveau général
+      </p>
+    </div>
 
-      <div class="section">
-        <div class="section-title">Expériences professionnelles</div>
-
-        <div class="item">
-          <div class="item-dates">12/06/2025 – 14/08/2025</div>
-          <div class="item-title">Job d’été en comptabilité – Renault Champsaur</div>
-          <ul>
-            <li>Saisie et contrôle de pièces comptables</li>
-            <li>Participation au suivi administratif et financier de l’activité</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <div class="item-dates">07/04/2025 – 30/05/2025</div>
-          <div class="item-title">Stage en banque – Crédit Agricole Alpes Provence</div>
-          <ul>
-            <li>Analyse de bilans et comptes de résultat de clients professionnels</li>
-            <li>Calcul de ratios financiers (CAF, autonomie financière, endettement…)</li>
-            <li>Préparation de dossiers de financement (investissements, trésorerie)</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <div class="item-dates">22/01/2024 – 16/02/2024</div>
-          <div class="item-title">Stage en cabinet comptable – Cabinet Gandelli</div>
-          <ul>
-            <li>Tenue comptable : saisie achats, ventes, banques</li>
-            <li>Lettrage des comptes clients et fournisseurs</li>
-            <li>Rapprochements bancaires</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <div class="item-dates">2023 – 2024</div>
-          <div class="item-title">Job d’été – Monteur câbleur chez OZE</div>
-        </div>
-
-        <div class="item">
-          <div class="item-dates">2022 – 2023</div>
-          <div class="item-title">Job d’été – Mise en rayon à Intermarché</div>
-        </div>
-
-        <div class="item">
-          <div class="item-dates">2021 – 2022</div>
-          <div class="item-title">Job d’été – Mécanique chez Renault Champsaur</div>
-        </div>
-      </div>
+    <div class="card">
+      <div class="cv-section-title">Centres d'intérêt</div>
+      <p class="muted">
+        Entrepreneuriat, projets de café / restauration, sport, nouvelles technologies.
+      </p>
     </div>
   </div>
-    <section class="timeline">
+
+  <!-- Timeline -->
+  <section class="timeline">
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-year">2021 – 2022</div>
-      <div class="timeline-text">Jobs d’été (mécanique, mise en rayon) et premières expériences en entreprise.</div>
+      <div class="timeline-text">Premiers jobs d’été (mécanique, mise en rayon) et découverte du monde professionnel.</div>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-year">2023</div>
-      <div class="timeline-text">Entrée en BUT GEA, découverte de la comptabilité, fiscalité et analyse financière.</div>
+      <div class="timeline-text">Entrée en BUT GEA – début de la spécialisation en gestion comptable, fiscale et financière.</div>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-year">2024</div>
-      <div class="timeline-text">Stage en cabinet d’expertise comptable (Cabinet Gandelli) – tenue comptable et organisation des dossiers.</div>
+      <div class="timeline-text">Stage en cabinet d’expertise comptable (Cabinet Gandelli) – tenue et organisation des dossiers.</div>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-year">2025</div>
-      <div class="timeline-text">Stage au Crédit Agricole Alpes Provence – analyse financière de dossiers de financement pour les professionnels.</div>
+      <div class="timeline-text">Stage au Crédit Agricole Alpes Provence – analyse financière de dossiers de financement.</div>
     </div>
 
     <div class="timeline-item">
