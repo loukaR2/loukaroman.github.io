@@ -195,6 +195,14 @@
       gap:1.8rem;
       margin-top:2.2rem;
     }
+    /* Lien actif dans le menu */
+    .nav-links a.active {
+      color: var(--secondary);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
 
     @media(max-width:900px){
       .grid-about{
