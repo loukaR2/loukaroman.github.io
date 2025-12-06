@@ -5,65 +5,202 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact – Louka Roman</title>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{--primary:#5c6592;--secondary:#5299ee;--card-bg:#fff;--shadow-soft:0 10px 30px rgba(0,0,0,.08);}
+    :root{
+      --primary:#5c6592;
+      --secondary:#5299ee;
+      --card-bg:#ffffff;
+      --shadow-soft:0 10px 30px rgba(0,0,0,.08);
+    }
+
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#f8f9ff,#eef3ff);color:#1f2430;line-height:1.6;}
+
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:linear-gradient(135deg,#f8f9ff,#eef3ff);
+      color:#1f2430;
+      line-height:1.6;
+    }
+
     a{text-decoration:none;color:inherit;}
-    .container{width:min(1120px,100% - 2.5rem);margin:0 auto;}
-    header{position:sticky;top:0;background:rgba(248,249,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(156,163,175,.18);}
-    .nav{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;}
-    .logo{font-family:"Libre Baskerville",serif;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.9rem;color:var(--primary);padding:.45rem .95rem;border-radius:999px;border:1px solid rgba(92,101,146,.2);background:rgba(255,255,255,.8);}
-    .nav-links{display:flex;gap:1.3rem;font-size:.95rem;}
-    main{padding:3.2rem 0 4rem;}
-    h1{font-family:"Libre Baskerville",serif;color:var(--primary);font-size:2rem;margin-bottom:.6rem;}
-    p.lead{font-size:1.02rem;color:#4b5263;max-width:680px;}
-    .card{background:var(--card-bg);border-radius:18px;padding:2rem 2.1rem;box-shadow:var(--shadow-soft);border:1px solid rgba(209,213,219,.8);margin-top:2rem;}
+
+    .container{
+      width:min(1120px,100% - 2.5rem);
+      margin:0 auto;
+    }
+
+    /* HEADER / NAV */
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(248,249,255,.94);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(156,163,175,.18);
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:.7rem 0;
+    }
+
+    .logo{
+      font-family:"Libre Baskerville",serif;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:.9rem;
+      color:var(--primary);
+      padding:.45rem .95rem;
+      border-radius:999px;
+      border:1px solid rgba(92,101,146,.2);
+      background:rgba(255,255,255,.8);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:1.3rem;
+      font-size:.95rem;
+    }
+
+    .nav-links a{
+      position:relative;
+      color:#4b5563;
+      padding-bottom:.1rem;
+    }
+
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-0.1rem;
+      width:0;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg,#5299ee,#5c6592);
+      transition:width .2s ease;
+    }
+
+    .nav-links a:hover::after{
+      width:100%;
+    }
+
+    @media(max-width:700px){
+      .nav-links{display:none;}
+    }
+
+    /* PAGE */
+    main{
+      padding:3.2rem 0 4rem;
+    }
+
+    h1,h2{
+      font-family:"Libre Baskerville",serif;
+      color:var(--primary);
+    }
+
     .muted{font-size:1rem;color:#4b5563;}
+
+    .card{
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:1.6rem 1.8rem;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(209,213,219,.9);
+    }
+
     /* Bannière de page */
-.page-hero {
-  margin: 2.4rem auto 2.4rem;
-  background: linear-gradient(135deg, rgba(92,101,146,0.95), rgba(82,153,238,0.95));
-  color: #f9fafb;
-  padding: 1.8rem 2rem;
-  border-radius: 22px;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
-}
+    .page-hero{
+      margin:2.4rem auto 2.4rem;
+      background:linear-gradient(135deg,rgba(92,101,146,.95),rgba(82,153,238,.95));
+      color:#f9fafb;
+      padding:1.8rem 2rem;
+      border-radius:22px;
+      box-shadow:0 16px 40px rgba(15,23,42,.35);
+    }
 
-.page-hero h1 {
-  margin: 0;
-  font-size: 2rem;
-  color: #f9fafb;
-}
+    .page-hero h1{
+      margin:0;
+      font-size:2rem;
+      color:#f9fafb;
+    }
 
-.page-hero .lead {
-  margin-top: 0.6rem;
-  color: #e5e7eb;
-}
+    .page-hero .lead{
+      margin-top:.6rem;
+      color:#e5e7eb;
+      max-width:700px;
+    }
 
-.page-hero .label {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  opacity: 0.9;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
+    .page-hero .label{
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      opacity:.9;
+      display:inline-flex;
+      align-items:center;
+      margin-bottom:.5rem;
+    }
+
     /* Icône ronde dans la bannière */
-.icon-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.25);
-  margin-right: 0.45rem;
-  font-size: 0.9rem;
-}
+    .icon-circle{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      background:rgba(15,23,42,.25);
+      margin-right:.45rem;
+      font-size:.9rem;
+    }
 
-    footer{text-align:center;font-size:.8rem;color:#6b7280;padding:1.6rem 0 2.2rem;border-top:1px solid rgba(209,213,219,.6);}
-    @media(max-width:700px){.nav-links{display:none;}}
+    /* Bulle extérieure (comme Stages/Projets) */
+    .section-alt{
+      margin:3rem auto 0;
+      background:#e3e7ff;
+      border-radius:26px;
+      padding:2.3rem 2.4rem;
+      box-shadow:0 18px 45px rgba(148,163,184,.55);
+      border:1px solid rgba(129,140,248,.7);
+    }
+
+    .section-alt h2{
+      margin-top:0;
+      margin-bottom:1.2rem;
+    }
+
+    /* Bouton LinkedIn */
+    .btn-linkedin{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding:.6rem 1.1rem;
+      border-radius:50px;
+      background:#0A66C2;
+      color:#ffffff;
+      font-weight:500;
+      font-size:.95rem;
+      text-decoration:none;
+      box-shadow:0 4px 12px rgba(0,0,0,.15);
+      transition:transform .25s ease, box-shadow .25s ease;
+      margin-top:.6rem;
+    }
+
+    .btn-linkedin:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 20px rgba(15,23,42,.35);
+    }
+
+    footer{
+      text-align:center;
+      font-size:.8rem;
+      color:#6b7280;
+      padding:1.6rem 0 2.2rem;
+      border-top:1px solid rgba(209,213,219,.6);
+    }
   </style>
 </head>
 <body>
@@ -71,18 +208,19 @@
   <div class="container nav">
     <div class="logo">LR • Portfolio</div>
     <nav class="nav-links">
-  <a href="index.html">Accueil</a>
-  <a href="cv.html">CV</a>
-  <a href="apropos.html">À propos</a>
-  <a href="stages.html">Stages</a>
-  <a href="competences.html">Compétences</a>
-  <a href="projets.html">Projets</a>
-  <a href="contact.html">Contact</a>
-</nav>
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="stages.html">Stages</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projets.html">Projets</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
 </header>
 
 <main class="container">
+  <!-- Bannière -->
   <section class="page-hero">
     <div class="label"><span class="icon-circle">✉️</span> Me contacter</div>
     <h1>Contact</h1>
@@ -92,52 +230,44 @@
     </p>
   </section>
 
-  <div class="card">
-    <p class="muted" style="margin-bottom:1.5rem;">
-      📧 Email :
-      <a href="mailto:loukaroman@gmail.com">loukaroman@gmail.com</a>
-    </p>
+  <!-- Carte de contact dans une bulle violette -->
+  <section class="section-alt">
+    <h2>Coordonnées</h2>
+    <div class="card">
+      <p class="muted" style="margin-bottom:1.2rem;">
+        📧 Email :
+        <a href="mailto:loukaroman@gmail.com">loukaroman@gmail.com</a>
+      </p>
 
-    <a 
-      href="https://www.linkedin.com/in/louka-roman-0604582a0/" 
-      target="_blank" 
-      style="
-        display:inline-flex;
-        align-items:center;
-        gap:0.5rem;
-        padding:0.6rem 1.1rem;
-        border-radius:50px;
-        background:#0A66C2;
-        color:white;
-        font-weight:500;
-        font-size:0.95rem;
-        text-decoration:none;
-        box-shadow:0 4px 12px rgba(0,0,0,0.15);
-        transition:0.25s;
-      "
-      onmouseover="this.style.transform='translateY(-2px)'"
-      onmouseout="this.style.transform='translateY(0)'"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 
-        2.761 2.239 5 5 5h14c2.762 0 5-2.239 
-        5-5v-14c0-2.761-2.238-5-5-5zm-11 
-        19h-3v-10h3v10zm-1.5-11.268c-.966 
-        0-1.75-.79-1.75-1.764s.784-1.764 
-        1.75-1.764 1.75.79 
-        1.75 1.764-.784 1.764-1.75 
-        1.764zm13.5 11.268h-3v-5.604c0-3.368-4-3.113-4 
-        0v5.604h-3v-10h3v1.765c1.396-2.586 
-        7-2.777 7 2.476v5.759z"/>
-      </svg>
-      Mon profil LinkedIn
-    </a>
-  </div>
+      <a
+        href="https://www.linkedin.com/in/louka-roman-0604582a0/"
+        target="_blank"
+        class="btn-linkedin"
+      >
+        <!-- Icône LinkedIn blanche -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 
+          2.761 2.239 5 5 5h14c2.762 0 5-2.239 
+          5-5v-14c0-2.761-2.238-5-5-5zm-11 
+          19h-3v-10h3v10zm-1.5-11.268c-.966 
+          0-1.75-.79-1.75-1.764s.784-1.764 
+          1.75-1.764 1.75.79 
+          1.75 1.764-.784 1.764-1.75 
+          1.764zm13.5 11.268h-3v-5.604c0-3.368-4-3.113-4 
+          0v5.604h-3v-10h3v1.765c1.396-2.586 
+          7-2.777 7 2.476v5.759z"/>
+        </svg>
+        Mon profil LinkedIn
+      </a>
+    </div>
+  </section>
 </main>
 
 <footer>
   © <span id="year"></span> — Portfolio de Louka Roman
 </footer>
-<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
