@@ -217,6 +217,15 @@
       font-size:1.2rem;
       margin-bottom:1rem;
     }
+    
+    /* Lien actif dans le menu */
+    .nav-links a.active {
+      color: var(--secondary);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
 
     footer{
       text-align:center;
@@ -276,12 +285,12 @@
 
     <nav class="nav-links">
       <a href="index.html">Accueil</a>
-      <a href="apropos.html">À propos</a>
-      <a href="stages.html">Stages</a>
-      <a href="competences.html">Compétences</a>
-      <a href="projets.html">Projets</a>
-      <a href="cv.html">CV</a>
-      <a href="contact.html">Contact</a>
+    <a href="apropos.html">À propos</a>
+    <a href="stages.html">Stages</a>
+    <a href="competences.html">Compétences</a>
+    <a href="projets.html" class="active">Projets</a>
+    <a href="cv.html">CV</a>
+    <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
