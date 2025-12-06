@@ -88,8 +88,38 @@
       width:100%;
     }
 
-    @media(max-width:700px){
-      .nav-links{display:none;}
+    /* === Bouton hamburger (même logique que l’accueil) === */
+    .nav-toggle{
+      display:none;
+      background:none;
+      border:none;
+      padding:0.25rem;
+      cursor:pointer;
+    }
+
+    .nav-toggle span{
+      display:block;
+      width:22px;
+      height:2px;
+      border-radius:999px;
+      background:#4b5563;
+      transition:transform .2s ease, opacity .2s ease;
+    }
+
+    .nav-toggle span + span{
+      margin-top:4px;
+    }
+
+    .nav-toggle.open span:nth-child(1){
+      transform:translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2){
+      opacity:0;
+    }
+
+    .nav-toggle.open span:nth-child(3){
+      transform:translateY(-6px) rotate(-45deg);
     }
 
     /* PAGE */
@@ -201,12 +231,53 @@
       padding:1.6rem 0 2.2rem;
       border-top:1px solid rgba(209,213,219,.6);
     }
+
+    /* === VERSION MOBILE : menu hamburger comme l’accueil === */
+    @media (max-width: 700px) {
+      .nav{
+        padding:0.55rem 0;
+      }
+
+      .nav-toggle{
+        display:inline-flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+      }
+
+      .nav-links{
+        position:absolute;
+        left:0;
+        right:0;
+        top:100%;
+        margin-top:.3rem;
+        flex-direction:column;
+        gap:.75rem;
+        background:rgba(248,249,255,.98);
+        padding:1rem 1.6rem 1.2rem;
+        border-bottom:1px solid rgba(209,213,219,.7);
+        box-shadow:0 12px 30px rgba(15,23,42,.18);
+        display:none;
+      }
+
+      .nav-links.open{
+        display:flex;
+      }
+    }
   </style>
 </head>
 <body>
 <header>
   <div class="container nav">
     <div class="logo">LR • Portfolio</div>
+
+    <!-- Bouton hamburger identique à index -->
+    <button class="nav-toggle" aria-label="Ouvrir le menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <nav class="nav-links">
       <a href="index.html">Accueil</a>
       <a href="apropos.html">À propos</a>
@@ -222,7 +293,7 @@
 <main class="container">
   <!-- Bannière -->
   <section class="page-hero">
-    <div class="label"><span class="icon-circle">✉️</span> Me contacter</div>
+    <div class="label"><span class="icon-circle"✉️</span> Me contacter</div>
     <h1>Contact</h1>
     <p class="lead">
       Vous pouvez me contacter directement par email ou via mon profil LinkedIn. Je suis ouvert
@@ -268,6 +339,17 @@
 </footer>
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Script hamburger identique à l’accueil
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks  = document.querySelector('.nav-links');
+
+  if (navToggle && navLinks){
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+    });
+  }
 </script>
 </body>
 </html>
