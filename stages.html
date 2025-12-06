@@ -5,71 +5,207 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stages – Louka Roman</title>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{--primary:#5c6592;--secondary:#5299ee;--card-bg:#fff;--shadow-soft:0 10px 30px rgba(0,0,0,.08);}
+    :root{
+      --primary:#5c6592;
+      --secondary:#5299ee;
+      --card-bg:#ffffff;
+      --shadow-soft:0 10px 30px rgba(0,0,0,.08);
+    }
+
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#f8f9ff,#eef3ff);color:#1f2430;line-height:1.6;}
+
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:linear-gradient(135deg,#f8f9ff,#eef3ff);
+      color:#1f2430;
+      line-height:1.6;
+    }
+
     a{text-decoration:none;color:inherit;}
-    .container{width:min(1120px,100% - 2.5rem);margin:0 auto;}
-    header{position:sticky;top:0;background:rgba(248,249,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(156,163,175,.18);}
-    .nav{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;}
-    .logo{font-family:"Libre Baskerville",serif;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.9rem;color:var(--primary);padding:.45rem .95rem;border-radius:999px;border:1px solid rgba(92,101,146,.2);background:rgba(255,255,255,.8);}
-    .nav-links{display:flex;gap:1.3rem;font-size:.95rem;}
-    main{padding:3.2rem 0 4rem;}
-    h1,h2,h3{font-family:"Libre Baskerville",serif;color:var(--primary);}
-    h1{font-size:2rem;margin-bottom:.6rem;}
-    p.lead{font-size:1.02rem;color:#4b5263;max-width:680px;}
-    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8rem;margin-top:2rem;}
-    .card{background:var(--card-bg);border-radius:18px;padding:1.4rem 1.6rem;box-shadow:var(--shadow-soft);border:1px solid rgba(209,213,219,.8);}
-    .badge{display:inline-block;font-size:.8rem;padding:.2rem .7rem;border-radius:999px;background:rgba(92,101,146,.08);color:var(--primary);margin-bottom:.3rem;}
-    ul{list-style:none;margin-top:.6rem;}
-    ul li{position:relative;padding-left:1.2rem;margin-bottom:.25rem;font-size:.95rem;}
-    ul li::before{content:"•";position:absolute;left:0;top:0;color:var(--secondary);}
-    .project-links a{font-size:.9rem;color:#5299ee;border-bottom:1px solid rgba(82,153,238,.5);}
+
+    .container{
+      width:min(1120px,100% - 2.5rem);
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(248,249,255,.94);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(156,163,175,.18);
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:.7rem 0;
+    }
+
+    .logo{
+      font-family:"Libre Baskerville",serif;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:.9rem;
+      color:var(--primary);
+      padding:.45rem .95rem;
+      border-radius:999px;
+      border:1px solid rgba(92,101,146,.2);
+      background:rgba(255,255,255,.8);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:1.3rem;
+      font-size:.95rem;
+    }
+
+    @media(max-width:700px){
+      .nav-links{display:none;}
+    }
+
+    main{
+      padding:3.2rem 0 4rem;
+    }
+
+    h1,h2,h3{
+      font-family:"Libre Baskerville",serif;
+      color:var(--primary);
+    }
+
+    .muted{font-size:.95rem;color:#4b5263;}
+
+    .card{
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:1.5rem 1.7rem;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(209,213,219,.85);
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:1.6rem;
+    }
+
+    @media(max-width:900px){
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .badge{
+      display:inline-block;
+      padding:.18rem .6rem;
+      border-radius:999px;
+      background:rgba(82,153,238,.12);
+      color:#1f2937;
+      font-size:.78rem;
+      margin-bottom:.4rem;
+    }
+
+    ul{
+      list-style:none;
+      margin-top:.4rem;
+      padding-left:0;
+    }
+
+    ul li{
+      position:relative;
+      padding-left:1.1rem;
+      font-size:.9rem;
+      margin-bottom:.25rem;
+    }
+
+    ul li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      top:0;
+      color:var(--secondary);
+    }
+
+    .project-links a{
+      font-size:.9rem;
+      color:var(--secondary);
+      text-decoration:none;
+    }
+
+    .project-links a:hover{
+      text-decoration:underline;
+    }
+
     /* Bannière de page */
-.page-hero {
-  margin: 2.4rem auto 2.4rem;
-  background: linear-gradient(135deg, rgba(92,101,146,0.95), rgba(82,153,238,0.95));
-  color: #f9fafb;
-  padding: 1.8rem 2rem;
-  border-radius: 22px;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
-}
+    .page-hero{
+      margin:2.4rem auto 2.4rem;
+      background:linear-gradient(135deg,rgba(92,101,146,.95),rgba(82,153,238,.95));
+      color:#f9fafb;
+      padding:1.8rem 2rem;
+      border-radius:22px;
+      box-shadow:0 16px 40px rgba(15,23,42,.35);
+    }
 
-.page-hero h1 {
-  margin: 0;
-  font-size: 2rem;
-  color: #f9fafb;
-}
+    .page-hero h1{
+      margin:0;
+      font-size:2rem;
+      color:#f9fafb;
+    }
 
-.page-hero .lead {
-  margin-top: 0.6rem;
-  color: #e5e7eb;
-}
+    .page-hero .lead{
+      margin-top:.6rem;
+      color:#e5e7eb;
+      max-width:700px;
+    }
 
-.page-hero .label {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  opacity: 0.9;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
-    /* Icône ronde dans la bannière */
-.icon-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.25);
-  margin-right: 0.45rem;
-  font-size: 0.9rem;
-}
-    footer{text-align:center;font-size:.8rem;color:#6b7280;padding:1.6rem 0 2.2rem;border-top:1px solid rgba(209,213,219,.6);}
-    @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
-    @media(max-width:700px){.nav-links{display:none;}}
+    .page-hero .label{
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      opacity:.9;
+      display:inline-flex;
+      align-items:center;
+      margin-bottom:.5rem;
+    }
+
+    /* Icône ronde */
+    .icon-circle{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      background:rgba(15,23,42,.25);
+      margin-right:.45rem;
+      font-size:.9rem;
+    }
+
+    /* Sections avec fond alterné */
+    .section-alt{
+      margin-top:2.5rem;
+      background:rgba(92,101,146,0.035);
+      border-radius:22px;
+      padding:1.9rem 2rem;
+      box-shadow:0 10px 26px rgba(15,23,42,0.08);
+    }
+
+    .section-alt h2{
+      margin-top:0;
+    }
+
+    footer{
+      text-align:center;
+      font-size:.8rem;
+      color:#6b7280;
+      padding:1.6rem 0 2.2rem;
+      border-top:1px solid rgba(209,213,219,.6);
+    }
   </style>
 </head>
 <body>
@@ -77,18 +213,19 @@
   <div class="container nav">
     <div class="logo">LR • Portfolio</div>
     <nav class="nav-links">
-  <a href="index.html">Accueil</a>
-  <a href="cv.html">CV</a>
-  <a href="apropos.html">À propos</a>
-  <a href="stages.html">Stages</a>
-  <a href="competences.html">Compétences</a>
-  <a href="projets.html">Projets</a>
-  <a href="contact.html">Contact</a>
-</nav>
+      <a href="index.html">Accueil</a>
+      <a href="cv.html">CV</a>
+      <a href="apropos.html">À propos</a>
+      <a href="stages.html">Stages</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projets.html">Projets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
 </header>
 
 <main class="container">
+  <!-- Bannière -->
   <section class="page-hero">
     <div class="label"><span class="icon-circle">💼</span> Expériences</div>
     <h1>Stages</h1>
@@ -99,77 +236,81 @@
     </p>
   </section>
 
-  <section style="margin-top: 2rem;">
-  <h2 style="font-size:1.3rem; margin-bottom:1.5rem; color:#5c6592; font-family:'Libre Baskerville',serif;">
-    Mes stages
-  </h2>
+  <!-- Section stages principaux -->
+  <section class="section-alt">
+    <h2 style="font-size:1.3rem; margin-bottom:1.5rem; color:#5c6592; font-family:'Libre Baskerville',serif;">
+      Mes stages
+    </h2>
 
-  <div class="grid-2">
+    <div class="grid-2">
 
-    <!-- Stage Crédit Agricole -->
-    <div class="card">
-      <span class="badge">Avril – Juin 2025 • 8 semaines</span>
-      <h3>Crédit Agricole Alpes Provence – Centre d'affaires de Gap</h3>
-      <p class="muted">
-        Participation à l’analyse financière de dossiers de financement pour des entreprises et professionnels.
-      </p>
-      <ul>
-        <li>Analyse de bilans, comptes de résultat et SIG</li>
-        <li>Calcul de ratios : EBE, CAF, autonomie financière, endettement…</li>
-        <li>Interrogations Banque de France et analyse des cotations</li>
-        <li>Préparation de dossiers de financement (investissement, trésorerie)</li>
-      </ul>
+      <!-- Stage Crédit Agricole -->
+      <div class="card">
+        <span class="badge">Avril – Juin 2025 • 8 semaines</span>
+        <h3>Crédit Agricole Alpes Provence – Centre d'affaires de Gap</h3>
+        <p class="muted">
+          Participation à l’analyse financière de dossiers de financement pour des entreprises et professionnels.
+        </p>
+        <ul>
+          <li>Analyse de bilans, comptes de résultat et SIG</li>
+          <li>Calcul de ratios : EBE, CAF, autonomie financière, endettement…</li>
+          <li>Interrogations Banque de France et analyse des cotations</li>
+          <li>Préparation de dossiers de financement (investissement, trésorerie)</li>
+        </ul>
 
-      <p class="project-links" style="margin-top:0.7rem;">
-        <a href="Stage2_Credit_Agricole.pdf" target="_blank">📄 Consulter le rapport de stage</a>
-      </p>
+        <p class="project-links" style="margin-top:0.7rem;">
+          <a href="Stage2_Credit_Agricole.pdf" target="_blank">📄 Consulter le rapport de stage</a>
+        </p>
+      </div>
+
+      <!-- Stage Cabinet Gandelli -->
+      <div class="card">
+        <span class="badge">Janvier – Février 2024 • 4 semaines</span>
+        <h3>Cabinet Gandelli – Expertise comptable</h3>
+        <p class="muted">
+          Découverte du fonctionnement d’un cabinet d’expertise comptable et réalisation de missions de tenue.
+        </p>
+        <ul>
+          <li>Saisie comptable : achats, ventes, banques</li>
+          <li>Lettrage clients / fournisseurs</li>
+          <li>Rapprochements bancaires</li>
+          <li>Organisation des dossiers et travail sur Quadra</li>
+        </ul>
+
+        <p class="project-links" style="margin-top:0.7rem;">
+          <a href="Stage1_Cabinet_Gandelli.pdf" target="_blank">📄 Consulter le rapport de stage</a>
+        </p>
+      </div>
+
     </div>
+  </section>
 
-    <!-- Stage Cabinet Gandelli -->
+  <!-- Autres expériences -->
+  <section class="section-alt">
+    <h2 style="font-size:1.3rem; margin-bottom:0.8rem; color:#5c6592; font-family:'Libre Baskerville',serif;">
+      Autres expériences professionnelles
+    </h2>
+
     <div class="card">
-      <span class="badge">Janvier – Février 2024 • 4 semaines</span>
-      <h3>Cabinet Gandelli – Expertise comptable</h3>
-      <p class="muted">
-        Découverte du fonctionnement d’un cabinet d’expertise comptable et réalisation de missions de tenue.
+      <p class="muted" style="margin-bottom:0.6rem;">
+        En parallèle de mes études, j’ai réalisé plusieurs jobs d’été qui m’ont permis de développer
+        mon autonomie, ma rigueur et mon sens des responsabilités.
       </p>
+
       <ul>
-        <li>Saisie comptable : achats, ventes, banques</li>
-        <li>Lettrage clients / fournisseurs</li>
-        <li>Rapprochements bancaires</li>
-        <li>Organisation des dossiers et travail sur Quadra</li>
+        <li><strong>Renault Champsaur</strong> – Mécanique puis comptabilité : découverte du fonctionnement d’une PME.</li>
+        <li><strong>OZE</strong> – Monteur câbleur : travail manuel, précision et respect des consignes.</li>
+        <li><strong>Intermarché</strong> – Mise en rayon : relation client, organisation et gestion des stocks.</li>
       </ul>
-
-      <p class="project-links" style="margin-top:0.7rem;">
-        <a href="Stage1_Cabinet_Gandelli.pdf" target="_blank">📄 Consulter le rapport de stage</a>
-      </p>
     </div>
-
-  </div>
-</section>
-
-<!-- AUTRES EXPÉRIENCES -->
-<section style="margin-top: 2.5rem;">
-  <h2 style="font-size:1.3rem; margin-bottom:0.8rem; color:#5c6592; font-family:'Libre Baskerville',serif;">
-    Autres expériences professionnelles
-  </h2>
-
-  <div class="card">
-    <p class="muted" style="margin-bottom:0.6rem;">
-      En parallèle de mes études, j’ai réalisé plusieurs jobs d’été qui m’ont permis de développer
-      mon autonomie, ma rigueur et mon sens des responsabilités.
-    </p>
-
-    <ul>
-      <li><strong>Renault Champsaur</strong> – Mécanique puis comptabilité : découverte du fonctionnement d’une PME.</li>
-      <li><strong>OZE</strong> – Monteur câbleur : travail manuel, précision et respect des consignes.</li>
-      <li><strong>Intermarché</strong> – Mise en rayon : relation client, organisation et gestion des stocks.</li>
-    </ul>
-  </div>
-</section>
+  </section>
+</main>
 
 <footer>
   © <span id="year"></span> — Portfolio de Louka Roman
 </footer>
-<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
