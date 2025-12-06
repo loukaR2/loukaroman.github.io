@@ -87,8 +87,39 @@
       width: 100%;
     }
 
-    @media(max-width:700px){
-      .nav-links{display:none;}
+    /* === Bouton hamburger (même base que l'accueil) === */
+    .nav-toggle{
+      display:none;
+      background:none;
+      border:none;
+      padding:0.25rem;
+      cursor:pointer;
+    }
+
+    .nav-toggle span{
+      display:block;
+      width:22px;
+      height:2px;
+      border-radius:999px;
+      background:#4b5563;
+      transition:transform .2s ease, opacity .2s ease;
+    }
+
+    .nav-toggle span + span{
+      margin-top:4px;
+    }
+
+    /* État ouvert du hamburger -> croix */
+    .nav-toggle.open span:nth-child(1){
+      transform:translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2){
+      opacity:0;
+    }
+
+    .nav-toggle.open span:nth-child(3){
+      transform:translateY(-6px) rotate(-45deg);
     }
 
     main{
@@ -159,10 +190,9 @@
     }
 
     .page-hero h1{
-  margin: 0;
-  font-size: 2rem;
-  color: #ffffff; /* Titre en blanc */
-}
+      margin: 0;
+      font-size: 2rem;
+      color: #ffffff; /* Titre en blanc */
     }
 
     .page-hero .label{
@@ -214,6 +244,39 @@
       padding:1.6rem 0 2.2rem;
       border-top:1px solid rgba(209,213,219,.6);
     }
+
+    /* === VERSION MOBILE : menu hamburger (copié de l'accueil) === */
+    @media (max-width: 700px) {
+      .nav{
+        padding:0.55rem 0;
+      }
+
+      .nav-toggle{
+        display:inline-flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+      }
+
+      .nav-links{
+        position:absolute;
+        left:0;
+        right:0;
+        top:100%;
+        margin-top:.3rem;
+        flex-direction:column;
+        gap:.75rem;
+        background:rgba(248,249,255,.98);
+        padding:1rem 1.6rem 1.2rem;
+        border-bottom:1px solid rgba(209,213,219,.7);
+        box-shadow:0 12px 30px rgba(15,23,42,.18);
+        display:none; /* caché par défaut */
+      }
+
+      .nav-links.open{
+        display:flex; /* visible quand .open */
+      }
+    }
   </style>
 </head>
 
@@ -221,15 +284,24 @@
 <header>
   <div class="container nav">
     <div class="logo">LR • Portfolio</div>
+
+    <!-- Bouton hamburger (même que sur index.html) -->
+    <button class="nav-toggle" aria-label="Ouvrir le menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Menu desktop -->
     <nav class="nav-links">
-  <a href="index.html">Accueil</a>
-  <a href="apropos.html">À propos</a>
-  <a href="stages.html">Stages</a>
-  <a href="competences.html">Compétences</a>
-  <a href="projets.html">Projets</a>
-  <a href="cv.html">CV</a>
-  <a href="contact.html">Contact</a>
-</nav>
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="stages.html">Stages</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projets.html">Projets</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
 </header>
 
@@ -325,6 +397,17 @@
 </footer>
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Script hamburger identique à l’accueil
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks  = document.querySelector('.nav-links');
+
+  if (navToggle && navLinks){
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+    });
+  }
 </script>
 
 </body>
