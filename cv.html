@@ -31,6 +31,10 @@
       margin:0 auto;
     }
 
+    /* ───────────────────────────────────────────── */
+    /* NAVIGATION – Version desktop */
+    /* ───────────────────────────────────────────── */
+
     header {
       position: sticky;
       top: 0;
@@ -87,9 +91,82 @@
       width: 100%;
     }
 
-    @media(max-width:700px){
-      .nav-links{display:none;}
+    /* ───────────────────────────────────────────── */
+    /* HAMBURGER – identique à index.html */
+    /* ───────────────────────────────────────────── */
+
+    .nav-toggle{
+      display:none;
+      background:none;
+      border:none;
+      padding:0.25rem;
+      cursor:pointer;
     }
+
+    .nav-toggle span{
+      display:block;
+      width:22px;
+      height:2px;
+      border-radius:999px;
+      background:#4b5563;
+      transition:transform .2s ease, opacity .2s ease;
+    }
+
+    .nav-toggle span + span{ margin-top:4px; }
+
+    /* animation croix */
+    .nav-toggle.open span:nth-child(1){
+      transform:translateY(6px) rotate(45deg);
+    }
+    .nav-toggle.open span:nth-child(2){
+      opacity:0;
+    }
+    .nav-toggle.open span:nth-child(3){
+      transform:translateY(-6px) rotate(-45deg);
+    }
+
+    /* ───────────────────────────────────────────── */
+    /* VERSION MOBILE – menu déroulant identique accueil */
+    /* ───────────────────────────────────────────── */
+    @media (max-width: 700px) {
+
+      .nav{
+        padding:0.55rem 0;
+      }
+
+      .nav-toggle{
+        display:inline-flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+      }
+
+      .nav-links{
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        margin-top:.35rem;
+
+        flex-direction:column;
+        gap:.75rem;
+        padding:1rem 1.6rem 1.2rem;
+        background:rgba(248,249,255,.98);
+
+        border-bottom:1px solid rgba(209,213,219,.7);
+        box-shadow:0 12px 30px rgba(15,23,42,.18);
+
+        display:none;
+      }
+
+      .nav-links.open{
+        display:flex;
+      }
+    }
+
+    /* ───────────────────────────────────────────── */
+    /* CONTENU DE LA PAGE (inchangé) */
+    /* ───────────────────────────────────────────── */
 
     main{
       padding:3.2rem 0 4rem;
@@ -153,7 +230,7 @@
       font-size:.9rem;
     }
 
-    /* Bouton CV animé */
+    /* Bouton CV */
     .btn-cv{
       display:inline-flex;
       align-items:center;
@@ -168,10 +245,7 @@
       box-shadow:0 12px 30px rgba(82,153,238,0.45);
       text-decoration:none;
       cursor:pointer;
-      transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease,
-        filter 0.18s ease;
+      transition:transform .18s ease,box-shadow .18s ease,filter .18s ease;
       margin-top:1.2rem;
       margin-bottom:1.5rem;
     }
@@ -182,7 +256,7 @@
       filter:brightness(1.05);
     }
 
-    /* Mise en page 2 colonnes du CV */
+    /* Layout CV */
     .cv-layout{
       display:grid;
       grid-template-columns:minmax(0,0.95fr) minmax(0,1.4fr);
@@ -190,9 +264,7 @@
     }
 
     @media(max-width:900px){
-      .cv-layout{
-        grid-template-columns:1fr;
-      }
+      .cv-layout{ grid-template-columns:1fr; }
     }
 
     .cv-section-title{
@@ -223,17 +295,6 @@
       height:1px;
       background:rgba(209,213,219,.9);
       margin:1rem 0;
-    }
-
-    .cv-experience-title{
-      font-weight:600;
-      margin-top:.35rem;
-      margin-bottom:.1rem;
-    }
-
-    .cv-date{
-      font-size:.85rem;
-      color:#6b7280;
     }
 
     ul.cv-list{
@@ -270,39 +331,51 @@
 </head>
 
 <body>
+
 <header>
   <div class="container nav">
     <div class="logo">LR • Portfolio</div>
+
+    <!-- === Bouton hamburger ajouté === -->
+    <button class="nav-toggle" aria-label="Ouvrir le menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Menu desktop -->
     <nav class="nav-links">
-  <a href="index.html">Accueil</a>
-  <a href="apropos.html">À propos</a>
-  <a href="stages.html">Stages</a>
-  <a href="competences.html">Compétences</a>
-  <a href="projets.html">Projets</a>
-  <a href="cv.html">CV</a>
-  <a href="contact.html">Contact</a>
-</nav>
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="stages.html">Stages</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projets.html">Projets</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
 </header>
 
 <main class="container">
+
   <!-- Bannière -->
   <section class="page-hero">
     <div class="label"><span class="icon-circle">📄</span> Profil</div>
     <h1>CV en ligne</h1>
     <p class="lead">
-      Cette page reprend les principales informations de mon CV : état civil, formation, expériences
-      professionnelles, compétences, langues et centres d’intérêt.
+      Cette page reprend mon état civil, ma formation, mes expériences professionnelles,
+      mes compétences, mes langues et mes centres d’intérêt.
     </p>
   </section>
 
-  <!-- Bouton de téléchargement -->
+  <!-- Bouton PDF -->
   <a href="CV_Louka_Roman.pdf" class="btn-cv" target="_blank">
     📄 Télécharger le CV au format PDF
   </a>
 
-  <!-- CV en deux colonnes -->
+  <!-- CV 2 colonnes -->
   <section class="cv-layout">
+
     <!-- Colonne gauche -->
     <div class="card">
       <div class="cv-section-title">Informations personnelles</div>
@@ -337,18 +410,16 @@
       <div class="cv-separator"></div>
 
       <div class="cv-section-title">Centres d’intérêt</div>
-      <p class="muted">
-        Trail, ski alpin, ski de randonnée, voyages.
-      </p>
+      <p class="muted">Trail, ski alpin, ski de randonnée, voyages.</p>
     </div>
 
     <!-- Colonne droite -->
     <div class="card">
+
       <div class="cv-section-title">Formation</div>
       <p class="muted">
         <strong>2023 – aujourd’hui</strong><br>
-        BUT GEA – Parcours Gestion Comptable, Fiscale et Financière (GC2F)<br>
-        IUT (en 3ᵉ année)
+        BUT GEA – Parcours GC2F (3ᵉ année)
       </p>
       <ul class="cv-list">
         <li>Comptabilité générale et analyse des états financiers</li>
@@ -357,55 +428,65 @@
       </ul>
 
       <p class="muted" style="margin-top:.6rem;">
-        <strong>Baccalauréat</strong><br>
-        Sciences et technologies du management et de la gestion (STMG)<br>
-        Mention à préciser le cas échéant
+        <strong>Baccalauréat STMG</strong><br>
+        Mention selon résultats
       </p>
 
       <div class="cv-separator"></div>
 
       <div class="cv-section-title">Expériences professionnelles</div>
 
+      <p class="cv-experience-title">Job d’été – Renault Champsaur</p>
       <p class="cv-date">12/06/2025 – 14/08/2025</p>
-      <p class="cv-experience-title">Job d’été en comptabilité – Renault Champsaur</p>
       <ul class="cv-list">
         <li>Saisie et contrôle de pièces comptables</li>
-        <li>Participation au suivi administratif et financier de l’activité</li>
+        <li>Participation au suivi administratif et financier</li>
       </ul>
 
+      <p class="cv-experience-title">Stage – Crédit Agricole Alpes Provence</p>
       <p class="cv-date">07/04/2025 – 30/05/2025</p>
-      <p class="cv-experience-title">Stage en banque – Crédit Agricole Alpes Provence</p>
       <ul class="cv-list">
-        <li>Analyse de bilans et comptes de résultat de clients professionnels</li>
-        <li>Calcul de ratios financiers (CAF, autonomie financière, endettement…)</li>
-        <li>Préparation de dossiers de financement (investissement, trésorerie)</li>
+        <li>Analyse financière de clients professionnels</li>
+        <li>Calcul de ratios (CAF, solvabilité, endettement…)</li>
+        <li>Préparation de dossiers de financement</li>
       </ul>
 
+      <p class="cv-experience-title">Stage – Cabinet Gandelli</p>
       <p class="cv-date">22/01/2024 – 16/02/2024</p>
-      <p class="cv-experience-title">Stage en cabinet comptable – Cabinet Gandelli</p>
       <ul class="cv-list">
-        <li>Tenue comptable : saisie achats, ventes, banques</li>
-        <li>Lettrage des comptes clients et fournisseurs</li>
+        <li>Tenue comptable : achats, ventes, banques</li>
+        <li>Lettrage clients / fournisseurs</li>
         <li>Rapprochements bancaires</li>
       </ul>
 
-      <p class="cv-date">2023 – 2024</p>
-      <p class="cv-experience-title">Job d’été – Monteur câbleur chez OZE</p>
-
-      <p class="cv-date">2022 – 2023</p>
-      <p class="cv-experience-title">Job d’été – Mise en rayon à Intermarché</p>
-
-      <p class="cv-date">2021 – 2022</p>
-      <p class="cv-experience-title">Job d’été – Mécanique chez Renault Champsaur</p>
+      <p class="cv-experience-title">Jobs d’été divers</p>
+      <ul class="cv-list">
+        <li>Monteur câbleur chez OZE</li>
+        <li>Mise en rayon à Intermarché</li>
+      </ul>
     </div>
+
   </section>
 </main>
 
 <footer>
   © <span id="year"></span> — Portfolio de Louka Roman
 </footer>
+
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* Script hamburger identique à index.html */
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks  = document.querySelector('.nav-links');
+
+  if(navToggle && navLinks){
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+    });
+  }
 </script>
+
 </body>
 </html>
