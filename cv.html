@@ -433,6 +433,46 @@
       color:#6b7280;
     }
 
+    /* ───────── ANIMATIONS FADE-IN ───────── */
+
+    /* Desktop : fade-in au chargement */
+    @media (min-width: 701px) {
+      .fade-load {
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fadeInLoad .6s ease-out forwards;
+      }
+
+      .fade-load.delay-1 {
+        animation-delay: .12s;
+      }
+
+      .fade-load.delay-2 {
+        animation-delay: .20s;
+      }
+    }
+
+    @keyframes fadeInLoad {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile : fade-in au scroll */
+    @media (max-width: 700px) {
+      .fade-scroll {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity .6s ease, transform .6s ease;
+      }
+
+      .fade-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* On garde le @media existant et on ajoute les règles footer mobiles dedans si besoin */
     @media (max-width: 700px) {
 
@@ -492,7 +532,7 @@
 <main class="container">
 
   <!-- Bannière -->
-  <section class="page-hero">
+  <section class="page-hero fade-load fade-scroll">
     <div class="label"><span class="icon-circle">📄</span> Profil</div>
     <h1>CV en ligne</h1>
     <p class="lead">
@@ -502,12 +542,12 @@
   </section>
 
   <!-- Bouton PDF -->
-  <a href="CV_Louka_Roman.pdf" class="btn-cv" target="_blank">
+  <a href="CV_Louka_Roman.pdf" class="btn-cv fade-load fade-scroll delay-1" target="_blank">
     📄 Télécharger le CV au format PDF
   </a>
 
   <!-- CV 2 colonnes -->
-  <section class="cv-layout">
+  <section class="cv-layout fade-load fade-scroll delay-2">
 
     <!-- Colonne gauche -->
     <div class="card">
@@ -647,6 +687,21 @@
       navLinks.classList.toggle('open');
       navToggle.classList.toggle('open');
     });
+  }
+
+  // Fade-in scroll pour mobile
+  if (window.innerWidth <= 700) {
+    const fadeElements = document.querySelectorAll('.fade-scroll');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    fadeElements.forEach(el => observer.observe(el));
   }
 </script>
 
