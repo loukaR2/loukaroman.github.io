@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,227 +6,209 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Compétences – Louka Roman</title>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-
   <style>
-    :root{
-      --primary:#5c6592;
-      --secondary:#5299ee;
-      --card-bg:#ffffff;
-      --shadow-soft:0 10px 30px rgba(0,0,0,.08);
-    }
-
+    :root{--primary:#5c6592;--secondary:#5299ee;--card-bg:#fff;--shadow-soft:0 10px 30px rgba(0,0,0,.08);}
     *{box-sizing:border-box;margin:0;padding:0;}
-
-    body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:linear-gradient(135deg,#f8f9ff,#eef3ff);
-      color:#1f2430;
-      line-height:1.6;
-    }
-
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#f8f9ff,#eef3ff);color:#1f2430;line-height:1.6;}
     a{text-decoration:none;color:inherit;}
+    .container{width:min(1120px,100% - 2.5rem);margin:0 auto;}
+    header{position:sticky;top:0;background:rgba(248,249,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(156,163,175,.18);}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;}
+    .logo{font-family:"Libre Baskerville",serif;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.9rem;color:var(--primary);padding:.45rem .95rem;border-radius:999px;border:1px solid rgba(92,101,146,.2);background:rgba(255,255,255,.8);}
+    .nav-links{display:flex;gap:1.3rem;font-size:.95rem;}
+    main{padding:3.2rem 0 4rem;}
+    h1,h2,h3{font-family:"Libre Baskerville",serif;color:var(--primary);}
+    h1{font-size:2rem;margin-bottom:.6rem;}
+    p.lead{font-size:1.02rem;color:#4b5263;max-width:680px;}
+    section{margin-bottom:2.4rem;}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin-top:1.4rem;}
+    .card{background:var(--card-bg);border-radius:18px;padding:1.4rem 1.6rem;box-shadow:var(--shadow-soft);border:1px solid rgba(209,213,219,.8);}
+    ul{list-style:none;margin-top:.6rem;}
+    ul li{position:relative;padding-left:1.2rem;margin-bottom:.25rem;font-size:.95rem;}
+    ul li::before{content:"•";position:absolute;left:0;top:0;color:var(--secondary);}
+    .muted{font-size:.9rem;color:#6b7280;margin-top:.5rem;}
+    /* Bannière de page */
+.page-hero {
+  margin: 2.4rem auto 2.4rem;
+  background: linear-gradient(135deg, rgba(92,101,146,0.95), rgba(82,153,238,0.95));
+  color: #f9fafb;
+  padding: 1.8rem 2rem;
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
+}
 
-    .container{
-      width:min(1120px,100% - 2.5rem);
-      margin:0 auto;
-    }
+.page-hero h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #f9fafb;
+}
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:20;
-      background:rgba(248,249,255,.94);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(156,163,175,.18);
-    }
+.page-hero .lead {
+  margin-top: 0.6rem;
+  color: #e5e7eb;
+}
 
-    .nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:.7rem 0;
-    }
-
-    .logo{
-      font-family:"Libre Baskerville",serif;
-      font-weight:700;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      font-size:.9rem;
-      color:var(--primary);
-      padding:.45rem .95rem;
-      border-radius:999px;
-      border:1px solid rgba(92,101,146,.2);
-      background:rgba(255,255,255,.8);
-    }
-
-    .nav-links{
-      display:flex;
-      gap:1.3rem;
-      font-size:.95rem;
-    }
-
-    @media(max-width:700px){
-      .nav-links{display:none;}
-    }
-
-    main{
-      padding:3.2rem 0 4rem;
-    }
-
-    h1,h2,h3{
-      font-family:"Libre Baskerville",serif;
-      color:var(--primary);
-    }
-
-    .muted{font-size:.95rem;color:#4b5263;}
-
-    .card{
-      background:var(--card-bg);
-      border-radius:18px;
-      padding:1.5rem 1.7rem;
-      box-shadow:var(--shadow-soft);
-      border:1px solid rgba(209,213,219,.85);
-    }
-
-    ul{
-      list-style:none;
-      padding-left:0;
-      margin-top:.5rem;
-    }
-
-    ul li{
-      padding-left:1rem;
-      margin-bottom:.4rem;
-      font-size:.92rem;
-      position:relative;
-    }
-
-    ul li::before{
-      content:"•";
-      position:absolute;
-      left:0;
-      top:0;
-      color:var(--secondary);
-    }
-
-    /* Bannière */
-    .page-hero{
-      margin:2.4rem auto 2.4rem;
-      background:linear-gradient(135deg,rgba(92,101,146,.95),rgba(82,153,238,.95));
-      color:#f9fafb;
-      padding:1.8rem 2rem;
-      border-radius:22px;
-      box-shadow:0 16px 40px rgba(15,23,42,.35);
-    }
-
-    .page-hero h1{
-      margin:0;
-      font-size:2rem;
-    }
-
-    .page-hero .label{
-      font-size:.78rem;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      opacity:.9;
-      display:inline-flex;
-      align-items:center;
-      margin-bottom:.5rem;
-    }
-
-    .page-hero .lead{
-      margin-top:.6rem;
-      color:#e5e7eb;
-      max-width:700px;
-    }
-
-    .icon-circle{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:22px;height:22px;
-      border-radius:999px;
-      background:rgba(15,23,42,.25);
-      margin-right:.45rem;
-      font-size:.9rem;
-    }
-
-    /* FONDS ALTERNÉS */
-    .section-alt{
-      margin:3rem auto 0;
-      background:#e3e7ff;
-      border-radius:26px;
-      padding:2.3rem 2.4rem;
-      box-shadow:0 18px 45px rgba(148,163,184,0.55);
-      border:1px solid rgba(129,140,248,0.7);
-    }
+.page-hero .label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.9;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+    /* Icône ronde dans la bannière */
+.icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.25);
+  margin-right: 0.45rem;
+  font-size: 0.9rem;
+}
+    @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
+    @media(max-width:700px){.nav-links{display:none;}}
   </style>
 </head>
-
 <body>
 <header>
   <div class="container nav">
     <div class="logo">LR • Portfolio</div>
     <nav class="nav-links">
-      <a href="index.html">Accueil</a>
-      <a href="cv.html">CV</a>
-      <a href="apropos.html">À propos</a>
-      <a href="stages.html">Stages</a>
-      <a href="competences.html">Compétences</a>
-      <a href="projets.html">Projets</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <a href="index.html">Accueil</a>
+  <a href="cv.html">CV</a>
+  <a href="apropos.html">À propos</a>
+  <a href="stages.html">Stages</a>
+  <a href="competences.html">Compétences</a>
+  <a href="projets.html">Projets</a>
+  <a href="contact.html">Contact</a>
+</nav>
   </div>
 </header>
 
 <main class="container">
-  <!-- Bannière -->
   <section class="page-hero">
-    <div class="label"><span class="icon-circle">🧮</span> Compétences</div>
+    <div class="label"><span class="icon-circle">🧮</span> Profil compétences</div>
     <h1>Compétences</h1>
-    <p class="lead">Aperçu de mes compétences techniques, humaines et des AC du BUT GEA GC2F.</p>
+    <p class="lead">
+      Cette page présente mes compétences techniques et humaines ainsi que les apprentissages
+      critiques (AC) du BUT GEA – parcours GC2F, en lien avec mes stages et projets.
+    </p>
   </section>
 
-  <!-- COMPÉTENCES -->
-  <section class="section-alt">
-    <h2>Compétences techniques</h2>
-    <ul>
-      <li>Comptabilité générale et approfondie</li>
-      <li>Fiscalité des particuliers et des entreprises</li>
-      <li>Analyse financière (SIG, ratios, CAF…)</li>
-      <li>Budgets prévisionnels et gestion de trésorerie</li>
-      <li>Lecture et interprétation des états financiers</li>
-    </ul>
-
-    <h2 style="margin-top:2rem;">Compétences humaines</h2>
-    <ul>
-      <li>Rigueur et sens de l'organisation</li>
-      <li>Analyse et synthèse</li>
-      <li>Travail en équipe et communication</li>
-      <li>Adaptabilité en environnement professionnel</li>
-    </ul>
+  <section>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Compétences techniques</h3>
+        <ul>
+          <li>Comptabilité générale & approfondie</li>
+          <li>Fiscalité : IR, RF, TVA, plus-values…</li>
+          <li>Analyse financière : SIG, ratios, CAF…</li>
+          <li>Excel (tableaux, TCD, formules avancées)</li>
+          <li>Word, PowerPoint</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Compétences humaines</h3>
+        <ul>
+          <li>Rigueur, méthode et organisation</li>
+          <li>Esprit d’analyse et de synthèse</li>
+          <li>Travail en équipe</li>
+          <li>Adaptabilité et autonomie</li>
+          <li>Relation client</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <!-- SYNTHÈSE -->
-  <section class="section-alt">
-    <h2>Synthèse de mon profil</h2>
+  <section>
+    <h2>Apprentissages Critiques (AC) – 3e année GC2F</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Compétence 1 : Analyser les processus</h3>
+        <ul>
+          <li><strong>AC31.01</strong> Intégrer l'impact des enjeux sur l'organisation</li>
+          <li><strong>AC31.02</strong> Conseiller un type d'organisation</li>
+          <li><strong>AC31.03</strong> Proposer des améliorations des processus</li>
+        </ul>
+        <p class="muted">
+          Preuves : analyse de l’organisation du Crédit Agricole (stage 2), fonctionnement du cabinet Gandelli (stage 1).
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Compétence 2 : Aider à la prise de décision</h3>
+        <ul>
+          <li><strong>AC32.01</strong> Améliorer le système d'information</li>
+          <li><strong>AC32.02</strong> Exploiter les données pour la décision</li>
+          <li><strong>AC32.03</strong> Prendre en compte les contraintes</li>
+          <li><strong>AC32.04</strong> Élaborer des mesures de minimisation des risques</li>
+        </ul>
+        <p class="muted">
+          Preuves : diagnostics financiers (FRNG, BFR, trésorerie nette, ratios) réalisés en cours et en stage.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Compétence 3 : Piloter les relations</h3>
+        <ul>
+          <li><strong>AC33.01</strong> Animer une équipe</li>
+          <li><strong>AC33.02</strong> Mener un projet collaboratif</li>
+          <li><strong>AC33.03</strong> Améliorer la communication</li>
+        </ul>
+        <p class="muted">
+          Preuves : travail en binôme ou en groupe sur les projets de GEA, collaboration avec les conseillers en banque.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Compétence 4 : Produire l’information comptable & fiscale</h3>
+        <ul>
+          <li><strong>AC34.01 GC2F</strong> Résoudre les problèmes comptables spécifiques</li>
+          <li><strong>AC34.02 GC2F</strong> Appliquer les règles comptables, fiscales et sociales</li>
+          <li><strong>AC34.03 GC2F</strong> Réaliser un diagnostic / audit</li>
+          <li><strong>AC34.04 GC2F</strong> Sécuriser l'information produite</li>
+        </ul>
+        <p class="muted">
+          Preuves : tenue comptable, fiscalité (IR, RF, PVI), contrôles de cohérence des dossiers.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Compétence 5 : Évaluer l’activité</h3>
+        <ul>
+          <li><strong>AC35.01 GC2F</strong> Mettre en place une politique d'investissement</li>
+          <li><strong>AC35.02 GC2F</strong> Définir les sources de financement</li>
+          <li><strong>AC35.03 GC2F</strong> Établir un plan de financement</li>
+          <li><strong>AC35.04 GC2F</strong> Gérer la trésorerie à court terme</li>
+          <li><strong>AC35.05 GC2F</strong> Élaborer des budgets et prévisionnels</li>
+        </ul>
+        <p class="muted">
+          Preuves : projet Café du Monde, études de financement en stage, travaux de budgétisation en cours.
+        </p>
+      </div>
+    </div>
+  </section>
+    <section style="margin-top: 2.5rem;">
     <div class="card">
+      <h2 style="font-size:1.3rem; margin-bottom:0.6rem;">Synthèse de mon profil</h2>
       <p class="muted">
-        Grâce à mes stages et ma formation, je possède un profil orienté comptabilité et finance d'entreprise.
-        Je suis capable d'analyser la situation financière d'une organisation, de produire une information fiable,
-        et de contribuer à la prise de décision.
+        Grâce à ma formation en BUT GEA et à mes expériences de terrain, je dispose d’un profil
+        orienté vers la comptabilité, la finance et l’analyse de la performance des entreprises.
+        Je suis à l’aise avec les chiffres, les outils bureautiques et le travail en équipe, tout
+        en étant capable de m’adapter aux contraintes des organisations.
       </p>
     </div>
   </section>
+</main>
 </main>
 
 <footer>
   © <span id="year"></span> — Portfolio de Louka Roman
 </footer>
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
 </body>
 </html>
