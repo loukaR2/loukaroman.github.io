@@ -88,25 +88,6 @@
       border:1px solid rgba(209,213,219,.85);
     }
 
-    .cv-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:1.6rem;
-      margin-top:2rem;
-    }
-
-    @media(max-width:900px){
-      .cv-grid{grid-template-columns:1fr;}
-    }
-
-    .cv-section-title{
-      font-size:.9rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:#6b7280;
-      margin-bottom:.4rem;
-    }
-
     /* Bannière */
     .page-hero{
       margin:2.4rem auto 1.8rem;
@@ -120,7 +101,7 @@
     .page-hero h1{
       margin:0;
       font-size:2rem;
-      color:#ffffff; /* Titre bien blanc */
+      color:#ffffff;
     }
 
     .page-hero .label{
@@ -150,7 +131,7 @@
       font-size:.9rem;
     }
 
-    /* Bouton CV */
+    /* Bouton CV animé */
     .btn-cv{
       display:inline-flex;
       align-items:center;
@@ -170,6 +151,7 @@
         box-shadow 0.18s ease,
         filter 0.18s ease;
       margin-top:1.2rem;
+      margin-bottom:1.5rem;
     }
 
     .btn-cv:hover{
@@ -178,38 +160,80 @@
       filter:brightness(1.05);
     }
 
-    /* Timeline */
-    .timeline{
-      margin-top:2.8rem;
-      border-left:2px solid rgba(148,163,184,0.9);
-      padding-left:1.4rem;
+    /* Mise en page 2 colonnes du CV */
+    .cv-layout{
+      display:grid;
+      grid-template-columns:minmax(0,0.95fr) minmax(0,1.4fr);
+      gap:1.8rem;
     }
 
-    .timeline-item{
-      position:relative;
-      margin-bottom:1.3rem;
+    @media(max-width:900px){
+      .cv-layout{
+        grid-template-columns:1fr;
+      }
     }
 
-    .timeline-dot{
-      position:absolute;
-      left:-1.9rem;
-      top:0.3rem;
-      width:10px;
-      height:10px;
-      border-radius:999px;
-      background:#5299ee;
-      box-shadow:0 0 0 4px rgba(82,153,238,0.25);
-    }
-
-    .timeline-year{
-      font-weight:600;
-      color:#111827;
-      font-size:.95rem;
-    }
-
-    .timeline-text{
+    .cv-section-title{
       font-size:.9rem;
-      color:#4b5563;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:#6b7280;
+      margin-bottom:.4rem;
+    }
+
+    .cv-chip-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.4rem;
+      margin-top:.5rem;
+    }
+
+    .cv-chip{
+      padding:.18rem .6rem;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.8);
+      font-size:.78rem;
+      background:#f9fafb;
+      color:#374151;
+    }
+
+    .cv-separator{
+      height:1px;
+      background:rgba(209,213,219,.9);
+      margin:1rem 0;
+    }
+
+    .cv-experience-title{
+      font-weight:600;
+      margin-top:.35rem;
+      margin-bottom:.1rem;
+    }
+
+    .cv-date{
+      font-size:.85rem;
+      color:#6b7280;
+    }
+
+    ul.cv-list{
+      list-style:none;
+      padding-left:0;
+      margin-top:.3rem;
+      margin-bottom:.6rem;
+    }
+
+    ul.cv-list li{
+      padding-left:1rem;
+      position:relative;
+      font-size:.9rem;
+      margin-bottom:.2rem;
+    }
+
+    ul.cv-list li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      top:0;
+      color:var(--secondary);
     }
 
     footer{
@@ -218,6 +242,7 @@
       color:#6b7280;
       padding:1.6rem 0 2.2rem;
       border-top:1px solid rgba(209,213,219,.6);
+      margin-top:2.5rem;
     }
   </style>
 </head>
@@ -249,98 +274,107 @@
     </p>
   </section>
 
-  <!-- Bouton CV -->
+  <!-- Bouton de téléchargement -->
   <a href="CV_Louka_Roman.pdf" class="btn-cv" target="_blank">
     📄 Télécharger le CV au format PDF
   </a>
 
-  <!-- Contenu CV -->
-  <div class="cv-grid">
+  <!-- CV en deux colonnes -->
+  <section class="cv-layout">
+    <!-- Colonne gauche -->
     <div class="card">
       <div class="cv-section-title">Informations personnelles</div>
       <p class="muted">
         <strong>Nom :</strong> Roman Louka<br>
-        <strong>Âge :</strong> 20 ans<br>
-        <strong>Permis :</strong> B<br>
-        <strong>Localisation :</strong> Gap / Région PACA<br>
-        <strong>Email :</strong> loukaroman@gmail.com
+        <strong>Date de naissance :</strong> 04/06/2005<br>
+        <strong>Adresse :</strong> 1 chemin de la montagne, 05500 La Fare-en-Champsaur<br>
+        <strong>Téléphone :</strong> 07 62 48 76 10<br>
+        <strong>Email :</strong> loukaroman@gmail.com<br>
+        <strong>Permis :</strong> Permis B
+      </p>
+
+      <div class="cv-separator"></div>
+
+      <div class="cv-section-title">Compétences</div>
+      <div class="cv-chip-row">
+        <span class="cv-chip">Comptabilité générale</span>
+        <span class="cv-chip">Finance</span>
+        <span class="cv-chip">Analyse financière</span>
+        <span class="cv-chip">Travail en équipe</span>
+        <span class="cv-chip">Pack Microsoft Office</span>
+      </div>
+
+      <div class="cv-separator"></div>
+
+      <div class="cv-section-title">Langues</div>
+      <p class="muted">
+        Anglais – niveau universitaire<br>
+        Espagnol – niveau lycée
+      </p>
+
+      <div class="cv-separator"></div>
+
+      <div class="cv-section-title">Centres d’intérêt</div>
+      <p class="muted">
+        Trail, ski alpin, ski de randonnée, voyages.
       </p>
     </div>
 
+    <!-- Colonne droite -->
     <div class="card">
       <div class="cv-section-title">Formation</div>
       <p class="muted">
-        <strong>2023 – aujourd'hui :</strong> BUT Gestion des Entreprises et des Administrations (GEA),
-        parcours Gestion Comptable, Fiscale et Financière – IUT (parcours GC2F).
+        <strong>2023 – aujourd’hui</strong><br>
+        BUT GEA – Parcours Gestion Comptable, Fiscale et Financière (GC2F)<br>
+        IUT (en 3ᵉ année)
       </p>
-    </div>
+      <ul class="cv-list">
+        <li>Comptabilité générale et analyse des états financiers</li>
+        <li>Fiscalité des particuliers et des entreprises</li>
+        <li>Analyse financière, SIG, ratios, budgets prévisionnels</li>
+      </ul>
 
-    <div class="card">
+      <p class="muted" style="margin-top:.6rem;">
+        <strong>Baccalauréat</strong><br>
+        Sciences et technologies du management et de la gestion (STMG)<br>
+        Mention à préciser le cas échéant
+      </p>
+
+      <div class="cv-separator"></div>
+
       <div class="cv-section-title">Expériences professionnelles</div>
-      <p class="muted">
-        <strong>2025 :</strong> Stage au Crédit Agricole Alpes Provence – Centre d’affaires de Gap
-        (analyse de dossiers de financement, étude de bilans, ratios, cotations Banque de France).<br><br>
-        <strong>2024 :</strong> Stage au Cabinet Gandelli – Expertise comptable (tenue comptable, lettrage,
-        rapprochements bancaires, organisation des dossiers).<br><br>
-        <strong>Jobs d'été :</strong> Renault Champsaur, OZE, Intermarché (travail en équipe, rigueur, sens
-        des responsabilités).
-      </p>
-    </div>
 
-    <div class="card">
-      <div class="cv-section-title">Compétences</div>
-      <p class="muted">
-        Comptabilité générale et approfondie, fiscalité, analyse financière (SIG, ratios, CAF),
-        budgets prévisionnels, Excel avancé, outils de gestion.
-      </p>
-    </div>
+      <p class="cv-date">12/06/2025 – 14/08/2025</p>
+      <p class="cv-experience-title">Job d’été en comptabilité – Renault Champsaur</p>
+      <ul class="cv-list">
+        <li>Saisie et contrôle de pièces comptables</li>
+        <li>Participation au suivi administratif et financier de l’activité</li>
+      </ul>
 
-    <div class="card">
-      <div class="cv-section-title">Langues</div>
-      <p class="muted">
-        Français : langue maternelle<br>
-        Anglais : bon niveau général
-      </p>
-    </div>
+      <p class="cv-date">07/04/2025 – 30/05/2025</p>
+      <p class="cv-experience-title">Stage en banque – Crédit Agricole Alpes Provence</p>
+      <ul class="cv-list">
+        <li>Analyse de bilans et comptes de résultat de clients professionnels</li>
+        <li>Calcul de ratios financiers (CAF, autonomie financière, endettement…)</li>
+        <li>Préparation de dossiers de financement (investissement, trésorerie)</li>
+      </ul>
 
-    <div class="card">
-      <div class="cv-section-title">Centres d'intérêt</div>
-      <p class="muted">
-        Entrepreneuriat, projets de café / restauration, sport, nouvelles technologies.
-      </p>
-    </div>
-  </div>
+      <p class="cv-date">22/01/2024 – 16/02/2024</p>
+      <p class="cv-experience-title">Stage en cabinet comptable – Cabinet Gandelli</p>
+      <ul class="cv-list">
+        <li>Tenue comptable : saisie achats, ventes, banques</li>
+        <li>Lettrage des comptes clients et fournisseurs</li>
+        <li>Rapprochements bancaires</li>
+      </ul>
 
-  <!-- Timeline -->
-  <section class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-year">2021 – 2022</div>
-      <div class="timeline-text">Premiers jobs d’été (mécanique, mise en rayon) et découverte du monde professionnel.</div>
-    </div>
+      <p class="cv-date">2023 – 2024</p>
+      <p class="cv-experience-title">Job d’été – Monteur câbleur chez OZE</p>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-year">2023</div>
-      <div class="timeline-text">Entrée en BUT GEA – début de la spécialisation en gestion comptable, fiscale et financière.</div>
-    </div>
+      <p class="cv-date">2022 – 2023</p>
+      <p class="cv-experience-title">Job d’été – Mise en rayon à Intermarché</p>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-year">2024</div>
-      <div class="timeline-text">Stage en cabinet d’expertise comptable (Cabinet Gandelli) – tenue et organisation des dossiers.</div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-year">2025</div>
-      <div class="timeline-text">Stage au Crédit Agricole Alpes Provence – analyse financière de dossiers de financement.</div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-year">Suite du parcours</div>
-      <div class="timeline-text">Objectif : valider le DCG grâce aux équivalences du BUT GEA, puis poursuivre vers le DSCG ou un Master CCA.</div>
+      <p class="cv-date">2021 – 2022</p>
+      <p class="cv-experience-title">Job d’été – Mécanique chez Renault Champsaur</p>
     </div>
   </section>
 </main>
