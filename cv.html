@@ -124,6 +124,14 @@
     .nav-toggle.open span:nth-child(3){
       transform:translateY(-6px) rotate(-45deg);
     }
+    /* Lien actif dans le menu */
+    .nav-links a.active {
+      color: var(--secondary);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
 
     /* ───────────────────────────────────────────── */
     /* VERSION MOBILE – menu déroulant identique accueil */
@@ -350,7 +358,7 @@
       <a href="stages.html">Stages</a>
       <a href="competences.html">Compétences</a>
       <a href="projets.html">Projets</a>
-      <a href="cv.html">CV</a>
+      <a href="cv.html" class="active">CV</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
