@@ -204,6 +204,83 @@
       color:var(--secondary);
     }
 
+    .proof-toggle{
+      margin-top:1rem;
+      display:inline-flex;
+      align-items:center;
+      gap:0.4rem;
+      padding:0.45rem 0.95rem;
+      border-radius:var(--radius-full);
+      border:1px solid rgba(82,153,238,0.55);
+      background:#ffffff;
+      color:var(--primary);
+      font-size:0.85rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:var(--transition);
+    }
+
+    .proof-toggle:hover{
+      transform:translateY(-1px);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .proofs{
+      display:none;
+      margin-top:1rem;
+      padding-top:1rem;
+      border-top:1px dashed rgba(148,163,184,0.6);
+    }
+
+    .proofs.is-open{
+      display:block;
+    }
+
+    .proofs h4{
+      margin:0 0 0.7rem;
+      font-size:1rem;
+      color:var(--primary);
+    }
+
+    .proof-card{
+      display:flex;
+      flex-direction:column;
+      gap:0.45rem;
+      padding:1rem 1.2rem;
+      border-radius:16px;
+      background:linear-gradient(135deg,rgba(82,153,238,0.12),rgba(92,101,146,0.12));
+      border:1px solid rgba(82,153,238,0.35);
+      box-shadow:var(--shadow-soft);
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .proof-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 28px rgba(15,23,42,0.18);
+    }
+
+    .proof-card-title{
+      font-weight:600;
+      color:var(--text);
+    }
+
+    .proof-card-text{
+      font-size:0.9rem;
+      color:#4b5263;
+    }
+
+    .proof-card-button{
+      align-self:flex-start;
+      margin-top:0.2rem;
+      padding:0.45rem 0.95rem;
+      border-radius:var(--radius-full);
+      background:var(--secondary);
+      color:#ffffff;
+      font-size:0.85rem;
+      font-weight:600;
+      box-shadow:0 8px 18px rgba(82,153,238,0.35);
+    }
+
     strong.code{
       font-weight:600;
       color:#111827;
@@ -509,6 +586,21 @@
     body.theme-dark .progress-label{
       color:#cbd5f5;
     }
+
+    body.theme-dark .proof-toggle{
+      background:rgba(30,41,59,0.9);
+      color:var(--text);
+      border-color:rgba(122,162,247,0.6);
+    }
+
+    body.theme-dark .proof-card{
+      background:linear-gradient(135deg,rgba(122,162,247,0.18),rgba(30,41,59,0.85));
+      border-color:rgba(122,162,247,0.4);
+    }
+
+    body.theme-dark .proof-card-text{
+      color:#cbd5f5;
+    }
   </style>
 </head>
 
@@ -568,6 +660,17 @@
           <li><strong class="code">AC31.02</strong> Conseiller un type d'organisation</li>
           <li><strong class="code">AC31.03</strong> Proposer des améliorations des processus</li>
         </ul>
+        <button class="proof-toggle" type="button" data-open-text="Afficher les preuves" data-close-text="Masquer les preuves" aria-expanded="false">
+          Afficher les preuves
+        </button>
+        <div class="proofs" aria-hidden="true">
+          <h4>Preuves / Livrables</h4>
+          <a class="proof-card" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Dossier de reprise – SAS Antioche d’Oléron (PDF)</span>
+            <span class="proof-card-text">Analyse stratégique + diagnostic financier + prévisionnel + plan d’investissement.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+        </div>
       </div>
 
       <!-- Compétence 2 -->
@@ -579,6 +682,17 @@
           <li><strong class="code">AC32.03</strong> Participer à la prise de décision en fonction des contraintes identifiées</li>
           <li><strong class="code">AC32.04</strong> Élaborer des mesures préventives de minimisation des risques</li>
         </ul>
+        <button class="proof-toggle" type="button" data-open-text="Afficher les preuves" data-close-text="Masquer les preuves" aria-expanded="false">
+          Afficher les preuves
+        </button>
+        <div class="proofs" aria-hidden="true">
+          <h4>Preuves / Livrables</h4>
+          <a class="proof-card" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Dossier de reprise – SAS Antioche d’Oléron (PDF)</span>
+            <span class="proof-card-text">Analyse stratégique + diagnostic financier + prévisionnel + plan d’investissement.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+        </div>
       </div>
 
       <!-- Compétence 3 -->
@@ -600,6 +714,17 @@
           <li><strong class="code">AC34.03GC2F</strong> Réaliser un diagnostic et/ou un audit pour apporter des conseils</li>
           <li><strong class="code">AC34.04GC2F</strong> Sécuriser l'information comptable, fiscale et sociale produite</li>
         </ul>
+        <button class="proof-toggle" type="button" data-open-text="Afficher les preuves" data-close-text="Masquer les preuves" aria-expanded="false">
+          Afficher les preuves
+        </button>
+        <div class="proofs" aria-hidden="true">
+          <h4>Preuves / Livrables</h4>
+          <a class="proof-card" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Dossier de reprise – SAS Antioche d’Oléron (PDF)</span>
+            <span class="proof-card-text">Analyse stratégique + diagnostic financier + prévisionnel + plan d’investissement.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+        </div>
       </div>
 
       <!-- Compétence 5 -->
@@ -612,6 +737,17 @@
           <li><strong class="code">AC35.04GC2F</strong> Réaliser la gestion de trésorerie sur le court terme</li>
           <li><strong class="code">AC35.05GC2F</strong> Réaliser à moyen et long terme des budgets d’exploitation et de trésorerie, des comptes de résultat et des bilans prévisionnels</li>
         </ul>
+        <button class="proof-toggle" type="button" data-open-text="Afficher les preuves" data-close-text="Masquer les preuves" aria-expanded="false">
+          Afficher les preuves
+        </button>
+        <div class="proofs" aria-hidden="true">
+          <h4>Preuves / Livrables</h4>
+          <a class="proof-card" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Dossier de reprise – SAS Antioche d’Oléron (PDF)</span>
+            <span class="proof-card-text">Analyse stratégique + diagnostic financier + prévisionnel + plan d’investissement.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -699,6 +835,25 @@
       navToggle.classList.toggle('open');
     });
   }
+
+  const proofToggles = document.querySelectorAll('.proof-toggle');
+
+  proofToggles.forEach((button) => {
+    const panel = button.nextElementSibling;
+    if (!panel || !panel.classList.contains('proofs')) {
+      return;
+    }
+
+    const openText = button.dataset.openText || 'Afficher les preuves';
+    const closeText = button.dataset.closeText || 'Masquer les preuves';
+
+    button.addEventListener('click', () => {
+      const isOpen = panel.classList.toggle('is-open');
+      panel.setAttribute('aria-hidden', String(!isOpen));
+      button.setAttribute('aria-expanded', String(isOpen));
+      button.textContent = isOpen ? closeText : openText;
+    });
+  });
 
   // Fade-in scroll pour mobile
   if (window.innerWidth <= 700) {
