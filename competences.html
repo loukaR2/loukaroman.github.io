@@ -46,20 +46,20 @@
       margin:0 auto;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(14px);
-      background: var(--header-bg);
-      border-bottom: 1px solid var(--header-border);
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(14px);
+      background:var(--header-bg);
+      border-bottom:1px solid var(--header-border);
     }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.7rem 0;
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0.7rem 0;
     }
 
     .nav-actions{
@@ -68,47 +68,51 @@
       gap:0.6rem;
     }
 
-    .logo {
-      font-family: "Libre Baskerville", serif;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      color: var(--primary);
-      padding: 0.45rem 0.95rem;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--logo-border);
-      background: var(--logo-bg);
+    .logo{
+      font-family:"Libre Baskerville",serif;
+      font-weight:700;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      font-size:0.9rem;
+      color:var(--primary);
+      padding:0.45rem 0.95rem;
+      border-radius:var(--radius-full);
+      border:1px solid var(--logo-border);
+      background:var(--logo-bg);
     }
 
-    .nav-links {
-      display: flex;
-      gap: 1.3rem;
-      font-size: 0.95rem;
+    .nav-links{
+      display:flex;
+      gap:1.3rem;
+      font-size:0.95rem;
     }
 
-    .nav-links a {
-      position: relative;
-      padding-bottom: 0.1rem;
+    .nav-links a{
+      position:relative;
+      padding-bottom:0.1rem;
     }
 
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.1rem;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: var(--secondary);
-      transition: width 0.2s ease;
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-0.1rem;
+      width:0;
+      height:2px;
+      border-radius:999px;
+      background:var(--secondary);
+      transition:width 0.2s ease;
     }
 
-    .nav-links a:hover::after {
-      width: 100%;
+    .nav-links a:hover::after,
+    .nav-links a.active::after{
+      width:100%;
     }
 
-    /* === Bouton hamburger (même base que l'accueil) === */
+    .nav-links a.active{
+      color:var(--secondary);
+    }
+
     .nav-toggle{
       display:none;
       background:none;
@@ -126,26 +130,13 @@
       transition:transform .2s ease, opacity .2s ease;
     }
 
-    .nav-toggle span + span{
-      margin-top:4px;
-    }
+    .nav-toggle span + span{margin-top:4px;}
 
-    /* État ouvert du hamburger -> croix */
-    .nav-toggle.open span:nth-child(1){
-      transform:translateY(6px) rotate(45deg);
-    }
+    .nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+    .nav-toggle.open span:nth-child(2){opacity:0;}
+    .nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
 
-    .nav-toggle.open span:nth-child(2){
-      opacity:0;
-    }
-
-    .nav-toggle.open span:nth-child(3){
-      transform:translateY(-6px) rotate(-45deg);
-    }
-
-    main{
-      padding:3.2rem 0 4rem;
-    }
+    main{padding:3.2rem 0 4rem;}
 
     h1,h2,h3{
       font-family:"Libre Baskerville",serif;
@@ -168,21 +159,6 @@
       gap:1.6rem;
     }
 
-    /* Lien actif dans le menu */
-    .nav-links a.active {
-      color: var(--secondary);
-    }
-
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    @media(max-width:900px){
-      .grid-2{
-        grid-template-columns:1fr;
-      }
-    }
-
     ul{
       list-style:none;
       padding-left:0;
@@ -202,6 +178,11 @@
       left:0;
       top:0;
       color:var(--secondary);
+    }
+
+    strong.code{
+      font-weight:600;
+      color:#111827;
     }
 
     .proof-toggle{
@@ -232,9 +213,7 @@
       border-top:1px dashed rgba(148,163,184,0.6);
     }
 
-    .proofs.is-open{
-      display:block;
-    }
+    .proofs.is-open{display:block;}
 
     .proofs h4{
       margin:0 0 0.7rem;
@@ -253,6 +232,8 @@
       box-shadow:var(--shadow-soft);
       transition:transform 0.2s ease, box-shadow 0.2s ease;
     }
+
+    .proof-card + .proof-card{margin-top:0.8rem;}
 
     .proof-card:hover{
       transform:translateY(-2px);
@@ -281,12 +262,6 @@
       box-shadow:0 8px 18px rgba(82,153,238,0.35);
     }
 
-    strong.code{
-      font-weight:600;
-      color:#111827;
-    }
-
-    /* Bannière */
     .page-hero{
       margin:2.4rem auto 2.4rem;
       background:linear-gradient(135deg,rgba(92,101,146,.95),rgba(82,153,238,.95));
@@ -297,9 +272,9 @@
     }
 
     .page-hero h1{
-      margin: 0;
-      font-size: 2rem;
-      color: #ffffff; /* Titre en blanc */
+      margin:0;
+      font-size:2rem;
+      color:#ffffff;
     }
 
     .page-hero .label{
@@ -322,14 +297,14 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:22px;height:22px;
+      width:22px;
+      height:22px;
       border-radius:999px;
       background:rgba(15,23,42,.25);
       margin-right:.45rem;
       font-size:.9rem;
     }
 
-    /* SECTIONS FOND ALTERNÉ */
     .section-alt{
       margin:3rem auto 0;
       background:#e3e7ff;
@@ -344,26 +319,17 @@
       margin-bottom:0.8rem;
     }
 
-    footer{
-      text-align:center;
-      font-size:.8rem;
-      color:#6b7280;
-      padding:1.6rem 0 2.2rem;
-      border-top:1px solid rgba(209,213,219,.6);
-    }
-
-    /* ───────── FOOTER PREMIUM ───────── */
     .footer-banner{
       margin-top:3.5rem;
       padding:0 1.5rem 2.4rem;
-      border-top:none; /* on neutralise la bordure du footer simple */
+      border-top:none;
     }
 
     .footer-inner{
       position:relative;
       max-width:1120px;
       margin:0 auto;
-      background:linear-gradient(120deg, var(--primary), var(--secondary));
+      background:linear-gradient(120deg,var(--primary),var(--secondary));
       border-radius:999px;
       min-height:70px;
       padding:0 2.4rem 0 5rem;
@@ -372,9 +338,7 @@
       justify-content:center;
       gap:1.2rem;
       color:#f9fafb;
-      box-shadow:
-        0 22px 55px rgba(15,23,42,0.40),
-        0 0 0 1px rgba(255,255,255,0.22);
+      box-shadow:0 22px 55px rgba(15,23,42,0.40),0 0 0 1px rgba(255,255,255,0.22);
     }
 
     .footer-logo-circle{
@@ -389,7 +353,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      font-family:"Libre Baskerville", serif;
+      font-family:"Libre Baskerville",serif;
       font-weight:700;
       font-size:1.35rem;
       color:var(--primary);
@@ -416,10 +380,7 @@
       gap:0.45rem;
       border:1px solid rgba(255,255,255,0.35);
       backdrop-filter:blur(4px);
-      transition:
-        background 0.18s ease,
-        transform 0.18s ease,
-        box-shadow 0.18s ease;
+      transition:background 0.18s ease,transform 0.18s ease,box-shadow 0.18s ease;
     }
 
     .footer-bubble:hover{
@@ -448,47 +409,36 @@
       color:#6b7280;
     }
 
-    /* ───────── ANIMATIONS FADE-IN ───────── */
-
-    /* Desktop : fade-in au chargement */
-    @media (min-width: 701px) {
-      .fade-load {
-        opacity: 0;
-        transform: translateY(10px);
-        animation: fadeInLoad .6s ease-out forwards;
+    @media (min-width:701px){
+      .fade-load{
+        opacity:0;
+        transform:translateY(10px);
+        animation:fadeInLoad .6s ease-out forwards;
       }
-
-      .fade-load.delay-1 {
-        animation-delay: .12s;
-      }
+      .fade-load.delay-1{animation-delay:.12s;}
     }
 
-    @keyframes fadeInLoad {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes fadeInLoad{
+      to{opacity:1;transform:translateY(0);}
     }
 
-    /* Mobile : fade-in au scroll */
-    @media (max-width: 700px) {
-      .fade-scroll {
-        opacity: 0;
-        transform: translateY(16px);
-        transition: opacity .6s ease, transform .6s ease;
-      }
-
-      .fade-scroll.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @media (max-width:900px){
+      .grid-2{grid-template-columns:1fr;}
     }
 
-    /* === VERSION MOBILE : menu hamburger (copié de l'accueil) === */
-    @media (max-width: 700px) {
-      .nav{
-        padding:0.55rem 0;
+    @media (max-width:700px){
+      .fade-scroll{
+        opacity:0;
+        transform:translateY(16px);
+        transition:opacity .6s ease,transform .6s ease;
       }
+
+      .fade-scroll.visible{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+      .nav{padding:0.55rem 0;}
 
       .nav-toggle{
         display:inline-flex;
@@ -509,16 +459,12 @@
         padding:1rem 1.6rem 1.2rem;
         border-bottom:1px solid var(--nav-border);
         box-shadow:0 12px 30px rgba(15,23,42,.18);
-        display:none; /* caché par défaut */
+        display:none;
       }
 
-      .nav-links.open{
-        display:flex; /* visible quand .open */
-      }
+      .nav-links.open{display:flex;}
 
-      .footer-banner{
-        padding-inline:1rem;
-      }
+      .footer-banner{padding-inline:1rem;}
 
       .footer-inner{
         flex-direction:column;
@@ -582,8 +528,8 @@
       box-shadow:var(--shadow-soft);
     }
 
-    body.theme-dark .skill-description,
-    body.theme-dark .progress-label{
+    body.theme-dark .muted,
+    body.theme-dark .proof-card-text{
       color:#cbd5f5;
     }
 
@@ -596,10 +542,6 @@
     body.theme-dark .proof-card{
       background:linear-gradient(135deg,rgba(122,162,247,0.18),rgba(30,41,59,0.85));
       border-color:rgba(122,162,247,0.4);
-    }
-
-    body.theme-dark .proof-card-text{
-      color:#cbd5f5;
     }
   </style>
 </head>
@@ -615,7 +557,6 @@
         <span class="theme-toggle-label">Sombre</span>
       </button>
 
-      <!-- Bouton hamburger (même que sur index.html) -->
       <button class="nav-toggle" aria-label="Ouvrir le menu">
         <span></span>
         <span></span>
@@ -623,7 +564,6 @@
       </button>
     </div>
 
-    <!-- Menu desktop -->
     <nav class="nav-links">
       <a href="index.html">Accueil</a>
       <a href="apropos.html">À propos</a>
@@ -637,7 +577,6 @@
 </header>
 
 <main class="container">
-  <!-- Bannière -->
   <section class="page-hero fade-load fade-scroll">
     <div class="label"><span class="icon-circle">🧮</span> Compétences</div>
     <h1>Compétences et apprentissages critiques</h1>
@@ -647,12 +586,10 @@
     </p>
   </section>
 
-  <!-- COMPÉTENCES + AC -->
   <section class="section-alt fade-load fade-scroll delay-1">
     <h2>Compétences du BUT GEA – Parcours GC2F</h2>
 
     <div class="grid-2">
-      <!-- Compétence 1 -->
       <div class="card">
         <h3>Compétence 1 : Analyser les processus de l'organisation dans son environnement</h3>
         <ul>
@@ -667,13 +604,27 @@
           <h4>Preuves / Livrables</h4>
           <a class="proof-card" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">
             <span class="proof-card-title">Dossier de reprise – SAS Antioche d’Oléron (PDF)</span>
-            <span class="proof-card-text">Analyse stratégique + diagnostic financier + prévisionnel + plan d’investissement.</span>
+            <span class="proof-card-text">Analyse stratégique, diagnostic financier, prévisionnel et plan d’investissement.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="cafe-du-monde.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Projet Café du Monde (PDF)</span>
+            <span class="proof-card-text">Étude de faisabilité, PESTEL, analyse du marché, concurrence, stratégie commerciale et organisation du projet.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="dossier-sae-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Dossier SAE – Let Me Cook (PDF)</span>
+            <span class="proof-card-text">Analyse de l’environnement, étude de marché, business model canvas et réflexion sur l’organisation d’un atelier de cuisine.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="kalypso-ecume-des-coques.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Rapport Kalypso – L’Écume des Coques (PDF)</span>
+            <span class="proof-card-text">Analyse de la stratégie, du marché, de la concurrence, des difficultés rencontrées et des adaptations mises en place.</span>
             <span class="proof-card-button">Ouvrir le dossier</span>
           </a>
         </div>
       </div>
 
-      <!-- Compétence 2 -->
       <div class="card">
         <h3>Compétence 2 : Aider à la prise de décision</h3>
         <ul>
@@ -689,13 +640,27 @@
           <h4>Preuves / Livrables</h4>
           <a class="proof-card" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">
             <span class="proof-card-title">Dossier de reprise – SAS Antioche d’Oléron (PDF)</span>
-            <span class="proof-card-text">Analyse stratégique + diagnostic financier + prévisionnel + plan d’investissement.</span>
+            <span class="proof-card-text">Exploitation de données stratégiques et financières pour construire une recommandation de reprise.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="bf12-cotation-banque-de-france.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Cotation Banque de France – BF12 (PDF)</span>
+            <span class="proof-card-text">Diagnostic financier, analyse des ratios, étude de la liquidité et proposition d’une cote Banque de France.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="rapport-gestion-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Rapport de gestion – Let Me Cook (PDF)</span>
+            <span class="proof-card-text">Décisions de gestion prises dans une simulation d’entreprise à partir des contraintes commerciales, financières et organisationnelles.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="kalypso-ecume-des-coques.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Rapport Kalypso – L’Écume des Coques (PDF)</span>
+            <span class="proof-card-text">Utilisation des données de gestion pour adapter la stratégie, piloter l’activité et analyser les difficultés rencontrées.</span>
             <span class="proof-card-button">Ouvrir le dossier</span>
           </a>
         </div>
       </div>
 
-      <!-- Compétence 3 -->
       <div class="card">
         <h3>Compétence 3 : Piloter les relations avec les parties prenantes de l'organisation</h3>
         <ul>
@@ -703,9 +668,29 @@
           <li><strong class="code">AC33.02</strong> Mener un projet collaboratif</li>
           <li><strong class="code">AC33.03</strong> Participer à l'amélioration de la politique de communication en lien avec la stratégie</li>
         </ul>
+        <button class="proof-toggle" type="button" data-open-text="Afficher les preuves" data-close-text="Masquer les preuves" aria-expanded="false">
+          Afficher les preuves
+        </button>
+        <div class="proofs" aria-hidden="true">
+          <h4>Preuves / Livrables</h4>
+          <a class="proof-card" href="dossier-sae-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Dossier SAE – Let Me Cook (PDF)</span>
+            <span class="proof-card-text">Projet collaboratif avec répartition du travail, organisation d’équipe, planification et réflexion sur la communication du concept.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="cafe-du-monde.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Projet Café du Monde (PDF)</span>
+            <span class="proof-card-text">Travail collectif autour d’une création d’entreprise, avec stratégie de promotion, partenaires et organisation du groupe.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="rapport-gestion-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Rapport de gestion – Let Me Cook (PDF)</span>
+            <span class="proof-card-text">Pilotage collectif d’une entreprise simulée et justification des choix stratégiques, commerciaux et organisationnels.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+        </div>
       </div>
 
-      <!-- Compétence 4 -->
       <div class="card">
         <h3>Compétence 4 : Produire l’information comptable, fiscale et sociale de l'organisation</h3>
         <ul>
@@ -721,13 +706,22 @@
           <h4>Preuves / Livrables</h4>
           <a class="proof-card" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">
             <span class="proof-card-title">Dossier de reprise – SAS Antioche d’Oléron (PDF)</span>
-            <span class="proof-card-text">Analyse stratégique + diagnostic financier + prévisionnel + plan d’investissement.</span>
+            <span class="proof-card-text">Diagnostic financier et exploitation de l’information comptable pour formuler une analyse et des conseils.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="bf12-cotation-banque-de-france.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Cotation Banque de France – BF12 (PDF)</span>
+            <span class="proof-card-text">Analyse de l’activité, de l’autonomie financière, de la structure financière et de la liquidité à partir des états financiers.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="kalypso-ecume-des-coques.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Rapport Kalypso – L’Écume des Coques (PDF)</span>
+            <span class="proof-card-text">Analyse des comptes de résultat, bilans et tableaux de financement d’une entreprise simulée.</span>
             <span class="proof-card-button">Ouvrir le dossier</span>
           </a>
         </div>
       </div>
 
-      <!-- Compétence 5 -->
       <div class="card">
         <h3>Compétence 5 : Évaluer l'activité de l'organisation</h3>
         <ul>
@@ -744,7 +738,27 @@
           <h4>Preuves / Livrables</h4>
           <a class="proof-card" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">
             <span class="proof-card-title">Dossier de reprise – SAS Antioche d’Oléron (PDF)</span>
-            <span class="proof-card-text">Analyse stratégique + diagnostic financier + prévisionnel + plan d’investissement.</span>
+            <span class="proof-card-text">Prévisionnel d’exploitation, diagnostic financier, plan d’investissement et réflexion sur le financement de la reprise.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="cafe-du-monde.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Projet Café du Monde (PDF)</span>
+            <span class="proof-card-text">Chiffrage du projet, compte de résultat, plan de trésorerie, bilan prévisionnel et analyse des ratios.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="bf12-cotation-banque-de-france.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Cotation Banque de France – BF12 (PDF)</span>
+            <span class="proof-card-text">Évaluation de l’activité, de la rentabilité, de la liquidité et des flux de trésorerie d’une entreprise.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="rapport-gestion-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Rapport de gestion – Let Me Cook (PDF)</span>
+            <span class="proof-card-text">Suivi de l’activité, analyse des coûts, revenus, décisions d’investissement et gestion de trésorerie dans une simulation.</span>
+            <span class="proof-card-button">Ouvrir le dossier</span>
+          </a>
+          <a class="proof-card" href="kalypso-ecume-des-coques.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-title">Rapport Kalypso – L’Écume des Coques (PDF)</span>
+            <span class="proof-card-text">Analyse financière historique, outils de prévision, pilotage de l’activité et étude des conséquences des choix de gestion.</span>
             <span class="proof-card-button">Ouvrir le dossier</span>
           </a>
         </div>
@@ -752,7 +766,6 @@
     </div>
   </section>
 
-  <!-- SYNTHÈSE -->
   <section class="section-alt fade-load fade-scroll delay-1">
     <h2>Synthèse de mon profil de compétences</h2>
     <div class="card">
@@ -769,26 +782,20 @@
 
 <footer class="footer-banner">
   <div class="footer-inner">
-
-    <!-- Logo rond LR -->
     <div class="footer-logo-circle">
       <span>LR</span>
     </div>
 
-    <!-- Les 3 bulles -->
     <div class="footer-items">
-      <!-- Email -->
       <a href="mailto:loukaroman@gmail.com" class="footer-bubble">
-        📧  loukaroman@gmail.com
+        📧 loukaroman@gmail.com
       </a>
 
-      <!-- LinkedIn -->
       <a href="https://www.linkedin.com/in/louka-roman-0604582a0/" target="_blank" class="footer-bubble">
         <span class="footer-pill-icon">in</span>
         Mon profil LinkedIn
       </a>
 
-      <!-- CV -->
       <a href="CV_Louka_Roman.pdf" target="_blank" class="footer-bubble">
         📄 Télécharger mon CV
       </a>
@@ -825,9 +832,8 @@
     });
   }
 
-  // Script hamburger identique à l’accueil
   const navToggle = document.querySelector('.nav-toggle');
-  const navLinks  = document.querySelector('.nav-links');
+  const navLinks = document.querySelector('.nav-links');
 
   if (navToggle && navLinks){
     navToggle.addEventListener('click', () => {
@@ -855,7 +861,6 @@
     });
   });
 
-  // Fade-in scroll pour mobile
   if (window.innerWidth <= 700) {
     const fadeElements = document.querySelectorAll('.fade-scroll');
 
@@ -870,6 +875,5 @@
     fadeElements.forEach(el => observer.observe(el));
   }
 </script>
-
 </body>
 </html>
