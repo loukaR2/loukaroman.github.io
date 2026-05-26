@@ -250,7 +250,15 @@
       color:#4b5263;
     }
 
+    .proof-card-pages{
+      font-size:0.88rem;
+      color:#374151;
+    }
+
     .proof-card-button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       align-self:flex-start;
       margin-top:0.2rem;
       padding:0.45rem 0.95rem;
@@ -260,6 +268,13 @@
       font-size:0.85rem;
       font-weight:600;
       box-shadow:0 8px 18px rgba(82,153,238,0.35);
+      transition:transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .proof-card-button:hover{
+      transform:translateY(-1px) scale(1.02);
+      box-shadow:0 12px 24px rgba(82,153,238,0.48);
+      filter:brightness(1.06);
     }
 
     .page-hero{
@@ -529,7 +544,8 @@
     }
 
     body.theme-dark .muted,
-    body.theme-dark .proof-card-text{
+    body.theme-dark .proof-card-text,
+    body.theme-dark .proof-card-pages{
       color:#cbd5f5;
     }
 
@@ -602,26 +618,30 @@
         </button>
         <div class="proofs" aria-hidden="true">
           <h4>Preuves / Livrables</h4>
-          <a class="proof-card" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">
+          <div class="proof-card">
             <span class="proof-card-title">Dossier de reprise – SAS Antioche d’Oléron (PDF)</span>
             <span class="proof-card-text">Analyse stratégique, diagnostic financier, prévisionnel et plan d’investissement.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="cafe-du-monde.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 3-10, p. 13-22</span>
+            <a class="proof-card-button" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Projet Café du Monde (PDF)</span>
             <span class="proof-card-text">Étude de faisabilité, PESTEL, analyse du marché, concurrence, stratégie commerciale et organisation du projet.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="dossier-sae-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 4-15, p. 28-32</span>
+            <a class="proof-card-button" href="cafe-du-monde.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Dossier SAE – Let Me Cook (PDF)</span>
             <span class="proof-card-text">Analyse de l’environnement, étude de marché, business model canvas et réflexion sur l’organisation d’un atelier de cuisine.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="kalypso-ecume-des-coques.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 4-14</span>
+            <a class="proof-card-button" href="dossier-sae-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Rapport Kalypso – L’Écume des Coques (PDF)</span>
             <span class="proof-card-text">Analyse de la stratégie, du marché, de la concurrence, des difficultés rencontrées et des adaptations mises en place.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 2-8</span>
+            <a class="proof-card-button" href="kalypso-ecume-des-coques.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
         </div>
       </div>
 
@@ -638,26 +658,30 @@
         </button>
         <div class="proofs" aria-hidden="true">
           <h4>Preuves / Livrables</h4>
-          <a class="proof-card" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">
+          <div class="proof-card">
             <span class="proof-card-title">Dossier de reprise – SAS Antioche d’Oléron (PDF)</span>
             <span class="proof-card-text">Exploitation de données stratégiques et financières pour construire une recommandation de reprise.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="bf12-cotation-banque-de-france.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 8-22</span>
+            <a class="proof-card-button" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Cotation Banque de France – BF12 (PDF)</span>
             <span class="proof-card-text">Diagnostic financier, analyse des ratios, étude de la liquidité et proposition d’une cote Banque de France.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="rapport-gestion-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 2-13</span>
+            <a class="proof-card-button" href="bf12-cotation-banque-de-france.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Rapport de gestion – Let Me Cook (PDF)</span>
             <span class="proof-card-text">Décisions de gestion prises dans une simulation d’entreprise à partir des contraintes commerciales, financières et organisationnelles.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="kalypso-ecume-des-coques.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 2-10</span>
+            <a class="proof-card-button" href="rapport-gestion-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Rapport Kalypso – L’Écume des Coques (PDF)</span>
             <span class="proof-card-text">Utilisation des données de gestion pour adapter la stratégie, piloter l’activité et analyser les difficultés rencontrées.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 2-7, p. 14-15</span>
+            <a class="proof-card-button" href="kalypso-ecume-des-coques.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
         </div>
       </div>
 
@@ -673,21 +697,24 @@
         </button>
         <div class="proofs" aria-hidden="true">
           <h4>Preuves / Livrables</h4>
-          <a class="proof-card" href="dossier-sae-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">
+          <div class="proof-card">
             <span class="proof-card-title">Dossier SAE – Let Me Cook (PDF)</span>
             <span class="proof-card-text">Projet collaboratif avec répartition du travail, organisation d’équipe, planification et réflexion sur la communication du concept.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="cafe-du-monde.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 3, p. 13-14</span>
+            <a class="proof-card-button" href="dossier-sae-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Projet Café du Monde (PDF)</span>
             <span class="proof-card-text">Travail collectif autour d’une création d’entreprise, avec stratégie de promotion, partenaires et organisation du groupe.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="rapport-gestion-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 15-18, p. 28-32</span>
+            <a class="proof-card-button" href="cafe-du-monde.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Rapport de gestion – Let Me Cook (PDF)</span>
             <span class="proof-card-text">Pilotage collectif d’une entreprise simulée et justification des choix stratégiques, commerciaux et organisationnels.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 1-4</span>
+            <a class="proof-card-button" href="rapport-gestion-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
         </div>
       </div>
 
@@ -704,21 +731,24 @@
         </button>
         <div class="proofs" aria-hidden="true">
           <h4>Preuves / Livrables</h4>
-          <a class="proof-card" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">
+          <div class="proof-card">
             <span class="proof-card-title">Dossier de reprise – SAS Antioche d’Oléron (PDF)</span>
             <span class="proof-card-text">Diagnostic financier et exploitation de l’information comptable pour formuler une analyse et des conseils.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="bf12-cotation-banque-de-france.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 8-18</span>
+            <a class="proof-card-button" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Cotation Banque de France – BF12 (PDF)</span>
             <span class="proof-card-text">Analyse de l’activité, de l’autonomie financière, de la structure financière et de la liquidité à partir des états financiers.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="kalypso-ecume-des-coques.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 3-12</span>
+            <a class="proof-card-button" href="bf12-cotation-banque-de-france.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Rapport Kalypso – L’Écume des Coques (PDF)</span>
             <span class="proof-card-text">Analyse des comptes de résultat, bilans et tableaux de financement d’une entreprise simulée.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 9-13</span>
+            <a class="proof-card-button" href="kalypso-ecume-des-coques.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
         </div>
       </div>
 
@@ -736,31 +766,36 @@
         </button>
         <div class="proofs" aria-hidden="true">
           <h4>Preuves / Livrables</h4>
-          <a class="proof-card" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">
+          <div class="proof-card">
             <span class="proof-card-title">Dossier de reprise – SAS Antioche d’Oléron (PDF)</span>
             <span class="proof-card-text">Prévisionnel d’exploitation, diagnostic financier, plan d’investissement et réflexion sur le financement de la reprise.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="cafe-du-monde.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 13-22</span>
+            <a class="proof-card-button" href="dossier-reprise-antioche-oleron.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Projet Café du Monde (PDF)</span>
             <span class="proof-card-text">Chiffrage du projet, compte de résultat, plan de trésorerie, bilan prévisionnel et analyse des ratios.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="bf12-cotation-banque-de-france.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 19-27</span>
+            <a class="proof-card-button" href="cafe-du-monde.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Cotation Banque de France – BF12 (PDF)</span>
             <span class="proof-card-text">Évaluation de l’activité, de la rentabilité, de la liquidité et des flux de trésorerie d’une entreprise.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="rapport-gestion-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 3-13</span>
+            <a class="proof-card-button" href="bf12-cotation-banque-de-france.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Rapport de gestion – Let Me Cook (PDF)</span>
             <span class="proof-card-text">Suivi de l’activité, analyse des coûts, revenus, décisions d’investissement et gestion de trésorerie dans une simulation.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
-          <a class="proof-card" href="kalypso-ecume-des-coques.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 4-11</span>
+            <a class="proof-card-button" href="rapport-gestion-let-me-cook.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
+          <div class="proof-card">
             <span class="proof-card-title">Rapport Kalypso – L’Écume des Coques (PDF)</span>
             <span class="proof-card-text">Analyse financière historique, outils de prévision, pilotage de l’activité et étude des conséquences des choix de gestion.</span>
-            <span class="proof-card-button">Ouvrir le dossier</span>
-          </a>
+            <span class="proof-card-pages"><strong>Pages à consulter :</strong> p. 9-14</span>
+            <a class="proof-card-button" href="kalypso-ecume-des-coques.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le dossier</a>
+          </div>
         </div>
       </div>
     </div>
